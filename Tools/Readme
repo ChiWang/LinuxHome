@@ -1,4 +1,3 @@
-
 Three common directories:
 -------------------------
 
@@ -6,7 +5,7 @@ Downloads
     for downloaded tar balls
 
 Build
-    tmparory files while build software
+    temporary files while build software
 
 SetupEnv
     setup files of softwares which will be sourced in .zprofile
