@@ -1,6 +1,6 @@
 
 ===========================================
-        This is my home setup
+#        This is my home setup
 ===========================================
 
 bin and share (same)
