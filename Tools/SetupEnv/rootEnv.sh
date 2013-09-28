@@ -1,0 +1,7 @@
+
+#+
+export ROOTSYS=$HOME/Tools/root_v$ROOT_VERSION
+export PATH=$ROOTSYS/bin:$PATH
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+#+
+
