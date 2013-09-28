@@ -1,0 +1,51 @@
+#! /bin/bash
+#
+#=============================================================================
+#       FileName :          newproject
+#       Version  :          0.0.1
+#       Author   :          Chi Wang    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-09-28   22:06:28
+#
+#------------------------------------------------------------------------------
+#       Description  :
+#           Useage:     newproject projectName
+#------------------------------------------------------------------------------
+#       History  :
+#                                          Update:  2013-09-28   22:07:20
+#=============================================================================
+#
+
+#+ usage
+if [ $# == 1 ];then
+  echo "    Setting up project \"$1\"" 
+else
+  echo "    Usage:  newproject projectName"
+  exit
+fi
+#+
+
+#+ setup
+mkdir include src Scons 2>/dev/null
+path="$HOME/share/common"
+cp $path/SConstruct ./
+cp $path/SConscript ./src/
+sed "s/MyX/$1/g" -i ./src/SConscript 
+touch ./src/$1.cc
+#+
+
+#+ README.md --> the same name as github
+echo "">README.md
+echo "            Project:     $1"                  >>README.md
+echo "      ====================================="  >>README.md
+echo "                         By: $USER `date +%m/%d/%Y`">>README.md
+echo "">>README.md
+echo "Description"  >>README.md
+echo "--------------">>README.md
+echo "">>README.md
+echo "">>README.md
+echo "Usage"        >>README.md
+echo "--------------">>README.md
+echo "  scons       // will create executable file $1 at ./, and temporary files in ./Scons"       >>README.md
+echo "  scons -c    // clean up"    >>README.md
+#+
+

@@ -1,0 +1,60 @@
+#! /bin/bash
+#=============================================================================
+#       FileName :          newg4project
+#       Version  :          0.0.1
+#       Author   :          Chi Wang    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-09-06   17:12:05
+#
+#------------------------------------------------------------------------------
+#       Description  :
+#           Useage:     newg4project projectName
+#------------------------------------------------------------------------------
+#       History  :
+#                                          Update:  2013-09-28   21:55:23
+#=============================================================================
+
+#+ usage
+if [ $# == 1 ];then
+  echo "    Setting up geant4 project \"$1\"" 
+else
+  echo "    Usage:  newg4project projectName"
+  exit
+fi
+#+
+
+#+ setup
+mkdir include src mac result analysis Scons 2>/dev/null
+path="$HOME/share/common/Geant4Template"
+cp -r $path/mac    ./
+cp ${path}/../SConstruct ./
+cp ${path}/../SConscript ./src/
+cp $path/MyGeant4.cc      ./src/$1.cc
+ln -s ./src/$1.cc ./
+cp $path/Makefile       ./Makefile
+sed "s/MyX/$1/g" -i     ./Makefile 
+
+for subdir in include src;do
+  for file in `ls ${path}/${subdir}`;do
+    name=`echo ${file/MyX/$1}`
+    cp ${path}/${subdir}/${file} ./${subdir}/${name}
+  done
+  for file in `ls ./${subdir}`;do
+    sed "s/MyX/$1/g" -i ./${subdir}/${file} 
+  done
+done
+#+
+
+#+ README.md --> the same name as github
+echo "">README.md
+echo "            Project:     $1"                  >>README.md
+echo "      ====================================="  >>README.md
+echo "                         By: $USER `date +%m/%d/%Y`">>README.md
+echo "">>README.md
+echo "Description"  >>README.md
+echo "--------------"  >>README.md
+echo "">>README.md
+echo "">>README.md
+more ${path}/README.md >>README.md
+sed "s/MyX/$1/g" -i README.md
+#+
+

@@ -1,0 +1,105 @@
+#! /bin/bash
+#backup all new files in certain Dir_A. there are most 3 arches subDir in Dir_A: Dir_A/Dir0/Dir1/Dir2/*, if * is a Dir, then backup * all.
+
+#--help:
+#bash ThisFileName.sh 				# default: "the current Dir_A (where you run this shell)" to do backup
+
+#bash ThisFileName.sh $1			#$1 is the absolutily path of the Dir_A you want to backup
+
+#bash ThisFileName.sh <$mark>			#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
+
+#bash ThisFileName.sh $1 <$mark>		#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
+
+
+function BackOV(){
+if [ $DoneBack != "yes" ];then
+	pushd "$DirB">/dev/null
+	if [[ "XX"`ls` != "XX" ]];then
+		tar -zcf ../${OBD}/version-${Day}.tar.gz  *
+	fi
+	popd>/dev/null
+	DoneBack="yes" 
+fi
+}
+
+Day=`date "+%d"`
+
+if [[ `echo $1$2 | grep "\/"` == "" ]];then
+	Dir=`pwd`
+	Mark="$1"
+else
+	Dir="$1"		#this is the file you want to do backup....
+	Mark="$2"
+fi
+
+NBD="newversion${Mark}"		#newversion Dir
+OBD="oldversion${Mark}" 	#oldversion Dir
+
+
+pushd "$Dir">/dev/null
+if [ ! -d Backup/$NBD ];then
+	mkdir -p Backup/$NBD
+fi
+if [ ! -d Backup/$OBD ];then
+	mkdir Backup/$OBD
+fi
+
+DoneBack="no"
+DirB=./Backup/$NBD
+for FL0 in `ls -t `;do
+	if [ "XX$FL0" == "XXBackup" ];then
+		continue
+	fi
+	if [[ (! -d $FL0 && $FL0 -nt $DirB/$FL0) || (-d $FL0 && `ls $DirB | grep "$FL0"` == "")]];then
+		BackOV
+		cp -rf "$FL0" "$DirB/"
+		touch $DirB
+	elif [[ -d $FL0 ]];then
+		Dir0="$FL0"
+		DirB0=$DirB/$FL0
+		for FL1 in `ls -t $Dir0`;do
+			if [[ (-f $Dir0/$FL1 && $Dir0/$FL1 -nt $DirB0/$FL1) || (-d $Dir0/$FL1 && `ls $DirB0 | grep "$FL1"` == "") ]];then
+				BackOV
+				cp -rf "$Dir0/$FL1" "$DirB0/"
+				touch $DirB $DirB0
+			elif [ -d $Dir0/$FL1 ];then
+				Dir1="$Dir0/$FL1"
+				DirB1=$DirB0/$FL1
+				for FL2 in `ls -t $Dir1`;do
+					if [[ (-f $Dir1/$FL2 && $Dir1/$FL2 -nt $DirB1/$FL2) || (-d $Dir1/$FL2 && `ls $DirB1 | grep "$FL2"` == "") ]];then
+						BackOV
+						cp -rf "$Dir1/$FL2" "$DirB1/"
+						touch $DirB $DirB0 $DirB1
+					elif [ -d $Dir1/$FL2 ];then
+						Dir2="$Dir1/$FL2"
+						DirB2=$DirB1/$FL2
+						for FL3 in `ls -t $Dir2`;do
+							if [[ (-f $Dir2/$FL3 && $Dir2/$FL3 -nt $DirB2/$FL3) || (-d $Dir2/$FL3 && `ls $DirB2 | grep "$FL3"` == "") ]];then
+								BackOV
+								cp -rf "$Dir2/$FL3" "$DirB2/"
+								touch $DirB $DirB0 $DirB1 $DirB2
+							elif [ -d $Dir2/$FL3 ];then
+								Size=`du -sh $Dir2/$FL3 | awk '{print $1}'`
+								Unit=`echo ${Size: -1}`
+								Size=`echo $Size | sed "s/$Unit/0/g"`
+								Size=`echo $Size/10 | bc`
+								if [[ $Unit == "G" && $Size>2 ]];then	#>2G skip
+									continue
+								else
+									BackOV
+									cp -rf "$Dir2/$FL3" "$DirB2/$FL3"
+									touch $DirB2/$FL3 $DirB $DirB0 $DirB1 $DirB2
+								fi
+							fi
+						done
+					fi
+				done
+			fi
+		done
+	fi
+done
+
+touch $Dir/Backup
+popd >/dev/null
+
+exit 0

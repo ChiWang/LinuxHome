@@ -1,0 +1,57 @@
+#! /bin/bash
+#=============================================================================
+#       FileName :          makedoxygen
+#       Version  :          0.0.1
+#       Author   :          Chi Wang    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-09-28   22:38:39
+#
+#------------------------------------------------------------------------------
+#       Description  :
+#
+#------------------------------------------------------------------------------
+#       History  :
+#                                          Update:  2013-09-28   22:38:39
+#=============================================================================
+
+if [[ "XX$1" == "XX--help" || $# == 0 ]];then
+	echo ""
+	echo "	run like this:		doxygen  Project_Name"
+	echo "	OR  like this:		doxygen  Project_Name  ClassPrefix_Name"
+	echo ""
+	echo "	Then it will call \"~/share/common/DoxyFile\", and"
+	echo "	generate a symbole \"doxyDir\" link to created doxygenDir which in \"~/documents/doxygen/\""
+	echo ""
+	exit
+fi
+
+DoxyDcmDir="/home/$USER/documents/doxygen"
+if [[ -d "$DoxyDcmDir/$1" ]];then
+	read -p "Notice: DoxygenDir alrealdy existed. Do you want to continue?(y/n)	" Respond
+	if [ "XX$Respond" == "XXy" ];then
+		chmod a+w "$DoxyDcmDir/$1"
+	else
+		rm "./doxyDir" 2>/dev/null
+		ln -s "$DoxyDcmDir/$1" "./doxyDir"
+		exit
+	fi
+fi
+
+DoxyFile="$HOME/share/common/DoxyFile"
+cp $DoxyFile ./doxyFile
+
+sed "s/UserPROJECTNAME/$1/g" -i doxyFile
+sed "s/UserNAME/$USER/g" -i doxyFile
+
+if [ $# == 2 ];then
+	sed "s/UserPREFIXNAME/$2/g" -i doxyFile
+fi
+
+\doxygen doxyFile >/dev/null
+\rm "./doxyDir" 2>/dev/null
+ln -s "$DoxyDcmDir/$1" "./doxyDir"
+cDir=`pwd`
+rm "$DoxyDcmDir/$1/codeDir" 2>/dev/null
+ln -s "$cDir" "$DoxyDcmDir/$1/codeDir"
+chmod a-w "$DoxyDcmDir/$1"
+
+

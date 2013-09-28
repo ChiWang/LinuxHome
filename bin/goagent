@@ -1,0 +1,61 @@
+#! /bin/bash
+#=============================================================================
+#       FileName :          goagent
+#       Version  :          0.0.1
+#       Author   :          Chi Wang    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-09-18   22:26:35
+#
+#------------------------------------------------------------------------------
+#       Description  :
+#           control of goagent. By using of command "goagent" with arguments "on" OR "off"
+#
+#------------------------------------------------------------------------------
+#       History  :
+#                                          Update:  2013-09-28   22:27:30
+#=============================================================================
+#
+
+PS="/bin/ps auwx"
+GOAGENT_LOCAL=/home/Tools/goagent_v3.0          # where your software
+
+if [ -d $GOAGENT_LOCAL ];then
+    MASTER=$GOAGENT_LOCAL/local/proxy.py
+else
+    echo "$GOAGENT_LOCAL not found. Skipping goagent startup."
+    exit 1
+fi
+
+case $1 in
+'on')
+    pid=`$PS | grep proxy.py | grep -v grep | awk '{print $2}'`
+    if [ -n "$pid" ] ;then
+        echo "goagent is already running."
+        exit 1
+    fi
+
+    if [ -e $MASTER ];then
+        echo "Starting up goagent"
+        nohup python $MASTER >/dev/null 2>&1 &
+    else
+        echo "$MASTER is not exist. Skipping goagent startup."
+        exit 1
+    fi
+    ;;
+
+'off')
+    pid=`$PS | grep proxy.py | grep -v grep | awk '{print $2}'`
+    if [ -n "$pid" ]; then
+        echo "Shutting down goagent."
+        kill $pid       # normal user. if root: kill -9 $pid
+    else
+        echo "goagent is not running."
+    fi
+    ;;
+
+*)
+    echo "Usage: goagent {on|off}"
+    ;;
+
+esac
+
+
