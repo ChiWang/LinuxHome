@@ -3,31 +3,32 @@
         This is my home setup
 ===========================================
 
-vim
+bin and share (same)
 -----------
-    .vim            // vim plugins              (same, copy)
-    .vimrc          // vim setup                (same, copy)
+    bin             // user defined commands
+    share           // user files, will be used by bin
 
-bin and share
+zsh (same)
 -----------
-    bin             // user defined commands    (same, copy)
-    share           // user files, will be used by bin      (same, copy)
+    .zprofile       // shell setup
+    .zshrc          // shell setup
 
-zsh
+vim (same)
 -----------
-    .zshrc          // shell setup!             (same, copy)
-    .zprofile       // shell setup!             (same, copy)
+    .vim            // vim plugins
+    .vimrc          // vim setup
+
+git (same)
+-----------
+    .gitconfig      // git setup
 
 Tools
 -----------
-    Tools           // user softwares           (user install)
-        Build
-        Downloads
-        SetupEnv    // .zshrc will use it to setup software (same, copy)
+    Tools/SetupEnv  // .zshrc will use it to setup software (same)
 
-public_html
+public_html (same)
 -----------
-    public_html     // web                      (same, copy)
+    public_html     // web
 
 main
 -----------
