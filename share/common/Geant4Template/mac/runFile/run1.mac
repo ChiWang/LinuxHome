@@ -1,0 +1,22 @@
+/gps/particle mu-
+/gps/pos/type Plane 
+/gps/pos/shape Square
+/gps/pos/centre  0.0 0.0 -35.301 cm
+#/gps/pos/centre  0.0 0.0 -25.301 cm
+#/gps/pos/centre  0.0 0.0 -20.0501 cm
+/gps/pos/halfx 20 mm
+/gps/pos/halfy 20 mm
+/gps/ang/type cos 
+/gps/ang/mintheta 0.00 deg 
+/gps/ang/maxtheta 0.010 deg
+/gps/ene/type Lin 
+/gps/ene/min 50. GeV 
+/gps/ene/max 50.00000001 GeV 
+/gps/ene/gradient 0. 
+/gps/ene/intercept 1.
+
+#/run/beamOn 2000
+
+/run/beamOn 6
+
+#/run/beamOn 222

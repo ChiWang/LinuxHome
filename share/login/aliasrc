@@ -1,0 +1,36 @@
+
+#+ servers
+alias toR710='ssh -Y chiwang@202.141.161.5'
+alias todamp='ssh -Y chi@210.45.78.206'
+
+alias toihep='ssh -Y wangch@lxslc.ihep.ac.cn'
+
+alias toui01='ssh -Y wangc@ui01.lcg.ustc.edu.cn'
+alias toui02='ssh -Y wangc@ui02.lcg.ustc.edu.cn'
+alias toui03='ssh -Y wangc@ui03.lcg.ustc.edu.cn'
+alias toui04='ssh -Y wangc@ui04.lcg.ustc.edu.cn'
+alias toui05='ssh -Y wangc@ui05.lcg.ustc.edu.cn'
+alias toui06='ssh -Y wangc@ui06.lcg.ustc.edu.cn'
+
+alias toMars='ssh -Y chi@'
+alias toSilicon='ssh -Y chi@'
+#+
+
+# alias
+alias vi='vim'
+alias ls='ls -F --color'
+alias ll='ls -l'
+alias del='\rm -rf -v'
+alias ps='ps wau |'
+alias xterm='xterm -132 -sb -sl 300 -fn 10x20'
+
+alias psf='ps -ef --forest'
+alias scls='screen -list' #no screen in rocks4
+alias scr='screen -r'
+alias scd='screen -d'
+alias scc='screen -dmS'
+
+alias rm='bash ~/bin/trash.sh'
+
+# + user special commands
+alias checkoutDmpSW='svn checkout http://dpnc.unige.ch/SVNDAMPE/DAMPE/DmpSoftware/trunk'

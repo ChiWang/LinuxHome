@@ -1,0 +1,9 @@
+
+vis,mac
+gui.mac->icons.mac
+    the 3 files are common for any projects
+
+
+vis.mac     create user interface
+gui.mac     add first line buttons
+icons.mac   add second line buttons
