@@ -57,8 +57,8 @@ fi
 #+
 
 #+  Git
-#GIT_VERSION="1.8.4"         # which version you want to use
-if [[ `git --version 2>/dev/null | grep "git"` == "" ]];then
+GIT_VERSION="1.8.4"         # which version you want to use
+if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
     source $HOME/Tools/SetupEnv/gitEnv.sh
 fi
 #+
