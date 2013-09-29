@@ -24,16 +24,16 @@ Tools:
 
     Tools/SetupEnv  // .zshrc will use it to setup software (same)
 
-public_html (same):
-
-    public_html     // web
-
 main:
 
     main            // ** WORK AREA **
         dataDir     // all data files
         testDir
         workDir     // 
+
+public_html (same):
+
+    public_html     // web
 
 Others:
 
