@@ -56,6 +56,13 @@ if [[ `geant4-config --version 2>/dev/null | grep "${GEANT4_VERSION}"` == "" ]];
 fi
 #+
 
+#+  Git
+#GIT_VERSION="1.8.4"         # which version you want to use
+if [[ `git --version 2>/dev/null | grep "git"` == "" ]];then
+    source $HOME/Tools/SetupEnv/gitEnv.sh
+fi
+#+
+
 #+  Set DAMPE software environment
 if [ ! $DMPSWSYS ];then
     export DMPSWSYS="$HOME/Tools/dmpsw_v0.1/trunk"
