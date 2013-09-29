@@ -31,12 +31,9 @@ main:
         testDir
         workDir     // 
 
-public_html (same):
-
-    public_html     // web
-
 Others:
 
+    public_html     // web
     documents       // as name
         doxygen     // create doxygen files here
     g4work          // Geant4 created
