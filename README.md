@@ -16,10 +16,6 @@ vim (same):
     .vim            // vim plugins
     .vimrc          // vim setup
 
-git (same):
-
-    .gitconfig      // git setup
-
 Tools:
 
     Tools/SetupEnv  // .zshrc will use it to setup software (same)
