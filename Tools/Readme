@@ -1,5 +1,4 @@
-Three common directories:
--------------------------
+#Three common directories:
 
 Downloads
     for downloaded tar balls
@@ -11,6 +10,6 @@ SetupEnv
     setup files of softwares which will be sourced in .zprofile
 
 
-Others
---------
+#Others
+
 build all software in current directory

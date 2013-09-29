@@ -1,44 +1,34 @@
 
-===========================================
-#        This is my home setup
-===========================================
+#My home setup
 
 bin and share (same)
------------
     bin             // user defined commands
     share           // user files, will be used by bin
 
 zsh (same)
------------
     .zprofile       // shell setup
     .zshrc          // shell setup
 
 vim (same)
------------
     .vim            // vim plugins
     .vimrc          // vim setup
 
 git (same)
------------
     .gitconfig      // git setup
 
 Tools
------------
     Tools/SetupEnv  // .zshrc will use it to setup software (same)
 
 public_html (same)
------------
     public_html     // web
 
 main
------------
     main            // ** WORK AREA **
         dataDir     // all data files
         testDir
         workDir     // 
 
 Others
------------
     documents       // as name
         doxygen     // create doxygen files here
     g4work          // Geant4 created
