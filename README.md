@@ -1,5 +1,5 @@
 
-# --->  My home setup
+# My home setup
 
 bin and share (same):
 
