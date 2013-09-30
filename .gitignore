@@ -43,8 +43,10 @@ tmp
 #.zcompdump
 #.zhistory
 
-Tools/Build
-Tools/Downloads
-Tools/git_v1.8.4
-Tools/root_v5.34
+Tools/*
+!Tools/SetupEnv
+!Tools/Readme
+Desktop
+Downloads
+bin/Backup
 
