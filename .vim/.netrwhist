@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/Tools/SetupEnv'
-let g:netrw_dirhist_2='/home/chi'
-let g:netrw_dirhist_3='/home/chi/.subversion'
-let g:netrw_dirhist_4='/WorkDir/testDir/concurrency/order/src'
-let g:netrw_dirhist_5='/etc/X11/xinit'
-let g:netrw_dirhist_6='/home/chi/Videos'
-let g:netrw_dirhist_7='/home/chi/bin'
