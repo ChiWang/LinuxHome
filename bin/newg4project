@@ -44,17 +44,21 @@ for subdir in include src;do
 done
 #+
 
-#+ README.md --> the same name as github
-echo "">README.md
-echo "            Project:     $1"                  >>README.md
-echo "      ====================================="  >>README.md
-echo "                         By: $USER `date +%m/%d/%Y`">>README.md
-echo "">>README.md
-echo "Description"  >>README.md
-echo "--------------"  >>README.md
-echo "">>README.md
-echo "">>README.md
-more ${path}/README.md >>README.md
-sed "s/MyX/$1/g" -i README.md
+#+ Readme.md --> the same name as github
+if [ ! -f Readme.md ]; then
+    echo "">Readme.md
+    echo "            Project:     $1"                  >>Readme.md
+    echo "      ====================================="  >>Readme.md
+    echo "                         By: $USER `date +%m/%d/%Y`">>Readme.md
+    echo "">>Readme.md
+    echo "Description"  >>Readme.md
+    echo "--------------"  >>Readme.md
+    echo "">>Readme.md
+    echo "">>Readme.md
+    more ${path}/Readme.md >>Readme.md
+    sed "s/MyX/$1/g" -i Readme.md
+fi
 #+
+
+
 

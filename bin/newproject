@@ -33,19 +33,22 @@ sed "s/MyX/$1/g" -i ./src/SConscript
 touch ./src/$1.cc
 #+
 
-#+ README.md --> the same name as github
-echo "">README.md
-echo "            Project:     $1"                  >>README.md
-echo "      ====================================="  >>README.md
-echo "                         By: $USER `date +%m/%d/%Y`">>README.md
-echo "">>README.md
-echo "Description"  >>README.md
-echo "--------------">>README.md
-echo "">>README.md
-echo "">>README.md
-echo "Usage"        >>README.md
-echo "--------------">>README.md
-echo "  scons       // will create executable file $1 at ./, and temporary files in ./Scons"       >>README.md
-echo "  scons -c    // clean up"    >>README.md
+#+ Readme.md --> the same name as github
+if [ ! -f Readme.md ]; then
+    echo "">Readme.md
+    echo "            Project:     $1"                  >>Readme.md
+    echo "      ====================================="  >>Readme.md
+    echo "                         By: $USER `date +%m/%d/%Y`">>Readme.md
+    echo "">>Readme.md
+    echo "Description"  >>Readme.md
+    echo "--------------">>Readme.md
+    echo "">>Readme.md
+    echo "">>Readme.md
+    echo "Usage"        >>Readme.md
+    echo "--------------">>Readme.md
+    echo "  scons       // will create executable file $1 at ./, and temporary files in ./Scons"       >>Readme.md
+    echo "  scons -c    // clean up"    >>Readme.md
+fi
 #+
+
 

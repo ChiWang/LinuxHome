@@ -31,6 +31,7 @@ alias scd='screen -d'
 alias scc='screen -dmS'
 
 alias rm='bash ~/bin/trash.sh'
+alias mkdir='bash ~/bin/makedir.sh'
 
 # + user special commands
 alias checkoutDmpSW='svn checkout http://dpnc.unige.ch/SVNDAMPE/DAMPE/DmpSoftware/trunk'
