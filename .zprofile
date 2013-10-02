@@ -3,23 +3,6 @@
 #       User Special Setting            #
 #=======================================#
 
-#+ user functions
-if [ -d ~/share/function ];then
-	for funfile in `ls ~/share/function`;do
-		#source "~/share/function/"$funfile
-	done
-	unset funfile
-else
-	mkdir -p ~/share/function 
-fi
-#+
-
-#+ Trash
-if [ ! -d ~/.Trash ];then
-  mkdir ~/.Trash
-fi
-#
-
 #+ vim back
 if [ ! -d ~/tmp/vimback ];then
     mkdir -p ~/tmp/vimback

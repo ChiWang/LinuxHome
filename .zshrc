@@ -128,7 +128,6 @@ hash -d I="/etc/rc.d"
 #+ alias and login  # must in .zshrc instead of in .zprofile
 if [ -d ~/share/login ];then
   source ~/share/login/aliasrc
-  bash ~/share/login/sysback.sh
 else
 	mkdir -p ~/share/login
 fi
