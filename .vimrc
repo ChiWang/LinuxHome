@@ -27,7 +27,7 @@ set guifont=Monospace:h13:cANSI
 
 set backup
 set backupext=.back
-set backupdir=$HOME/tmp/vimback     " you need to create this directory firstly
+set backupdir=$VIMBACKDIR     " you need to create this directory firstly
 
 "set number             " show line number
 

@@ -133,3 +133,17 @@ else
 fi
 #+
 
+#+ set vim back path. Add 3 lines in ~/.vimrc
+#   set backup
+#   set backupext=.back
+#   set backupdir=$VIMBACKDIR
+
+if [ ! $VIMBACKDIR ];then
+    export VIMBACKDIR="$HOME/.vimback"
+    if [ ! -d $VIMBACKDIR ];then
+        mkdir $VIMBACKDIR
+    fi
+fi
+#+
+
+
