@@ -29,8 +29,11 @@ ExeName='MyX'
 
 #   set debug modle.
 #    if yes, then can use gdb:  http://www.ibm.com/developerworks/cn/linux/sdk/gdb/
-if int(ARGUMENTS.get('debug',1)):
-    env.Append(CCFLAGS = '-g')
+if int(ARGUMENTS.get('debug',0)):
+    env.Prepend(CCFLAGS = '-g')
+    env.Append(CCFLAGS = '-DDEBUG')
+else:
+    env.Append(CCFLAGS = '-DRELEASE')
 
 #   set Geant4 environment
 if int(ARGUMENTS.get('g4',0)):
