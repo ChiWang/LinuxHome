@@ -48,11 +48,11 @@ fi
 #+
 
 #+  Set DAMPE software environment
-if [ ! $DMPSWSYS ];then
-    export DMPSWSYS="$HOME/Tools/dmpsw_v0.1/trunk"
-    export PATH=$DMPSWSYS/Install/bin:$PATH
-    export LD_LIBRARY_PATH=$DMPSWSYS/Install/lib:$LD_LIBRARY_PATH
-fi
+#if [ ! $DMPSWSYS ];then
+#    export DMPSWSYS="$HOME/Tools/dmpsw_v0.1/trunk"
+#    export PATH=$DMPSWSYS/bin:$PATH
+#    export LD_LIBRARY_PATH=$DMPSWSYS/lib:$LD_LIBRARY_PATH
+#fi
 #+
 
 #+  Set OpenMP
