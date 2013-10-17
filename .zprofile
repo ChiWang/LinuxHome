@@ -43,11 +43,13 @@ fi
 GIT_VERSION="1.8.4"         # which version you want to use
 if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
     source $HOME/Tools/SetupEnv/gitEnv.sh
-    source $HOME/share/login/git-completion.bash
+    #source $HOME/share/login/git-completion.zsh
 fi
 #+
 
 #+  Set DAMPE software environment
+source $HOME/tmp/trunk/thisdmpsw.sh
+source $HOME/main/workDir/DmpSoftware/thisdmpsw.sh
 #if [ ! $DMPSWSYS ];then
 #    export DMPSWSYS="$HOME/Tools/dmpsw_v0.1/trunk"
 #    export PATH=$DMPSWSYS/bin:$PATH

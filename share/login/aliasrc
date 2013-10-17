@@ -12,7 +12,7 @@ alias toui04='ssh -Y wangc@ui04.lcg.ustc.edu.cn'
 alias toui05='ssh -Y wangc@ui05.lcg.ustc.edu.cn'
 alias toui06='ssh -Y wangc@ui06.lcg.ustc.edu.cn'
 
-alias toMars='ssh -Y chi@'
+alias toT6102='ssh -Y chi@159.226.72.202'
 alias toSilicon='ssh -Y chi@'
 #+
 
