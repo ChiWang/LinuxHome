@@ -14,7 +14,7 @@
 
 # User special
 documents
-g4work
+geant4_workdir
 main
 tmp
 .*

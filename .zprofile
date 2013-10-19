@@ -3,9 +3,16 @@
 #       User Special Setting            #
 #=======================================#
 
-#+ vim back
-if [ ! -d ~/tmp/vimback ];then
-    mkdir -p ~/tmp/vimback
+#+  set vim back path. Add 3 lines in ~/.vimrc
+#   set backup
+#   set backupext=.back
+#   set backupdir=$VIMBACKDIR
+
+if [ ! $VIMBACKDIR ];then
+    export VIMBACKDIR="$HOME/.vimback"
+    if [ ! -d $VIMBACKDIR ];then
+        mkdir $VIMBACKDIR
+    fi
 fi
 #+
 
@@ -22,40 +29,23 @@ if [ ! $SCONSFLAGS ];then
 fi
 #
 
+##+  Git
+#GIT_VERSION="1.8.4"         # which version you want to use
+#if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
+#    source $HOME/Tools/SetupEnv/gitEnv.sh
+#    #source $HOME/share/login/git-completion.zsh
+##GITSYS=$HOME/Tools/git_v$GIT_VERSION
+##export PATH=$GITSYS/bin:$PATH
+##export LD_LIBRARY_PATH=$GITSYS/lib:$GITSYS/lib64:$LD_LIBRARY_PATH
+#fi
+#+
+
 
 #-----------------------------------    User special software
-
-#+  Root
-ROOT_VERSION="5.34"         # which version you want to use
-if [[ `root-config --version 2>/dev/null | grep "${ROOT_VERSION}"` == "" ]];then
-    source $HOME/Tools/SetupEnv/rootEnv.sh
-fi
-#+
-
-#+  Geant4
-GEANT4_VERSION="9.6"         # which version you want to use
-if [[ `geant4-config --version 2>/dev/null | grep "${GEANT4_VERSION}"` == "" ]];then
-    source $HOME/Tools/SetupEnv/geant4Env.sh
-fi
-#+
-
-#+  Git
-GIT_VERSION="1.8.4"         # which version you want to use
-if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
-    source $HOME/Tools/SetupEnv/gitEnv.sh
-    #source $HOME/share/login/git-completion.zsh
-fi
-#+
 
 #+  Set DAMPE software environment
 source $HOME/tmp/trunk/thisdmpsw.sh
 source $HOME/main/workDir/DmpSoftware/thisdmpsw.sh
-#if [ ! $DMPSWSYS ];then
-#    export DMPSWSYS="$HOME/Tools/dmpsw_v0.1/trunk"
-#    export PATH=$DMPSWSYS/bin:$PATH
-#    export LD_LIBRARY_PATH=$DMPSWSYS/lib:$LD_LIBRARY_PATH
-#fi
-#+
 
 #+  Set OpenMP
 if [ !1 ];then
@@ -63,5 +53,4 @@ if [ !1 ];then
 
 fi
 #+
-
 
