@@ -24,6 +24,7 @@ main:
         workDir     // 
 
 Others:
+
     .vimback        // backup of files edited by vim (created by .zshrc)
     .Trash          // rm XX into it            (created by .zshrc)
 
