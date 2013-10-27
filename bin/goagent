@@ -16,7 +16,7 @@
 #
 
 PS="/bin/ps auwx"
-GOAGENT_LOCAL=/home/Tools/goagent_v3.0          # where your software
+GOAGENT_LOCAL=$HOME/Tools/goagent_v3.0          # where your software
 
 if [ -d $GOAGENT_LOCAL ];then
     MASTER=$GOAGENT_LOCAL/local/proxy.py

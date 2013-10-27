@@ -30,14 +30,13 @@ fi
 #
 
 ##+  Git
-#GIT_VERSION="1.8.4"         # which version you want to use
-#if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
-#    source $HOME/Tools/SetupEnv/gitEnv.sh
-#    #source $HOME/share/login/git-completion.zsh
-##GITSYS=$HOME/Tools/git_v$GIT_VERSION
-##export PATH=$GITSYS/bin:$PATH
-##export LD_LIBRARY_PATH=$GITSYS/lib:$GITSYS/lib64:$LD_LIBRARY_PATH
-#fi
+GIT_VERSION="1.8.4"         # which version you want to use
+if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
+    source $HOME/share/login/git-completion.zsh
+    GITSYS=$HOME/Tools/git_v$GIT_VERSION
+    export PATH=$GITSYS/bin:$PATH
+    export LD_LIBRARY_PATH=$GITSYS/lib:$GITSYS/lib64:$LD_LIBRARY_PATH
+fi
 #+
 
 

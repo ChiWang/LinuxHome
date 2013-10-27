@@ -15,6 +15,7 @@
 # User special
 documents
 geant4_workdir
+dmpsw_workdir
 main
 tmp
 .*
@@ -43,9 +44,7 @@ tmp
 #.zcompdump
 #.zhistory
 
-Tools/*
-!Tools/SetupEnv
-!Tools/Readme
+Tools
 Desktop
 Downloads
 bin/Backup

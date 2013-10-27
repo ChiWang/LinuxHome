@@ -46,6 +46,7 @@ if int(ARGUMENTS.get('root',0)):
     rootsys=os.environ['ROOTSYS']
     env.PrependENVPath('PATH', rootsys+'/bin')
     env.ParseConfig("root-config --cflags --libs")
+    env.Append(LIBS=['RooFitCore','RooFit'])
 
 #   set OpenMP
 if int(ARGUMENTS.get('omp',0)):
