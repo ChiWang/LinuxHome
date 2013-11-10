@@ -30,6 +30,8 @@ set backupext=.back
 set backupdir=$VIMBACKDIR     " you need to create this directory firstly
 
 "set number             " show line number
+"au FocusLost * :wa      " set auto wirte
+set autowrite
 
 
 "+++    Plugins
@@ -39,7 +41,7 @@ filetype plugin on
 "let NERDChristmasTree=1
 
 "+  author infor
-let g:vimrc_author='Chi Wang'
+let g:vimrc_author='Chi WANG'
 let g:vimrc_email='chiwang@mail.ustc.edu.cn'
 "let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
 nmap <F4> :AuthorInfoDetect<cr>

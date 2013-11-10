@@ -123,14 +123,10 @@ function s:AddTitle()
     normal o
     call setline('.',noTypeChar.preChar.'       Time     :          '.strftime("%Y-%m-%d   %H:%M:%S"))
     normal o
-    call setline('.',noTypeChar.preChar)
-    normal o
     call setline('.',noTypeChar.preChar.'------------------------------------------------------------------------------')
     normal o
     call setline('.',noTypeChar.preChar.'       Description  :')
     let gotoLn = line('.')
-    normal o
-    call setline('.',noTypeChar.preChar)
     normal o
     call setline('.',noTypeChar.preChar)
     normal o
@@ -161,7 +157,8 @@ function s:TitleDet()
     let updated = 0
     let n = 1
     "默认为添加
-    while n < 20
+    while n < 40
+    "while n < 20
         let line = getline(n)
         if line =~ '^.*FileName:\S*.*$'
             let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t"),'g')

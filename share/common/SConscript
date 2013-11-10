@@ -9,6 +9,12 @@
 #           Using Root
 #               ARGUMENTS.get('root',value):        set default use(value=1) root;
 #               if execute "scons root=0"   will not use root
+#           Using RooFit
+#               ARGUMENTS.get('roofit',value):      set default use(value=0) roofit;
+#               if execute "scons roofit=1" will not use roofit
+#           Using rootcint
+#               ARGUMENTS.get('rootcint',value):    set default use(value=0) root;
+#               if execute "scons rootcint=0"   will not use rootcint
 #           Using Geant4
 #               ARGUMENTS.get('g4',value):          set default use(value=1) geant4;
 #               if execute "scons g4=0"   will not use geant4
@@ -23,6 +29,7 @@
 
 import os
 env = Environment(ENV = os.environ)
+#env['CXX'] = 'rootcint'
 
 #   set the programme name
 ExeName='MyX'
@@ -46,7 +53,12 @@ if int(ARGUMENTS.get('root',0)):
     rootsys=os.environ['ROOTSYS']
     env.PrependENVPath('PATH', rootsys+'/bin')
     env.ParseConfig("root-config --cflags --libs")
-    env.Append(LIBS=['RooFitCore','RooFit'])
+    if int(ARGUMENTS.get('roofit',0)):
+        env.Append(LIBS=['RooFitCore','RooFit'])
+#   use rootcint
+if int(ARGUMENTS.get('rootcint',0)):
+    env['CXX'] = 'rootcint'
+
 
 #   set OpenMP
 if int(ARGUMENTS.get('omp',0)):
