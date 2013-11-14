@@ -36,9 +36,9 @@ touch ./src/$1.cc
 #+ Readme.md --> the same name as github
 if [ ! -f Readme.md ]; then
     echo "">Readme.md
-    echo "            Project:     $1"                  >>Readme.md
-    echo "      ====================================="  >>Readme.md
-    echo "                         By: $USER `date +%m/%d/%Y`">>Readme.md
+    echo "              Project:     $1"                  >>Readme.md
+    echo "      ======================================================"  >>Readme.md
+    echo "          By: $AUTHOR ($AUTHOREMAIL)  `date +%d/%m/%Y`">>Readme.md
     echo "">>Readme.md
     echo "Description"  >>Readme.md
     echo "--------------">>Readme.md

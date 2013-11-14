@@ -1,9 +1,8 @@
 #=============================================================================
 #       FileName :          SConscript
 #       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-07-24   21:51:55
-#
+#       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-07-24  21:51:55
 #------------------------------------------------------------------------------
 #       Description  :
 #           Using Root
@@ -13,8 +12,8 @@
 #               ARGUMENTS.get('roofit',value):      set default use(value=0) roofit;
 #               if execute "scons roofit=1" will not use roofit
 #           Using rootcint
-#               ARGUMENTS.get('rootcint',value):    set default use(value=0) root;
-#               if execute "scons rootcint=0"   will not use rootcint
+#               http://www.scons.org/doc/HTML/scons-user.html#chap-builders-writing
+#               http://kalmanalignment.hepforge.org/svn/trunk/event/SConscript
 #           Using Geant4
 #               ARGUMENTS.get('g4',value):          set default use(value=1) geant4;
 #               if execute "scons g4=0"   will not use geant4
@@ -24,12 +23,12 @@
 #
 #------------------------------------------------------------------------------
 #       History  :
-#                                          Update:  2013-09-20   12:42:21
+#                                          Update:  2013-11-12   11:46:05
 #=============================================================================
 
 import os
+import sys
 env = Environment(ENV = os.environ)
-#env['CXX'] = 'rootcint'
 
 #   set the programme name
 ExeName='MyX'
@@ -50,15 +49,31 @@ if int(ARGUMENTS.get('g4',0)):
 
 #   set Root environment
 if int(ARGUMENTS.get('root',0)):
-    rootsys=os.environ['ROOTSYS']
-    env.PrependENVPath('PATH', rootsys+'/bin')
     env.ParseConfig("root-config --cflags --libs")
     if int(ARGUMENTS.get('roofit',0)):
         env.Append(LIBS=['RooFitCore','RooFit'])
-#   use rootcint
-if int(ARGUMENTS.get('rootcint',0)):
-    env['CXX'] = 'rootcint'
 
+#   set environment of rootcint
+def rootcint(includeList):
+    userootcint=0
+    includeDir=""
+    for path in includeList:
+        includeDir=includeDir+" -I"+path
+    headerFile=""                           #   which header files will be used to generate a dictionnary
+    for file in os.listdir("../include"):
+        if "LinkDef" in file:
+            headerFile=headerFile+" "+file  #   the last one must be XXXXLinkDefXXX.h
+            userootcint=1
+        else:
+            headerFile=file+" "+headerFile  #   anyway, define headerFiles
+    if int(userootcint):
+        if "-c"==sys.argv[-1]:
+            print "  Deleting dictionary %s_Dict.cc" % ExeName
+            os.system('rm ../*/'+ExeName+'_Dict*')
+        else:
+            print "  Generating dictionary %s_Dict.cc" % ExeName
+            os.system('rootcint -f ../include/'+ExeName+'_Dict.cc -c -p '+includeDir+' '+headerFile)
+            os.system('cp ../include/'+ExeName+'_Dict.cc ../src/' )
 
 #   set OpenMP
 if int(ARGUMENTS.get('omp',0)):
@@ -68,12 +83,17 @@ if int(ARGUMENTS.get('omp',0)):
 #   include
 env.Append(CPPPATH = '../include')
 
+#   use external library
+#env.Append(LIBS=['XXX','xxxx2'])
+#env.Append(LIBPATH=['xxxx'])
+
 #   the following 3 lines for checking your setted value
 #for item in sorted(env.Dictionary().items()):
 #  print "V = '%s',\t\tValue = '%s'" % item
 #Exit(1)
 
 #   main build
-env.Program('../'+ExeName,Glob("*cc"))
-
+rootcint(env['CPPPATH'])
+env.Program('../'+ExeName,Glob("*.cc"))
+#env.SharedLibrary('../'+ExeName,Glob("*.cc"))
 

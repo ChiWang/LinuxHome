@@ -20,6 +20,7 @@ alias toSilicon='ssh -Y chi@'
 # alias
 alias vi='vim'
 alias ls='ls -F --color'
+alias lt='ls -lrt'
 alias ll='ls -l'
 alias del='\rm -rf -v'
 alias ps='ps wau |'

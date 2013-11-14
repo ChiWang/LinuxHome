@@ -29,6 +29,8 @@ files with macro construct not handled by CINT.
 
 (option -l)
 Use the -l (long) option to prepend the pathname of the dictionary source file to the include of the dictionary header.
+
+(option -I)
 This might be needed in case the dictionary file needs to be compiled with the -I- option that inhibits the use of the directory
 of the source file as the first search directory for "#include "file"".
 
