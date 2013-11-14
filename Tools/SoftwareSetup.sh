@@ -12,7 +12,7 @@ if [[ `git --version 2>/dev/null | grep "GIT_VERSION"` == "" ]];then
     GITSYS=$ToolPath/git_v$GIT_VERSION
     export PATH=$GITSYS/bin:$PATH
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GITSYS/lib:$GITSYS/lib64
-    source $HOME/share/login/git-completion.zsh
+    source $HOME/share/login/git-completion.zsh >/dev/null 2>&1
 fi
 
 #+  DMPSW (DAMPE software)
