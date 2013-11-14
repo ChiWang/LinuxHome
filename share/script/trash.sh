@@ -2,7 +2,7 @@
 #=============================================================================
 #       FileName :          trash.sh
 #       Version  :          0.0.1
-#       Author   :          Chi Wang    (chiwang@mail.ustc.edu.cn)
+#       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
 #       Time     :          2013-10-02   17:35:39
 #------------------------------------------------------------------------------
 #       Description  :
@@ -18,15 +18,12 @@
 #                                          Update:  2013-10-02   17:50:14
 #=============================================================================
 
-# set trash path
-trashPath="$HOME/.Trash"
-
 # move into trash
 name=`date "+%y-%m-%d-%H_%M"`
-mkdir -p $trashPath/$name
+mkdir -p $TRASH/$name
 
 while [ $# != 0 ];do
-	mv $1 $trashPath/$name
+	mv $1 $TRASH/$name
 	shift
 done
 

@@ -18,6 +18,11 @@ if [ ! $VIMBACKDIR ];then
     fi
 fi
 
+#+ Trash
+if [ !$TRASH ];then
+    export TRASH="$HOME/.Trash"
+fi
+
 #+ set user tools
 source $HOME/Tools/SoftwareSetup.sh
 
