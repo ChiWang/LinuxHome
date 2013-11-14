@@ -45,6 +45,7 @@ tmp
 #.zhistory
 
 Tools
+!Tools/SoftwareSetup.sh
 Desktop
 Downloads
 bin/Backup
