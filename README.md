@@ -25,6 +25,6 @@ main:
 
 Others:
 
-    .vimback        // backup of files edited by vim (created by .zshrc)
-    .Trash          // rm XX into it            (created by .zshrc)
+    .vimback        // backup of files edited by vim (created by .zprofile)
+    .Trash          // rm XX into it            (created by .zprofile)
 
