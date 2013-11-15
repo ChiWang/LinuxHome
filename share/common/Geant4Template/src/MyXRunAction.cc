@@ -1,18 +1,14 @@
 /*=============================================================================
 #       FileName :          MyXRunAction.cc
 #       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-18   09:50:23
-#
+#       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-11-16   07:38:09
 #------------------------------------------------------------------------------
 #       Description  :
-#           implement of BeginOfRunAction(const G4Run*) and EndOfRunAction(const G4Run*)
-
-#       giving to User'sAnalysisManager to do thoes work, so if you need to modify thoes methods do it in class of User'sAnalysisManager
 #
 #------------------------------------------------------------------------------
 #       History  :
-#                                          Update:  2013-06-18   09:50:23
+#                                          Update:  2013-11-16   07:38:09
 =============================================================================*/
 
 #include "MyXRunAction.hh"

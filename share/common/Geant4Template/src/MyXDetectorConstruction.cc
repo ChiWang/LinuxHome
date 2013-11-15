@@ -1,16 +1,14 @@
 /*=============================================================================
-#       FileName :          MyXDetectorConstruction2.cc
+#       FileName :          MyXDetectorConstruction.cc
 #       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-20   20:36:19
-#
+#       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
+#       Time     :          2013-11-16   07:37:13
 #------------------------------------------------------------------------------
-#       Description  :
-#
+#       Description  
 #
 #------------------------------------------------------------------------------
 #       History  :
-#                                          Update:  2013-06-20   20:36:19
+#                                          Update:  2013-11-16   07:37:13
 =============================================================================*/
 
 #include "MyXDetectorConstruction.hh"

@@ -1,5 +1,4 @@
 
-
 Structure
 --------------
     include         // header files
@@ -12,6 +11,7 @@ Structure
 
 Usage
 --------------
+
     1)  Makefile    // MyX.cc file must at ./
         make            // will creat executable file MyX at $G4WORK, temporary files in ./src/
         make clean      // clean all created files
@@ -20,4 +20,6 @@ Usage
         scons           // will creat executable file MyX at ./, temporary files in Scons
         scons -c        // clean up
 
+Note
+--------------
 

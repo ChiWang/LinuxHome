@@ -23,31 +23,30 @@ fi
 #+
 
 #+ setup
-mkdir include src mac result analysis Scons 2>/dev/null
+mkdir include src mac  2>/dev/null
 path="$HOME/share/common/Geant4Template"
+cp -r $path/analysis    ./
+cp -r $path/database    ./
 cp -r $path/mac    ./
 cp ${path}/../SConstruct ./
 cp ${path}/../SConscript ./src/
-cp $path/MyGeant4.cc      ./src/$1.cc
-ln -s ./src/$1.cc ./
 cp $path/Makefile       ./Makefile
-sed "s/MyX/$1/g" -i     ./Makefile 
 
 for subdir in include src;do
   for file in `ls ${path}/${subdir}`;do
     name=`echo ${file/MyX/$1}`
     cp ${path}/${subdir}/${file} ./${subdir}/${name}
   done
-  for file in `ls ./${subdir}`;do
-    sed "s/MyX/$1/g" -i ./${subdir}/${file} 
-  done
 done
+sed "s/MyX/$1/g" -i ./${subdir}/*
+sed "s/MyX/$1/g" -i ./Makefile 
+ln -s ./src/$1.cc ./
 #+
 
 #+ Readme.md --> the same name as github
 if [ ! -f Readme.md ]; then
     echo "">Readme.md
-    echo "              Project:     $1"                  >>Readme.md
+    echo "              Geant4 Project:     $1"                  >>Readme.md
     echo "      ======================================================"  >>Readme.md
     echo "          By: $AUTHOR ($AUTHOREMAIL)  `date +%d/%m/%Y`">>Readme.md
     echo "">>Readme.md
@@ -55,7 +54,7 @@ if [ ! -f Readme.md ]; then
     echo "--------------"  >>Readme.md
     echo "">>Readme.md
     echo "">>Readme.md
-    more ${path}/Readme.md >>Readme.md
+    more ${path}/README.md >>Readme.md
     sed "s/MyX/$1/g" -i Readme.md
 fi
 #+

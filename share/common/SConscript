@@ -35,7 +35,7 @@ ExeName='MyX'
 
 #   set debug modle.
 #    if yes, then can use gdb:  http://www.ibm.com/developerworks/cn/linux/sdk/gdb/
-if int(ARGUMENTS.get('debug',0)):
+if int(ARGUMENTS.get('debug',1)):
     env.Prepend(CCFLAGS = '-g')
     env.Append(CCFLAGS = '-DDEBUG')
 else:
