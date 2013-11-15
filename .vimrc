@@ -33,6 +33,11 @@ set backupdir=$VIMBACKDIR     " you need to create this directory firstly
 "au FocusLost * :wa      " set auto wirte
 set autowrite
 
+set foldmethod=syntax
+"set foldmethod=indent
+"set foldmethod=marker
+nnoremap <space> za
+
 
 "+++    Plugins
 filetype plugin on
