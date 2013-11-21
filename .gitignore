@@ -46,6 +46,7 @@ tmp
 
 Tools
 !Tools/SoftwareSetup.sh
+!Tools/SysSoftwareSetup.sh
 Desktop
 Downloads
 bin/Backup
