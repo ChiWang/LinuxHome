@@ -44,9 +44,9 @@ tmp
 #.zcompdump
 #.zhistory
 
-Tools
-!Tools/SoftwareSetup.sh
-!Tools/SysSoftwareSetup.sh
+software
+!software/SoftwareSetup.sh
+!software/SysSoftwareSetup.sh
 Desktop
 Downloads
 bin/Backup
