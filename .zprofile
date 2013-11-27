@@ -24,5 +24,5 @@ if [ !$TRASH ];then
 fi
 
 #+ set user tools
-source $HOME/Tools/SoftwareSetup.sh
+source $HOME/software/SoftwareSetup.sh
 
