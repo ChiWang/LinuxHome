@@ -1,5 +1,6 @@
 
 #! /bin/bash
 
-yum install -Y zsh yum-fastestmirror
+yum install -y zsh yum-fastestmirror
+yum install -y expat-devel
 
