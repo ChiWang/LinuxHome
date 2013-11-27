@@ -34,7 +34,10 @@ sed "s/MyX/$1/g" -i ./src/*
 #+
 
 #+ Readme.md --> the same name as github
-if [ ! -f Readme.md ]; then
+if [ -f Readme.md ];then
+    read -p "   Readme.md is exist, do you want to create a new one {yes|no}?:      "   ans
+fi
+if [ "XXX$ans" != "XXXno" ]; then
     echo "">Readme.md
     echo "              Project:     $1"                  >>Readme.md
     echo "      ======================================================"  >>Readme.md
