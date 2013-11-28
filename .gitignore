@@ -23,6 +23,7 @@ tmp
 !.vim
 !.zprofile
 !.zshrc
+!.gitconfig
 
 #.Trash
 #.bash*
@@ -34,7 +35,6 @@ tmp
 #.dbus
 #.g4_hist
 #.gconfd
-#.gitconfig
 #.gnome2
 #.history
 #.proof
