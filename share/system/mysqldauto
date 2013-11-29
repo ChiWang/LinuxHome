@@ -1,0 +1,8 @@
+#! /bin/bash
+
+/usr/bin/mysqld_safe --user=mysql &	# better use user mysql instead of root
+
+# usage:
+#   before use this file,
+#   1.  chmod a+rx  thisFile
+#   2.  ln -s "thisFile" /etc/rc5.d/S99mysql
