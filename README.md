@@ -1,6 +1,8 @@
 
 # My home setup
 
+Yangqian
+
 bin and share (same):
 
     bin             // user defined commands
