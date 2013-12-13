@@ -1,17 +1,13 @@
-#=============================================================================
-#       FileName :          .zshrc
-#       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-07-26   21:50:39
-
-#------------------------------------------------------------------------------
-#       Description  :
-#           summary of .zshrc from internet
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-07-28   16:53:47
-#=============================================================================
+#=====================================================================
+#   File:   .zshrc
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    26/07/2013
+#---------------------------------------------------------------------
+#   Description:
+#       must source aliasrc in .zshrc instead of in .zprofile
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  13/12/2013   14:10:09
+#=====================================================================
 
 #set terminal title
 case $TERM in
@@ -125,7 +121,7 @@ hash -d I="/etc/rc.d"
 #       User alias                      #
 #=======================================#
 
-#+ alias and login  # must in .zshrc instead of in .zprofile
+#+ alias and login
 if [ -d ~/share/login ];then
   source ~/share/login/aliasrc
 else

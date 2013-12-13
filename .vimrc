@@ -1,16 +1,16 @@
-"=============================================================================
-"       FileName :          .vimrc
-"       Version  :          0.0.1
-"       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
-"       Time     :          2013-09-29   01:12:11
+"=====================================================================
+"   File:   .vimrc
+"   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    29/09/2013
+"---------------------------------------------------------------------
+"   Description:
+"      author infor:
+"           set $AUTHOR, $AUTHOREMAIL in .zprofile
+"
+"---------------------------------------------------------------------
+"   History:
+"                           Last update:  13/12/2013   14:40:04
+"=====================================================================
 
-"------------------------------------------------------------------------------
-"       Description  :
-"           vim set
-"------------------------------------------------------------------------------
-"       History  :
-"                                          Update:  2013-09-29   01:12:11
-"=============================================================================
 
 "+++    Common set
 set showmatch           " Show matching brackets.
@@ -39,6 +39,10 @@ set foldmethod=syntax
 nnoremap <space> za
 
 
+"==================================="
+"       User Special Setting        "
+"==================================="
+
 "+++    Plugins
 filetype plugin on
 
@@ -52,5 +56,9 @@ let g:vimrc_email=$AUTHOREMAIL
 nmap <F4> :AuthorInfoDetect<cr>
 
 "+++    shortcuts
+"<ctrl+t>   openmp
 map <c-t> iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
+"<ctrl+f>   function note
+map <c-f> i//------------------------------------------------------------------------------<Esc>A
+
 

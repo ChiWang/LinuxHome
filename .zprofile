@@ -1,9 +1,17 @@
+#=====================================================================
+#   File:   .zprofile
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    13/12/2013
+#---------------------------------------------------------------------
+#   Description:
+#       
+#       User Special Setting
+#
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  13/12/2013   14:11:18
+#=====================================================================
 
-#=======================================#
-#       User Special Setting            #
-#=======================================#
-
-#+  author information
+#+  author information  // will be used in ~/.vim/plugin/authorinfor.vim
 export AUTHOR="Chi WANG"
 export AUTHOREMAIL="chiwang@mail.ustc.edu.cn"
 
@@ -18,7 +26,7 @@ if [ ! $VIMBACKDIR ];then
     fi
 fi
 
-#+ Trash
+#+ Trash    // will be used in ~/bin/del
 if [ !$TRASH ];then
     export TRASH="$HOME/.Trash"
 fi

@@ -99,7 +99,7 @@ function s:AddTitle()
     let newline = getline('.')
     if oldline != newline
         let hasMul = 1
-        let preChar = '#'
+        let preChar = ' *'
     else
         exec 'normal '.s:t_mapleader.'cl'
         let newline = getline('.')
@@ -113,30 +113,26 @@ function s:AddTitle()
     call s:BeforeTitle()
 
     let firstLine = line('.')
-    call setline('.',noTypeChar.'=============================================================================')
+    call setline('.',noTypeChar.'=====================================================================')
     normal o
-    call setline('.',noTypeChar.preChar.'       FileName :          '.expand("%:t"))
+    call setline('.',noTypeChar.preChar.'   File:   '.expand("%:t"))
     normal o
-    call setline('.',noTypeChar.preChar.'       Version  :          0.0.1')
+    call setline('.',noTypeChar.preChar.'   Author: '.g:vimrc_author.'  ('.g:vimrc_email.')    '.strftime("%d/%m/%Y"))
     normal o
-    call setline('.',noTypeChar.preChar.'       Author   :          '.g:vimrc_author.'    ('.g:vimrc_email.')')
+    call setline('.',noTypeChar.preChar.'---------------------------------------------------------------------')
     normal o
-    call setline('.',noTypeChar.preChar.'       Time     :          '.strftime("%Y-%m-%d   %H:%M:%S"))
-    normal o
-    call setline('.',noTypeChar.preChar.'------------------------------------------------------------------------------')
-    normal o
-    call setline('.',noTypeChar.preChar.'       Description  :')
+    call setline('.',noTypeChar.preChar.'   Description:')
     let gotoLn = line('.')
     normal o
     call setline('.',noTypeChar.preChar)
     normal o
-    call setline('.',noTypeChar.preChar.'------------------------------------------------------------------------------')
+    call setline('.',noTypeChar.preChar.'---------------------------------------------------------------------')
     normal o
-    call setline('.',noTypeChar.preChar.'       History  :')
+    call setline('.',noTypeChar.preChar.'   History:')
     normal o
-    call setline('.',noTypeChar.preChar.'                                          Update:  '.strftime("%Y-%m-%d   %H:%M:%S"))
+    call setline('.',noTypeChar.preChar.'                           Last update:  '.strftime("%d/%m/%Y   %H:%M:%S"))
     normal o
-    call setline('.',noTypeChar.'=============================================================================')
+    call setline('.',noTypeChar.'=====================================================================')
     let lastLine = line('.')
 
     "在最后一行之后做的事情
@@ -165,8 +161,8 @@ function s:TitleDet()
             call setline(n,newline)
             let updated = 1
         endif
-        if line =~ '^.*Update:\S*.*$'
-            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.strftime("%Y-%m-%d   %H:%M:%S"),'g')
+        if line =~ '^.*Last update:\S*.*$'
+            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.strftime("%d/%m/%Y   %H:%M:%S"),'g')
             call setline(n,newline)
             let updated = 1
         endif

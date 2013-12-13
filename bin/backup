@@ -1,15 +1,22 @@
 #! /bin/bash
-#backup all new files in certain Dir_A. there are most 3 arches subDir in Dir_A: Dir_A/Dir0/Dir1/Dir2/*, if * is a Dir, then backup * all.
-
-#--help:
-#bash ThisFileName.sh 				# default: "the current Dir_A (where you run this shell)" to do backup
-
-#bash ThisFileName.sh $1			#$1 is the absolutily path of the Dir_A you want to backup
-
-#bash ThisFileName.sh <$mark>			#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
-
-#bash ThisFileName.sh $1 <$mark>		#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
-
+#=====================================================================
+#   File:   backup
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    07/11/2012
+#---------------------------------------------------------------------
+#   Description:
+#
+#   backup all new files in certain Dir_A.
+#   there are most 3 arches subDir in Dir_A: Dir_A/Dir0/Dir1/Dir2/*, if * is a Dir, then backup * all.
+#
+#   --help:
+#   bash ThisFileName.sh 				# default: "the current Dir_A (where you run this shell)" to do backup
+#   bash ThisFileName.sh $1			#$1 is the absolutily path of the Dir_A you want to backup
+#   bash ThisFileName.sh <$mark>			#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
+#   bash ThisFileName.sh $1 <$mark>		#will creat the Dir: Dir_A/Backup/newversion, if set $mark then it's newversion$mark
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  13/12/2013   13:56:52
+#=====================================================================
 
 function BackOV(){
 if [ $DoneBack != "yes" ];then

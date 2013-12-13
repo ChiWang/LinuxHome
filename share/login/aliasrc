@@ -1,3 +1,13 @@
+#=====================================================================
+#   File:   aliasrc
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    26/07/2013
+#---------------------------------------------------------------------
+#   Description:
+#       .zshrc will source this file
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  13/12/2013   14:08:02
+#=====================================================================
 
 #+ servers
 alias toR710='ssh -Y chiwang@202.141.161.5'
@@ -15,7 +25,6 @@ alias toui05='ssh -Y wangc@ui05.lcg.ustc.edu.cn'
 alias toui06='ssh -Y wangc@ui06.lcg.ustc.edu.cn'
 
 alias toT6102='ssh -Y chi@159.226.72.202'
-alias toSilicon='ssh -Y chi@'
 #+
 
 # alias
@@ -33,8 +42,6 @@ alias scr='screen -r'
 alias scd='screen -d'
 alias scc='screen -dmS'
 
-alias rm='bash ~/share/script/trash.sh'
-alias mkdir='bash ~/share/script/makedir.sh'
-
 # + user special commands
 alias checkoutDmpSW='svn checkout http://dpnc.unige.ch/SVNDAMPE/DAMPE/DmpSoftware/trunk'
+
