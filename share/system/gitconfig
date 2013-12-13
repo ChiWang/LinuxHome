@@ -12,3 +12,5 @@
     	editor = vim
 [merge]
     	tool = vimdiff
+[http]
+    	postBuffer = 524288000
