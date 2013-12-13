@@ -1,6 +1,6 @@
 #=====================================================================
 #   File:   SoftwareSetup.sh
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    13/12/2013
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    13/10/2013
 #---------------------------------------------------------------------
 #   Description:
 #
