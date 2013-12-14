@@ -8,19 +8,18 @@
 #   Goal:       rm file into a $TRASH (set in ~/.zprofile)
 #   Install:
 #       1.  set $TRASH in .zprofile
-#       2.  add alias into .zshrc   (alias rm='bash /PathToThisFile/trash.sh')
+#       2.  put this file in $PATH
 #---------------------------------------------------------------------
 #   History:
 #                           Last update:  13/12/2013   14:13:21
 #=====================================================================
 
 # move into trash
-name=`date "+%y-%m-%d-%H_%M"`
+name=`date "+%y-%m-%d-%H_%M_%S"`
 mkdir -p $TRASH/$name
 
 while [ $# != 0 ];do
 	mv $1 $TRASH/$name
 	shift
 done
-
 
