@@ -1,6 +1,5 @@
 
 # My home setup
-ssss
 
 bin and share (same):
 
