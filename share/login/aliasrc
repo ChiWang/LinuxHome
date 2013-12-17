@@ -32,10 +32,10 @@ alias vi='vim'
 alias ls='ls -F --color'
 alias lt='ls -lrt'
 alias ll='ls -l'
-alias ps='ps wau |'
+alias ps='ps auwx'
 alias xterm='xterm -132 -sb -sl 300 -fn 10x20'
 
-alias psf='ps -ef --forest'
+alias psf='\ps -ef --forest'
 alias scls='screen -list' #no screen in rocks4
 alias scr='screen -r'
 alias scd='screen -d'
