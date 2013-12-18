@@ -6,13 +6,15 @@
 #       .zshrc will source this file
 #---------------------------------------------------------------------
 #   History:
-#                           Last update:  13/12/2013   14:08:02
+#                           Last update:  18/12/2013   14:06:43
 #=====================================================================
 
 #+ servers
+alias todampI='ssh -Y chi@202.141.163.246'
+alias todampO='ssh -Y chi@210.45.78.137'
 alias toR710='ssh -Y chiwang@202.141.161.5'
-alias todamp='ssh -Y chi@210.45.78.137'
 alias toLab312='ssh -Y chi@210.45.78.198'
+alias toT6102='ssh -Y chi@159.226.72.202'
 
 alias toihep='ssh -Y wangch@lxslc.ihep.ac.cn'
 alias toihep5='ssh -Y wangch@lxslc5.ihep.ac.cn'
@@ -23,8 +25,6 @@ alias toui03='ssh -Y wangc@ui03.lcg.ustc.edu.cn'
 alias toui04='ssh -Y wangc@ui04.lcg.ustc.edu.cn'
 alias toui05='ssh -Y wangc@ui05.lcg.ustc.edu.cn'
 alias toui06='ssh -Y wangc@ui06.lcg.ustc.edu.cn'
-
-alias toT6102='ssh -Y chi@159.226.72.202'
 #+
 
 # alias
