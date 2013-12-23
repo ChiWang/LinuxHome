@@ -19,7 +19,7 @@ name=`date "+%y-%m-%d-%H_%M_%S"`
 mkdir -p $TRASH/$name
 
 while [ $# != 0 ];do
-    echo "mv $1 into $TRASH"
+    #echo "mv $1 into $TRASH"
 	mv $1 $TRASH/$name
 	shift
 done
