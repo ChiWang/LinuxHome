@@ -25,8 +25,8 @@
 #                           Last update:  13/12/2013   14:04:02
 #=====================================================================
 
+#import sys
 import os
-import sys
 env = Environment(ENV = os.environ)
 
 #   set the programme name

@@ -20,6 +20,10 @@ else
 fi
 #+
 
+#------------------------------------------------------------------------------
+mkdir $1
+pushd $1 1>/dev/null
+
 #+ setup
 mkdir include src mac  2>/dev/null
 path="$HOME/share/common/Geant4Template"
@@ -60,5 +64,6 @@ if [ "XXX$ans" != "XXXno" ]; then
 fi
 #+
 
+popd 1>/dev/null
 
 

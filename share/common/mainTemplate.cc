@@ -14,5 +14,5 @@ int main(int argc, char* argv[]){
 
 //------------------------------------------------------------------------------
 void Usage(){
-  std::cout<<"\tUsage:\tXXX"<<std::endl;
+  std::cout<<"\tUsage:\t"<<std::endl;
 }

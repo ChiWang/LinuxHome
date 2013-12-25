@@ -20,6 +20,10 @@ else
 fi
 #+
 
+#------------------------------------------------------------------------------
+mkdir $1
+pushd $1 1>/dev/null
+
 #+ setup
 mkdir include src 2>/dev/null
 path="$HOME/share/common"
@@ -54,5 +58,7 @@ if [ "XXX$ans" != "XXXno" ]; then
     echo "">>Readme.md
 fi
 #+
+
+popd 1>/dev/null
 
 
