@@ -60,5 +60,7 @@ nmap <F4> :AuthorInfoDetect<cr>
 map <c-t> iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 "<ctrl+f>   function note
 map <c-f> i//------------------------------------------------------------------------------<Esc>A
+"<ctrl+a>   assert()
+map <c-a> i  assert();<Esc>A
 
 
