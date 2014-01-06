@@ -32,5 +32,5 @@ if [ !$TRASH ];then
 fi
 
 #+ set user tools
-source $HOME/software/config/usersoftware.conf
+source $HOME/software/config/usersoftwareconf.sh
 
