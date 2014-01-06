@@ -35,6 +35,7 @@ alias ll='ls -l'
 alias rm='delete'
 alias del='\rm'
 alias ps='ps auwx'
+alias pidOfPts='ps -A | grep '
 alias xterm='xterm -132 -sb -sl 300 -fn 10x20'
 
 alias psf='\ps -ef --forest'
