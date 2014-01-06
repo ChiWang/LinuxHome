@@ -44,8 +44,9 @@ tmp
 #.zcompdump
 #.zhistory
 
-software
-!software/config/*
+software/build
+software/download
+software/*_v*
 Desktop
 Downloads
 
