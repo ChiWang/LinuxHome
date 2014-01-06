@@ -61,6 +61,7 @@ if int(ARGUMENTS.get('omp',0)):
 env.Append(CPPPATH = '../include')
 
 #   use external library
+env.Append(LIBS=['boost_program_options-mt'])
 #env.Append(LIBS=['XXX','xxxx2'])
 #env.Append(LIBPATH=['xxxx'])
 
