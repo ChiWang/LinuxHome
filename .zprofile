@@ -8,7 +8,7 @@
 #
 #---------------------------------------------------------------------
 #   History:
-#                           Last update:  13/12/2013   14:11:18
+#                           Last update:  06/01/2014   23:29:19
 #=====================================================================
 
 #+  author information  // will be used in ~/.vim/plugin/authorinfor.vim
@@ -32,5 +32,5 @@ if [ !$TRASH ];then
 fi
 
 #+ set user tools
-source $HOME/software/SoftwareSetup.sh
+source $HOME/software/config/usersoftware.conf
 

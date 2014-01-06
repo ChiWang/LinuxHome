@@ -1,5 +1,5 @@
 #=====================================================================
-#   File:   SoftwareSetup.sh
+#   File:   usersoftwareconf.sh
 #   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    24/10/2013
 #---------------------------------------------------------------------
 #   Description:
@@ -9,7 +9,7 @@
 #   just source me.
 #---------------------------------------------------------------------
 #   History:
-#                           Last update:  13/12/2013   15:07:05
+#                           Last update:  06/01/2014   23:27:55
 #=====================================================================
 
 # path
@@ -24,6 +24,9 @@ if [ !1 ];then
 
 
 fi
+
+#+ Python
+export PYTHONSTARTUP=$userTool/config/pythonconf.py
 
 unset userTool
 

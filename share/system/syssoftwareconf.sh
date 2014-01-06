@@ -1,5 +1,5 @@
 #=====================================================================
-#   File:   SoftwareSetup.sh
+#   File:   syssoftwareconf.sh
 #   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    13/10/2013
 #---------------------------------------------------------------------
 #   Description:

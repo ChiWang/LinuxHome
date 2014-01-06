@@ -45,7 +45,7 @@ tmp
 #.zhistory
 
 software
-!software/SoftwareSetup.sh
+!software/config/*
 Desktop
 Downloads
 
