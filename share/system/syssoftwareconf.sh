@@ -20,6 +20,9 @@ export SVN_EDITOR=vim
 export SCONSFLAGS="-Q"
 export NUM_CPU=`more /proc/cpuinfo| grep "processor" | wc -l`
 
+#+ Python
+export PYTHONSTARTUP=$ToolPath/config/pythonconf.py
+
 #+ root         
 pushd $ToolPath/root_v5.34 > /dev/null 2>&1
 source ./bin/thisroot.sh
@@ -28,7 +31,7 @@ popd >/dev/null
 #+ geant4
 pushd $ToolPath/geant4_v4.9.6/share/Geant4*/geant4make >/dev/null 2>&1
 source geant4make.sh
-popd >/dev/null                   
+popd >/dev/null
 
 unset ToolPath
 

@@ -25,9 +25,5 @@ if [ !1 ];then
 
 fi
 
-#+ Python
-export PYTHONSTARTUP=$userTool/config/pythonconf.py
-
 unset userTool
-
 
