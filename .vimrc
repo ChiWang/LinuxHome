@@ -59,10 +59,9 @@ nmap <F4> :AuthorInfoDetect<cr>
 "<ctrl+t>   openmp
 map <c-t> iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 "<ctrl+f>   function note for C++
-map <c-f> i//------------------------------------------------------------------------------<Esc>A
-"<ctrl+q>   function note for pyton
-map <c-q> i#-------------------------------------------------------------------------------<Esc>A
+map <c-f> i//---------------------------------------------------<Esc>A
+"<ctrl+p>   function note for pyton
+map <c-p> i#----------------------------------------------------<Esc>A
 "<ctrl+a>   assert()
 map <c-a> i  assert();<Esc>A
-
 
