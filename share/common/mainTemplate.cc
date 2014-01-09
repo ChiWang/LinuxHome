@@ -2,10 +2,11 @@
 #ifdef DEBUG
 #include <assert.h>
 #endif
-#include <boost/program_options.hpp>
+//#include <boost/program_options.hpp>
 
 //------------------------------------------------------------------------------
 int main(int argc, char* argv[]){
+/*
 //  ------> Program_options
   boost::program_options::options_description options("Usage: MyX [options] \nOptions");
 
@@ -24,7 +25,7 @@ int main(int argc, char* argv[]){
   } else if (vmap.count("version")) {
     std::cout<<"MyX Version = 0.21.8"<<std::endl;
   }
-//  ------> Program_options
+*/
 
   return 0;
 }
