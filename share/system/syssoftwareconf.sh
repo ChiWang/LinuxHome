@@ -33,6 +33,8 @@ pushd $ToolPath/geant4_v4.9.6/share/Geant4*/geant4make >/dev/null 2>&1
 source geant4make.sh
 popd >/dev/null
 
+#+ CLHEP
+export PATH="$ToolPath/clhep_v2.1.4.1/bin":$PATH
+export LD_LIBRARY_PATH="$ToolPath/clhep_v2.1.4.1/lib":$LD_LIBRARY_PATH
+
 unset ToolPath
-
-
