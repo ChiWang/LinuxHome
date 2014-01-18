@@ -52,6 +52,10 @@ if int(ARGUMENTS.get('g4',0)):
     env.PrependENVPath('PATH', g4sys+'/../../../bin')
     env.ParseConfig("geant4-config --cflags --libs")
 
+#   set CLHEP environment
+if int(ARGUMENTS.get('clhep',0)):
+    env.ParseConfig("clhep-config --include --libs")
+
 #   set OpenMP
 if int(ARGUMENTS.get('omp',0)):
     ExeName=ExeName+"_omp"
@@ -60,8 +64,9 @@ if int(ARGUMENTS.get('omp',0)):
 #   include
 env.Append(CPPPATH = '../include')
 
-#   use external library
+#   use boost
 env.Append(LIBS=['boost_program_options-mt'])
+#   use external library
 #env.Append(LIBS=['XXX','xxxx2'])
 #env.Append(LIBPATH=['xxxx'])
 
