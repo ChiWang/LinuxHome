@@ -16,7 +16,7 @@
 set showmatch           " Show matching brackets.
 set matchtime=2         " Show time of matching brackets.
 set hlsearch            " high light searching words
-set tabstop=4           " tap longth = 2
+set tabstop=2           " tap longth = 2
 set expandtab           " replace tab by space
 set laststatus=2        " show status line
 set vb t_vb=            " 

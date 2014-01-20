@@ -5,22 +5,24 @@
 #---------------------------------------------------------------------
 #   Description:
 #
-#   Goal:       rm file into a $TRASH (set in ~/.zprofile)
+#   Goal:       rm file into a trash
 #   Install:
-#       1.  set $TRASH in .zprofile
-#       2.  put this file in $PATH
+#       1.  put this file in $PATH
 #---------------------------------------------------------------------
 #   History:
 #                           Last update:  13/12/2013   14:13:21
 #=====================================================================
 
+#+ Trash    // will be used in ~/bin/del
+trash="$HOME/.trash"
+
 # move into trash
 name=`date "+%y-%m-%d-%H_%M_%S"`
-mkdir -p $TRASH/$name
+mkdir -p $trash/$name
 
 while [ $# != 0 ];do
     #echo "mv $1 into $TRASH"
-	mv $1 $TRASH/$name
+	mv $1 $trash/$name
 	shift
 done
 

@@ -26,11 +26,6 @@ if [ ! $VIMBACKDIR ];then
     fi
 fi
 
-#+ Trash    // will be used in ~/bin/del
-if [ !$TRASH ];then
-    export TRASH="$HOME/.Trash"
-fi
-
 #+ set user tools
 source $HOME/software/config/usersoftwareconf.sh
 
