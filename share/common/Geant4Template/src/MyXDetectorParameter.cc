@@ -1,3 +1,0 @@
-#include "MyXGlobal.hh"
-
-const 

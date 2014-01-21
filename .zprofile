@@ -12,19 +12,7 @@
 #=====================================================================
 
 #+  author information  // will be used in ~/.vim/plugin/authorinfor.vim
-export AUTHOR="Chi WANG"
-export AUTHOREMAIL="chiwang@mail.ustc.edu.cn"
-
-#+  set vim back path. Add 3 lines in ~/.vimrc
-#   set backup
-#   set backupext=.back
-#   set backupdir=$VIMBACKDIR
-if [ ! $VIMBACKDIR ];then
-    export VIMBACKDIR="$HOME/.vimback"
-    if [ ! -d $VIMBACKDIR ];then
-        mkdir $VIMBACKDIR
-    fi
-fi
+export MYEMAIL="chiwang@mail.ustc.edu.cn"
 
 #+ set user tools
 source $HOME/software/config/usersoftwareconf.sh

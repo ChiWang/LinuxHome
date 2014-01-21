@@ -1,64 +1,189 @@
 #! /bin/bash
 #=====================================================================
 #   File:   newproject
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    11/02/2013
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    06/09/2013
 #---------------------------------------------------------------------
 #   Description:
-#
-#       Useage:     newproject projectName
+#    newproject projectName projectTag
+#       projectTag = {c++|g4|bes|bash|python}
 #---------------------------------------------------------------------
 #   History:
-#                           Last update:  13/12/2013   14:01:58
+#                           Last update:  21/01/2014   18:29:10
 #=====================================================================
 
-#+ usage
-if [ $# == 1 ];then
-  echo "    Setting up project \"$1\"" 
-else
-  echo "    Usage:  newproject projectName"
-  exit
-fi
-#+
 
-#------------------------------------------------------------------------------
-mkdir $1
-pushd $1 1>/dev/null
+#+ functions
+#----------------------------------------------------
+Usage(){
+echo "
+  Usage: (2 arguments)
+    $0  projectName  projectTag
+        projectTag = {c++ | g4 | bes | bash | python}
+"
+exit 1
+}
+
+Readme(){   #+ this only used for g4 and c++
+sed "s/MyPro/$1/g" ${tempRoot}/c++/SConscript | sed "s#DATE#$Date#g" | sed "s/TIME/$Time/g" > $1/src/SConscript
+cp $tempRoot/c++/SConstruct $1/
+#+ readme
+cat > $1/Readme.md <<EOF
+
+                        Project:    $1
+        =======================================================
+        |   Aouthor:    Chi WANG (chiwang@mail.ustc.edu.cn)   |         
+        |   Time:           $Date    $Time            |
+        =======================================================
+
+Description:
+-------------
+
+Note:
+-------------
+
+Compile:
+-------------
+    better to use SCons
+
+  1. SCons      // all *.cc file must in ./src/
+    scons       // will create executable file sss at ./, and temporary files in ./Scons
+    scons -c    // clean up
+    Note:   maybe you need to enable certain software in ./src/SConscript by yourself
+
+  2. Make       // if Makefile exist
+    make        // creat executable file
+    make clean  // clean all created files
+
+Tips:
+-------------
+
+    # Here are the tips of how to use Cscope and Ctags while you development
+    # It may let your coding more efficiency.
+    #   the next is a simple statement of how to use those tools.
+
+    1.  Cscope:
+        1.1.  cd into "RootDir of this project"(where holds src and include, etc)
+
+        1.2.  create cscope* files
+            cscope -Rbq
+
+        1.3.  then, while you use vim open a source file,
+            1.3.1     :cs add /SomePathTo/cscope.out
+            1.3.2     :cs find g anyThing
+            1.3.3     :cs find c anyThing
+
+        1.4.  show the outputs of 1.3 in a window, do in vim
+            :cw
+            (if report errors, be sure that this line ":set cscopequickfix=s-,c-,d-,i-,t-,e-" in your ~/.vimrc)
+
+    2.  Ctags:
+        2.1.  cd into "RootDir of this project"(where holds src and include, etc)
+
+        2.2.  create tags file
+            ctags -R
+
+        2.3.  then, while you use vim open a source file,
+            2.3.1   :set tags=/SomePathTo/tags
+            2.3.2   Ctrl+] OR Ctrl+T to find something
+
+Structure:
+-------------
+    include         // header files
+    src             // source files
+    SConstruct      // SCons read this file
+    Scons           // to store temprary files created by using SCons, if Scons is exist
+EOF
+if [[ $Tag == "g4" ]];then
+cat >> $1/Readme.md <<EOF
+    mac             // macro files
+    db/sim          // simulation results will save into this directory
+    analysis        // analysis codes, input is db/sim/*
+    db/ana          // analysis results will save into this directory
+EOF
+fi
+}
+
+setupCpp(){
+#+ setup
+mkdir -p $1/include $1/src 2>/dev/null
+sed "s/MyPro/$1/g" $temp/main.cc > $1/src/$1_main.cc
+
+#+ Readme.md
+Readme $1
+}
+
+setupG4(){
+#+ setup
+cp $temp $1 -r
+for subdir in include src;do
+  for file in `ls $1/${subdir}`;do
+    name=`echo ${file/MyPro/$1}`
+    mv $1/${subdir}/${file} $1/${subdir}/${name}
+  done
+  sed "s/MyPro/$1/g" -i $1/${subdir}/*
+done
+sed "s/MyPro/$1/g" -i $1/Makefile
+ln -s $PWD/$1/src/$1.cc $1/
+
+#+ Readme.md
+Readme $1
+}
+
+setupBes(){
+  echo "setup BES"
+}
+
+setupBash(){
+cat >$1.sh <<EOF
+#! /bin/bash
+
+
+#+ functions
+#----------------------------------------------------
+Usage(){
+echo "
+  Usage:
+    bash $1
+"
+exit 1
+}
+
+#+ main
+#----------------------------------------------------
+EOF
+}
+
+setupPython(){
+  echo "setup Python"
+}
+
+#+ main
+#----------------------------------------------------
+if [ $# != 2 ];then
+  Usage
+fi
+echo "    Setting up $2 project \"$1\"" 
+tempRoot="$HOME/share/common/template"
+Tag=$2
+temp="$tempRoot/$Tag"
+Date=`date +%d/%m/%Y`
+Time=`date +%H:%M:%S`
 
 #+ setup
-mkdir include src 2>/dev/null
-path="$HOME/share/common"
-cp $path/SConstruct ./
-cp $path/SConscript ./src/
-more $path/mainTemplate.cc >./src/$1.cc
-sed "s/MyX/$1/g" -i ./src/* 
-#+
-
-#+ Readme.md --> the same name as github
-if [ -f Readme.md ];then
-    read -p "   Readme.md is exist, do you want to create a new one {yes|no}?:      "   ans
-fi
-if [ "XXX$ans" != "XXXno" ]; then
-    echo "">Readme.md
-    echo "              Project:     $1"                  >>Readme.md
-    echo "      ======================================================"  >>Readme.md
-    echo "          By: $AUTHOR ($AUTHOREMAIL)  `date +%d/%m/%Y`">>Readme.md
-    echo "">>Readme.md
-    echo "Description"  >>Readme.md
-    echo "--------------">>Readme.md
-    echo "">>Readme.md
-    echo "">>Readme.md
-    echo "Usage"        >>Readme.md
-    echo "--------------">>Readme.md
-    echo "">>Readme.md
-    echo "    scons       // will create executable file $1 at ./, and temporary files in ./Scons"       >>Readme.md
-    echo "    scons -c    // clean up"    >>Readme.md
-    echo "">>Readme.md
-    echo "Note"        >>Readme.md
-    echo "--------------">>Readme.md
-    echo "">>Readme.md
-fi
-#+
-
-popd 1>/dev/null
-
-
+case "$Tag" in
+  c++)
+    setupCpp $1
+    ;;
+  g4)
+    setupG4 $1
+    ;;
+  bes)
+    setupBes $1
+    ;;
+  bash)
+    setupBash $1
+    ;;
+  python)
+    setupPython $1
+    ;;
+esac
