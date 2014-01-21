@@ -35,6 +35,7 @@ cat > $1/Readme.md <<EOF
         |   Time:           $Date    $Time            |
         =======================================================
 
+
 Description:
 -------------
 
@@ -123,7 +124,7 @@ for subdir in include src;do
   sed "s/MyPro/$1/g" -i $1/${subdir}/*
 done
 sed "s/MyPro/$1/g" -i $1/Makefile
-ln -s $PWD/$1/src/$1.cc $1/
+ln -s $PWD/$1/src/$1_main.cc $1/
 
 #+ Readme.md
 Readme $1
@@ -162,9 +163,9 @@ setupPython(){
 if [ $# != 2 ];then
   Usage
 fi
-echo "    Setting up $2 project \"$1\"" 
+echo "    Setting up $1 project \"$2\"" 
 tempRoot="$HOME/share/common/template"
-Tag=$2
+Tag=$1
 temp="$tempRoot/$Tag"
 Date=`date +%d/%m/%Y`
 Time=`date +%H:%M:%S`
@@ -172,18 +173,18 @@ Time=`date +%H:%M:%S`
 #+ setup
 case "$Tag" in
   c++)
-    setupCpp $1
+    setupCpp $2
     ;;
   g4)
-    setupG4 $1
+    setupG4 $2
     ;;
   bes)
-    setupBes $1
+    setupBes $2
     ;;
   bash)
-    setupBash $1
+    setupBash $2
     ;;
   python)
-    setupPython $1
+    setupPython $2
     ;;
 esac

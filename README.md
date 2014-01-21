@@ -19,12 +19,9 @@ vim (same):
 main:
 
     main            // ** WORK AREA **
-        dataDir     // all data files
-        testDir
-        workDir     // 
 
 Others:
 
     .vimback        // backup of files edited by vim (created by .zprofile)
-    .Trash          // rm XX into it            (created by .zprofile)
+    .trash          // rm XX into it            (created by .zprofile)
 
