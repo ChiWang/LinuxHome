@@ -1,0 +1,45 @@
+#=====================================================================
+#   File:   src.scons
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    DATE
+#---------------------------------------------------------------------
+#   Description:
+#       This file invoked in ../SConstruct
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  23/01/2014   00:12:40
+#=====================================================================
+
+import os
+Import("*")     # import all vars from SConstruct
+print "\t\t\t invoke %s\n" % os.path.abspath("./")
+#--------------------------------------------------------------------
+
+#   set the programme name
+target='MyPro'
+env = envBase.Clone()
+
+#   set OpenMP
+#if int(ARGUMENTS.get('omp',0)):
+#    target=target+"_omp"
+#    env.MergeFlags('-fopenmp')
+
+#   include
+env.Append(CPPPATH = '../include')
+
+#   use boost
+env.Append(LIBS=['boost_program_options-mt'])
+#   use external library
+#env.Append(LIBS=['XXX','xxxx2'])
+#env.Append(LIBPATH=['xxxx'])
+
+#--------------------------------------------------------------------
+#   the following 3 lines for checking your setted value
+#for item in sorted(envBase.Dictionary().items()):
+#  print "V = '%s',\t\tValue = '%s'" % item
+#Exit(1)
+#--------------------------------------------------------------------
+
+#   main build
+env.Program('../'+target,Glob("*.cc"))
+#env.SharedLibrary('../'+target,Glob("*.cc"))
+

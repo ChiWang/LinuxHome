@@ -1,3 +1,66 @@
+#=====================================================================
+#   File:   SConstruct
+#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    DATE
+#---------------------------------------------------------------------
+#   Description:
+#       For Project MyPro
+#
+#   1.  CLHEP
+#   2.  Root
+#   3.  Geant4
+#   4.  How to use gdb:  http://www.ibm.com/developerworks/cn/linux/sdk/gdb/
+#---------------------------------------------------------------------
+#   History:
+#                           Last update:  DATE   TIME
+#=====================================================================
 
-SConscript('./src/SConscript',variant_dir='Scons',duplicate=0)
+#import sys
+import os
+
+# functions
+#--------------------------------------------------------------------
+def checkSysEnv(var):
+    if not os.environ.has_key(var):
+        print "\tERROR:\tNot has environment variable: %s" % var
+        Exit(1)
+
+def useCLHEP(aEnv):
+    aEnv.ParseConfig("clhep-config --include --libs")
+
+def useRoot(aEnv):
+    checkSysEnv('ROOTSYS')
+    aEnv.ParseConfig("root-config --cflags --libs")
+    aEnv.Append(LIBS=['RooFitCore','RooFit'])
+
+def useGeant4(aEnv):
+    checkSysEnv('G4INSTALL')
+    g4sys=os.environ['G4INSTALL']
+    aEnv.PrependENVPath('PATH', g4sys+'/../../../bin')
+    aEnv.ParseConfig("geant4-config --cflags --libs")
+
+# set basical environment
+#--------------------------------------------------------------------
+envBase = Environment(ENV = os.environ)
+#useCLHEP(envBase)
+useRoot(envBase)
+useGeant4(envBase)
+
+# mode flag
+#--------------------------------------------------------------------
+if int(ARGUMENTS.get('debug',1)):
+    envBase.Append(CCFLAGS = ['-g','-DDEBUG'])
+else:
+    envBase.Append(CCFLAGS = ['-DRELEASE'])
+
+# invoke *.scons file of top-1 packages
+#--------------------------------------------------------------------
+pkgList='src'
+#pkgList='src,src2,src3'
+pkgList=ARGUMENTS.get('package',pkgList)
+pkgList=pkgList.split(',')
+subScript=[]
+for key in pkgList:
+    subScript=subScript+[key+'/'+key+'.scons']
+SConscript(subScript,exports=['envBase'],variant_dir='Scons',duplicate=0)
+#SConscript(subScript,exports=['envBase'])
 
