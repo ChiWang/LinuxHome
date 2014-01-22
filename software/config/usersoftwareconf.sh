@@ -19,8 +19,7 @@ userTool=$HOME/software
 #source $HOME/main/DmpSW/svn/trunk/thisdmpsw.sh
 pushd $HOME/tmp/DmpInstall >/dev/null 2>&1
 source ./bin/thisdmpos.sh
-popd
-
+popd >/dev/null 2>&1
 
 #+  Set OpenMP
 if [ !1 ];then
