@@ -24,8 +24,8 @@ exit 1
 }
 
 Readme(){   #+ this only used for g4 and c++
-sed "s/MyPro/$1/g" ${tempRoot}/c++/SConscript | sed "s#DATE#$Date#g" | sed "s/TIME/$Time/g" > $1/src/SConscript
-cp $tempRoot/c++/SConstruct $1/
+sed "s/MyPro/$1/g" ${tempRoot}/c++/src.scons | sed "s#DATE#$Date#g" | sed "s/TIME/$Time/g" > $1/src/src.scons
+sed "s/MyPro/$1/g" ${tempRoot}/c++/SConstruct | sed "s#DATE#$Date#g" | sed "s/TIME/$Time/g" > $1/SConstruct
 #+ readme
 cat > $1/Readme.md <<EOF
 

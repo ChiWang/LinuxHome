@@ -88,10 +88,10 @@ nmap <F4> :AuthorInfoDetect<cr>
 "+  some shortcuts
 " for C++
     " mark of function
-map cm i//---------------------------------------------------<Esc>A
+map cm i//-------------------------------------------------------------------<Esc>A
     " assert to debug
 map cd i  assert();<Esc>
     " for OpenMP
 map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 " for bash and python
-map bm i#----------------------------------------------------<Esc>A
+map bm i#--------------------------------------------------------------------<Esc>A
