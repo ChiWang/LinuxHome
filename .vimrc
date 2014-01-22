@@ -80,7 +80,7 @@ let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height=20
 
 "+  author infor
-let g:vimrc_author='chi WANG'
+let g:vimrc_author='Chi WANG'
 let g:vimrc_email=$MYEMAIL
 "let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
 nmap <F4> :AuthorInfoDetect<cr>

@@ -5,7 +5,7 @@
 #   Description:
 #
 #       Set common tools for all users
-#
+#   Set $ToolPath in /etc/profile
 #   link this file in $ToolPath(set in /etc/profile), and source it in /etc/profile
 #
 #---------------------------------------------------------------------
@@ -24,7 +24,7 @@ export NUM_CPU=`more /proc/cpuinfo| grep "processor" | wc -l`
 export PYTHONSTARTUP=$ToolPath/config/pythonconf.py
 
 #+ root         
-pushd $ToolPath/root_v5.34 > /dev/null 2>&1
+pushd $ToolPath/root_v5.34 >/dev/null 2>&1
 source ./bin/thisroot.sh
 popd >/dev/null
    
