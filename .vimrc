@@ -72,7 +72,7 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 let g:winManagerWidth=30
 nmap <F2> :WMToggle<cr>
 
-"+  a
+"+  a, switch bettween *.h and *.cc
 nnoremap <silent> <F3> :AS<CR>
 
 "+  pydiction
