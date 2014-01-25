@@ -14,10 +14,10 @@
 
 #+ functions
 #----------------------------------------------------
-Usage(){
+help(){
 echo "
   Usage: (2 arguments)
-    $0  projectName  projectTag
+    newproject  projectTag  projectName
         projectTag = {c++ | g4 | bes | bash | python}
 "
 exit 1
@@ -141,7 +141,7 @@ cat >$1.sh <<EOF
 
 #+ functions
 #----------------------------------------------------
-Usage(){
+help(){
 echo "
   Usage:
     bash $1
@@ -161,7 +161,7 @@ setupPython(){
 #+ main
 #----------------------------------------------------
 if [ $# != 2 ];then
-  Usage
+  help
 fi
 echo "    Setting up $1 project \"$2\"" 
 tempRoot="$HOME/share/common/template"

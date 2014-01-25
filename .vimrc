@@ -34,9 +34,11 @@ set backupdir=$HOME/.vimback     " you need to create this directory firstly
 "au FocusLost * :wa         " set auto wirte
 set autowrite
 
-set foldmethod=syntax
-"set foldmethod=indent
-"set foldmethod=marker
+let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
+set foldlevel=99            " =0 enable nothing
+" color of folding line
+highlight Folded ctermfg=7 ctermfg=0
+" use space open/close folding
 nnoremap <space> za
 
 "==================================="
@@ -46,7 +48,10 @@ nnoremap <space> za
 "directory at where and whenever you use vim to open a file
 "==================================="
 
-"+++    My personal plugins
+
+    "-------------------------
+    "   My personal plugins  "
+    "-------------------------
 filetype plugin on
 
 "+  NERDTree

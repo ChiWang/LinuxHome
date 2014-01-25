@@ -14,6 +14,13 @@
 "syn match cFunction "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
 "hi cFunction gui=NONE guifg=#B5A1FF
 "
+"echo "in c.vim "$PWD
+" this line where print the $PWD of the local
+
 ""+  highlight math operator
 "syn match cMathOperator display "[+-\*/%=]"
 "hi cMathOperator guifg=#3EFFE2
+
+set foldmethod=syntax
+"set foldmethod=indent
+"set foldmethod=marker
