@@ -11,8 +11,7 @@
 #                                          Update:  2013-11-16   07:37:13
 =============================================================================*/
 
-#include "MyProDetectorConstruction.hh"
-#include "MyProDetectorParameter.hh"
+#include "MyProDetectorConstruction.h"
 
 #include "G4LogicalVolume.hh"   // Geometry
 #include "G4PVPlacement.hh"

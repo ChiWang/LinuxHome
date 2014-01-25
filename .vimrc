@@ -90,13 +90,13 @@ let g:vimrc_email=$MYEMAIL
 "let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
 nmap <F4> :AuthorInfoDetect<cr>
 
-"+  some shortcuts
-" for C++
-    " mark of function
-map cm i//-------------------------------------------------------------------<Esc>A
-    " assert to debug
+" mark of function
+    " for C++
+map cm0 i//-------------------------------------------------------------------<Esc>A
+map cm1 i//.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....<Esc>A
+    " for bash and python
+map cm2 i#--------------------------------------------------------------------<Esc>A
+" assert to debug
 map cd i  assert();<Esc>
-    " for OpenMP
+" for OpenMP
 map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
-" for bash and python
-map bm i#--------------------------------------------------------------------<Esc>A

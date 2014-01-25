@@ -1,3 +1,0 @@
-#include "MyProGlobal.hh"
-
-const 

@@ -1,5 +1,5 @@
 /*=============================================================================
-#       FileName :          MyProAnalysisManager.hh
+#       FileName :          MyProAnalysisManager.h
 #       Version  :          0.0.1
 #       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
 #       Time     :          2013-06-24   10:00:21

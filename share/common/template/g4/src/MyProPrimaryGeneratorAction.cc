@@ -11,7 +11,7 @@
 #                                          Update:  2013-11-16   07:37:59
 =============================================================================*/
 
-#include "MyProPrimaryGeneratorAction.hh"
+#include "MyProPrimaryGeneratorAction.h"
 
 #include "G4GeneralParticleSource.hh"
 

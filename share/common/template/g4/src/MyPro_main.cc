@@ -12,9 +12,10 @@
 =============================================================================*/
 
 // Standard G4 Program Components
+//-------------------------------------------------------------------
 #include "G4RunManager.hh"
 #include "G4PhysListFactory.hh"
-// G4 User Interface & Visualization
+    //+ G4 User Interface & Visualization
 #include "G4UImanager.hh"
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -23,20 +24,16 @@
 #include "G4UIExecutive.hh"
 #endif
 
-//______________________________________________________________________________________ user special
 // User Defined Standard G4 Program Components
-//#include "MyProVisManager.hh"
-#include "MyProDetectorConstruction.hh"
-#include "MyProPrimaryGeneratorAction.hh"
-#include "MyProEventAction.hh"
-#include "MyProSteppingAction.hh"
-#include "MyProRunAction.hh"
-#include "MyProDefs.hh"
+//-------------------------------------------------------------------
+//#include "MyProVisManager.h"
+#include "MyProDetectorConstruction.h"
+#include "MyProPrimaryGeneratorAction.h"
+#include "MyProEventAction.h"
+#include "MyProSteppingAction.h"
+#include "MyProRunAction.h"
 
-
-G4int main(G4int argc, char** argv ){
-
-  // Coustruct the default run manager
+G4int main(G4int argc, char[] argv ){
   G4RunManager* runManager = new G4RunManager;
 
   // User Initializations

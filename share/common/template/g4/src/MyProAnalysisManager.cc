@@ -18,7 +18,7 @@
 #include "G4Run.hh"
 #include "G4Event.hh"
 #include "G4Step.hh"
-#include "MyProAnalysisManager.hh"
+#include "MyProAnalysisManager.h"
 
 MyProAnalysisManager* MyProAnalysisManager::fInstance=0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

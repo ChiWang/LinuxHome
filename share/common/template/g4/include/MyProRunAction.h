@@ -1,5 +1,5 @@
 /*=============================================================================
-#       FileName :          MyProRunAction.hh
+#       FileName :          MyProRunAction.h
 #       Version  :          0.0.1
 #       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
 #       Time     :          2013-06-18   09:27:46

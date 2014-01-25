@@ -11,8 +11,8 @@
 #                                          Update:  2013-11-16   07:38:09
 =============================================================================*/
 
-#include "MyProRunAction.hh"
-#include "MyProAnalysisManager.hh"
+#include "MyProRunAction.h"
+#include "MyProAnalysisManager.h"
 
 #include "G4Run.hh"
 

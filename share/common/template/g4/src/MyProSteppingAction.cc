@@ -11,8 +11,8 @@
 #                                          Update:  2013-11-16   07:38:20
 =============================================================================*/
 
-#include "MyProSteppingAction.hh"
-#include "MyProAnalysisManager.hh"
+#include "MyProSteppingAction.h"
+#include "MyProAnalysisManager.h"
 
 #include "G4Step.hh"
 

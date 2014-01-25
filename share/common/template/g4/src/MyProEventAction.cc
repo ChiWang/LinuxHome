@@ -11,8 +11,8 @@
 #                                          Update:  2013-11-16   07:37:53
 =============================================================================*/
 
-#include "MyProEventAction.hh"
-#include "MyProAnalysisManager.hh"
+#include "MyProEventAction.h"
+#include "MyProAnalysisManager.h"
 
 #include "G4Event.hh"
 

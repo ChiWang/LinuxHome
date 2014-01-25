@@ -1,5 +1,5 @@
 /*=============================================================================
-#       FileName :          MyProPrimaryGeneratorAction.hh
+#       FileName :          MyProPrimaryGeneratorAction.h
 #       Version  :          0.0.1
 #       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
 #       Time     :          2013-06-20   15:54:33
