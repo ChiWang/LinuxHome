@@ -17,7 +17,7 @@
 //.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....
 
 
-namespace MyProParameter{
+namespace MyProParameters{
   const G4ThreeVector kWorldSize=(100,200,20);
   const G4int     kWorldR=100;
 

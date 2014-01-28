@@ -108,11 +108,11 @@ void MyProDetectorConstruction::SetVisualization(){
   fPSLogi->SetVisAttributes(visPS);
 }
 
-void MyProDetectorConstruction::SetupGeometry_SI(G4LogicalVolume* theWorldLogi){
+void MyProDetectorConstruction::SetupGeometry_SubDetector_1(G4LogicalVolume* theWorldLogi){
 
 }
 
-void MyProDetectorConstruction::SetupGeometry_BGO(G4LogicalVolume* theWorldLogi){
+void MyProDetectorConstruction::SetupGeometry_SubDetector_2(G4LogicalVolume* theWorldLogi){
 
 }
 
