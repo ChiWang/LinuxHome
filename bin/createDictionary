@@ -47,7 +47,6 @@ checkDir(){
 #--------------------------------------------------------------------
 srcDir="./src"
 incDir="./include"
-includeDir1="../DmpEvent/include"
 if [[ $1 == '--help' ]];then
   Usage
 fi
@@ -55,7 +54,9 @@ checkDir srcDir incDir
 
 nLinkDef=0
 for file in `ls $incDir`;do
-  if [[ $file == *LinkDef.h ]];then
+  if [[ -d $file ]];then
+    continue
+  elif [[ $file == *LinkDef.h ]];then
     let nLinkDef=$nLinkDef+1
     linkDef=$file
   else

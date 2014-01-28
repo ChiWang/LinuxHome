@@ -44,4 +44,5 @@ alias scc='screen -dmS'
 
 # + user special commands
 alias checkoutDmpSW='svn checkout http://dpnc.unige.ch/SVNDAMPE/DAMPE/DmpSoftware/trunk'
+alias checkoutMark='svn checkout http://dpnc.unige.ch/SVNDAMPE/DAMPE/DmpSoftware/branches'
 
