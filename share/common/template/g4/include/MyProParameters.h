@@ -13,16 +13,15 @@
 
 #ifndef MyProParameters_H
 #define MyProParameters_H
+#include "G4ThreeVector.hh"
 
-//.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....
-
-
+//-------------------------------------------------------------------
 namespace MyProParameters{
-  const G4ThreeVector kWorldSize=(100,200,20);
+  const G4ThreeVector kWorldSize(100,200,20);
   const G4int     kWorldR=100;
 
   namespace SubDet_1{
-    const G4ThreeVector  SubDet_1Size=(20,30,40);        //(x,y,z)
+    const G4ThreeVector  SubDet_1Size(20,30,40);        //(x,y,z)
     const G4int     kPlaneNum=20;
     const G4int     kBarNum=10;
   }

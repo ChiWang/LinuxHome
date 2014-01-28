@@ -1,20 +1,16 @@
-/*=============================================================================
-#       FileName :          MyProDetectorConstruction.cc
-#       Version  :          0.0.1
-#       Author   :          Chi WANG    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-11-16   07:37:13
-#------------------------------------------------------------------------------
-#       Description  
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-11-16   07:37:13
-=============================================================================*/
-
-#include "MyProDetectorConstruction.h"
-
+/*=====================================================================
+ *   File:   MyProDetectorConstruction.cc
+ *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/11/2014
+ *---------------------------------------------------------------------
+ *   Description:
+ *
+ *---------------------------------------------------------------------
+ *   History:
+ *                           Last update:  28/01/2014   23:46:46
+=====================================================================*/
 #include "G4LogicalVolume.hh"   // Geometry
 #include "G4PVPlacement.hh"
+#include "G4Orb.hh"
 
 #include "G4NistManager.hh"     // Material
 
@@ -24,22 +20,24 @@
 #include "G4Region.hh"		    // Regions & Cut
 #include "G4UserLimits.hh"
 
-//.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....
+#include "MyProDetectorConstruction.h"
+#include "MyProParameters.h"
 
+//-------------------------------------------------------------------
 MyProDetectorConstruction::MyProDetectorConstruction():
   mPS(0),
   mSi(0),
   mBGO(0),
   mVacuum(0),mAir(0),mFe(0),mMylar(0),
   fWorldPhys(0)
-{;}
+{
+}
 
 
-MyProDetectorConstruction::~MyProDetectorConstruction()
-{;}
+MyProDetectorConstruction::~MyProDetectorConstruction(){
+}
 
-//.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....
-
+//-------------------------------------------------------------------
 G4VPhysicalVolume* MyProDetectorConstruction::Construct(){
   BuildMaterial();          // Define the Materials
   SetupGeometry();
@@ -47,6 +45,7 @@ G4VPhysicalVolume* MyProDetectorConstruction::Construct(){
   return fWorldPhys;
 }
 
+//-------------------------------------------------------------------
 void MyProDetectorConstruction::BuildMaterial(){
   G4NistManager *nistManager = G4NistManager::Instance();
   nistManager->SetVerbose(1);
@@ -54,7 +53,7 @@ void MyProDetectorConstruction::BuildMaterial(){
   mPS = nistManager->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
   mSi = nistManager->FindOrBuildMaterial("G4_Si");
   G4String	Name;       //G4Material(const G4String& name, ...);
-  mBGO = new G4Material(Name = "BGO",7.13*g/cm3,3,solid);
+  mBGO = new G4Material(Name = "BGO",7.13*g/cm3,3,KStateSolid);
   mBGO->AddElement(nistManager->FindOrBuildElement("Bi"),4);
   mBGO->AddElement(nistManager->FindOrBuildElement("Ge"),3);
   mBGO->AddElement(nistManager->FindOrBuildElement("O"),12);
@@ -86,9 +85,10 @@ void MyProDetectorConstruction::BuildMaterial(){
   G4cout<<*(G4Material::GetMaterialTable())<<G4endl;
 }
 
+//-------------------------------------------------------------------
 void MyProDetectorConstruction::SetupGeometry(){
   // The World
-  G4VSolid* worldSoli = new G4Orb("world",Diam_World / 2.0 );
+  G4VSolid* worldSoli = new G4Orb("world",MyProParameters::kWorldR / 2.0 );
   G4LogicalVolume* worldLogi = new G4LogicalVolume(worldSoli,mAir,"world");
   fWorldPhys= new G4PVPlacement(0,G4ThreeVector(),worldLogi,"world",0,false,0,pSurfChk);
   // The sub-detector
@@ -96,6 +96,7 @@ void MyProDetectorConstruction::SetupGeometry(){
   SetupGeometry_SubDetector_2(worldLogi);
 }
 
+//-------------------------------------------------------------------
 void MyProDetectorConstruction::SetVisualization(){
   // The World
   fWorldLogi->SetVisAttributes(G4VisAttributes::Invisible);
@@ -108,10 +109,12 @@ void MyProDetectorConstruction::SetVisualization(){
   fPSLogi->SetVisAttributes(visPS);
 }
 
+//-------------------------------------------------------------------
 void MyProDetectorConstruction::SetupGeometry_SubDetector_1(G4LogicalVolume* theWorldLogi){
 
 }
 
+//-------------------------------------------------------------------
 void MyProDetectorConstruction::SetupGeometry_SubDetector_2(G4LogicalVolume* theWorldLogi){
 
 }
