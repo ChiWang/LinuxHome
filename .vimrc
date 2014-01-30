@@ -35,7 +35,7 @@ set backupdir=$HOME/.vimback     " you need to create this directory firstly
 set autowrite
 
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
-set foldlevel=99            " =0 enable nothing
+"set foldlevel=99            " =0 enable nothing
 " color of folding line
 highlight Folded ctermfg=7 ctermfg=0
 " use space open/close folding
@@ -47,13 +47,10 @@ nnoremap <space> za
 "echo "in .vimrc "$PWD      " this line where print the $PWD of the local
 "directory at where and whenever you use vim to open a file
 "==================================="
-
-
     "-------------------------
     "   My personal plugins  "
     "-------------------------
 filetype plugin on
-
 "+  NERDTree
 " add 7 lines here in order to let winManager to call NERDTree
 let NERDTree_title='NERD_Tree'

@@ -14,7 +14,7 @@
 
 #+ functions
 #----------------------------------------------------
-help(){
+Usage(){
 echo "
   Usage: (2 arguments)
     newproject  projectTag  projectName
@@ -124,7 +124,7 @@ for subdir in include src;do
   sed "s/MyPro/$1/g" -i $1/${subdir}/*
 done
 sed "s/MyPro/$1/g" -i $1/Makefile
-ln -s $PWD/$1/src/$1_main.cc $1/
+ln -s $PWD/$1/src/$1Simu.cc $1/
 
 #+ Readme.md
 Readme $1
@@ -141,7 +141,7 @@ cat >$1.sh <<EOF
 
 #+ functions
 #----------------------------------------------------
-help(){
+Usage(){
 echo "
   Usage:
     bash $1
@@ -161,7 +161,7 @@ setupPython(){
 #+ main
 #----------------------------------------------------
 if [ $# != 2 ];then
-  help
+  Usage
 fi
 echo "    Setting up $1 project \"$2\"" 
 tempRoot="$HOME/share/common/template"
