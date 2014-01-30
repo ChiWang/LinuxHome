@@ -33,7 +33,7 @@
 #include "MyProSteppingAction.h"
 #include "MyProRunAction.h"
 
-G4int main(G4int argc, char[] argv ){
+G4int main(G4int argc, char* argv[]){
   G4RunManager *runManager = new G4RunManager;
 
   // Use physicsListFactory
@@ -46,9 +46,9 @@ G4int main(G4int argc, char[] argv ){
   runManager->SetUserInitialization(MyProDetector);
 
   // User Action
-  MyProRunAction *runAction = new MyProRunAction(MyProDetector);
-  MyProEventAction *evtAction = new MyProEventAction(runAction);
-  MyProSteppingAction *steppingAction = new MyProSteppingAction(evtAction);
+  MyProRunAction *runAction = new MyProRunAction();
+  MyProEventAction *evtAction = new MyProEventAction();
+  MyProSteppingAction *steppingAction = new MyProSteppingAction();
   MyProPrimaryGeneratorAction *primaryGenerator = new MyProPrimaryGeneratorAction;
   runManager->SetUserAction(runAction);
   runManager->SetUserAction(evtAction);

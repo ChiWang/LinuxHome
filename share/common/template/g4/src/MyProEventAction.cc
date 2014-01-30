@@ -10,6 +10,8 @@
 =====================================================================*/
 
 #include "G4Event.hh"
+#include "G4VVisManager.hh"
+#include "G4Trajectory.hh"
 #include "MyProEventAction.h"
 
 //-------------------------------------------------------------------
@@ -21,7 +23,7 @@ MyProEventAction::~MyProEventAction(){
 
 //-------------------------------------------------------------------
 void MyProEventAction::BeginOfEventAction(const G4Event* aEvent){
-  if( evtNb %10000 == 0 ){
+  if( aEvent->GetEventID() %10000 == 0 ){
     G4cout<<"---> Begin of event:\t"<<aEvent->GetEventID()<<G4endl;
   }
 
@@ -33,7 +35,7 @@ void MyProEventAction::BeginOfEventAction(const G4Event* aEvent){
 void MyProEventAction::EndOfEventAction(const G4Event* aEvent){
   //EndOfEvent(aEvent);
 
-  if( evtNb %10000 == 0 ){
+  if( aEvent->GetEventID() %10000 == 0 ){
     G4cout<<"\t\tend of event:\t"<<aEvent->GetEventID()<<G4endl;
   }
   if (G4VVisManager::GetConcreteInstance()){
@@ -44,11 +46,11 @@ void MyProEventAction::EndOfEventAction(const G4Event* aEvent){
     }
     for( G4int i=0; i < n_trajectories; i++ ){
       G4Trajectory* trj = (G4Trajectory*) ( ( *(aEvent->GetTrajectoryContainer()) )[i] );
-      if(drawFlag == "all"){
+      if(fDrawFlag == "all"){
         trj->DrawTrajectory(50);
-      } else if ( (drawFlag == "charged") && ( trj->GetCharge() != 0.) ) {
+      } else if ( (fDrawFlag == "charged") && ( trj->GetCharge() != 0.) ) {
         trj->DrawTrajectory(50);
-      } else if ( (drawFlag == "neutral") && ( trj->GetCharge() == 0.) ) {
+      } else if ( (fDrawFlag == "neutral") && ( trj->GetCharge() == 0.) ) {
         trj->DrawTrajectory(50);
       }
     }

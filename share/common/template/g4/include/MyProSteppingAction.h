@@ -1,27 +1,21 @@
-/*=============================================================================
-#       FileName :          MyProSteppingAction.h
-#       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-20   15:41:50
-#
-#------------------------------------------------------------------------------
-#       Description  :
-#
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-06-20   15:41:50
-=============================================================================*/
+/*=====================================================================
+ *   File:   MyProSteppingAction.h
+ *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    20/06/2013
+ *---------------------------------------------------------------------
+ *   Description:
+ *
+ *---------------------------------------------------------------------
+ *   History:
+ *                           Last update:  30/01/2014   14:19:36
+=====================================================================*/
 
 #ifndef MyProSteppingAction_H
-#define MyProSteppingAction_H 1
+#define MyProSteppingAction_H
 
 #include "G4UserSteppingAction.hh"
 #include "globals.hh"
 
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
-
+//-------------------------------------------------------------------
 class MyProSteppingAction : public G4UserSteppingAction{
   public:
     MyProSteppingAction();

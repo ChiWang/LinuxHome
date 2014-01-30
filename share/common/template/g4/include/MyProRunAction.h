@@ -1,20 +1,14 @@
-/*=============================================================================
-#       FileName :          MyProRunAction.h
-#       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-18   09:27:46
-#
-#------------------------------------------------------------------------------
-#       Description  :
-#           This is a UserRunAction template.
-#
-#         generally, user only need to override BeginOfRunAction(const G4Run*) and EndOfRunAction(const G4Run*).
-#         We will use method BeginRun(const G4Run*) of class UserAnanlysisManager in BeginOfRunAction(const G4Run*) for conveniente.
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-06-18   09:27:46
-=============================================================================*/
+/*=====================================================================
+ *   File:   MyProRunAction.h
+ *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    18/016/2014
+ *---------------------------------------------------------------------
+ *   Description:
+ *      user only need to override BeginOfRunAction(const G4Run*) and EndOfRunAction(const G4Run*).
+ *
+ *---------------------------------------------------------------------
+ *   History:
+ *                           Last update:  30/01/2014   14:56:02
+=====================================================================*/
 
 #ifndef MyProRunAction_H
 #define MyProRunAction_H
@@ -22,8 +16,7 @@
 #include "G4UserRunAction.hh"       // already has class G4Run;
 #include "globals.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
+//-------------------------------------------------------------------
 class MyProRunAction : public G4UserRunAction{
 // common, all need
   public:

@@ -6,7 +6,7 @@
  *
  *---------------------------------------------------------------------
  *   History:
- *                           Last update:  28/01/2014   21:30:31
+ *                           Last update:  30/01/2014   14:18:49
 =====================================================================*/
 
 #include "G4Track.hh"
@@ -27,6 +27,7 @@ void MyProSteppingAction::UserSteppingAction( const G4Step* aStep ){
   G4int copynumber = preStepPoint->GetPhysicalVolume()->GetCopyNo();
   
   // Record Energy Deposit
+  /*
   if ( preVolumeName == "SiliconMatrix" ){
      stepInfo.firstLayerScintillatorStrip[copynumber] = aStep->GetTotalEnergyDeposit();
   } else if ( preVolumeName == "layerSecondRear" ){
@@ -44,11 +45,12 @@ void MyProSteppingAction::UserSteppingAction( const G4Step* aStep ){
   }else if( preVolumeName == "calorimeterThird" ){//------------------------------Calorimeter--------------------
      calorimeterStripThirdInfo.calorimeterStripThird[copynumber] = aStep->GetTotalEnergyDeposit();
   }
+*/
 
   // :::: End of Storing Energy
-
   G4Track* aTrack = aStep->GetTrack();
   if( aTrack->GetTrackID() == 1 && aTrack->GetParentID() == 0 ){ // Primary particle
+/*
     if( aTrack->GetCurrentStepNumber() == 1 ){ // First Step
       G4ParticleDefinition* particle = aTrack->GetDefinition();
       particleInfo.particleZ = (G4int) particle->GetPDGCharge();
@@ -68,6 +70,7 @@ void MyProSteppingAction::UserSteppingAction( const G4Step* aStep ){
       particleInfo.particleDirection[2] = primaryDirection.z();
       
     } // :::: End of first step
+*/
   }//////End of Primary particle
 
 }

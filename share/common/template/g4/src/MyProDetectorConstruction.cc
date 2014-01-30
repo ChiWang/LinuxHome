@@ -53,7 +53,7 @@ void MyProDetectorConstruction::BuildMaterial(){
   mPS = nistManager->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
   mSi = nistManager->FindOrBuildMaterial("G4_Si");
   G4String	Name;       //G4Material(const G4String& name, ...);
-  mBGO = new G4Material(Name = "BGO",7.13*g/cm3,3,KStateSolid);
+  mBGO = new G4Material(Name = "BGO",7.13*g/cm3,3,kStateSolid);
   mBGO->AddElement(nistManager->FindOrBuildElement("Bi"),4);
   mBGO->AddElement(nistManager->FindOrBuildElement("Ge"),3);
   mBGO->AddElement(nistManager->FindOrBuildElement("O"),12);
@@ -90,7 +90,7 @@ void MyProDetectorConstruction::SetupGeometry(){
   // The World
   G4VSolid* worldSoli = new G4Orb("world",MyProParameters::kWorldR / 2.0 );
   G4LogicalVolume* worldLogi = new G4LogicalVolume(worldSoli,mAir,"world");
-  fWorldPhys= new G4PVPlacement(0,G4ThreeVector(),worldLogi,"world",0,false,0,pSurfChk);
+  fWorldPhys= new G4PVPlacement(0,G4ThreeVector(),worldLogi,"world",0,false,0,true);
   // The sub-detector
   SetupGeometry_SubDetector_1(worldLogi);
   SetupGeometry_SubDetector_2(worldLogi);
