@@ -61,21 +61,22 @@ function! NERDTree_IsValid()
     return 1
 endfunction
 "let NERDChristmasTree=1
-"nmap <F3> <Esc>:NERDTree<cr>
+nmap <F2> <Esc>:NERDTree<cr>
 
 "+  taglist
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
 "let Tlist_Show_Menu=1
+nmap <F4> <Esc>:Tlist<cr>
 
 "+  winManager
 let g:winManagerWindowLayout='NERDTree|TagList'
 let g:winManagerWidth=30
-nmap <F2> :WMToggle<cr>
+nmap <F3> :WMToggle<cr>
 
-"+  a, switch between *.h and *.cc
-nnoremap <silent> <F3> :AS<CR>
+"+  switch between *.h and *.cc
+nnoremap <silent> <F6> :AS<CR>
 
 "+  pydiction
 let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
@@ -85,14 +86,16 @@ let g:pydiction_menu_height=20
 let g:vimrc_author='Chi WANG'
 let g:vimrc_email=$MYEMAIL
 "let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
-nmap <F4> :AuthorInfoDetect<cr>
+nmap <F5> :AuthorInfoDetect<cr>
 
-" mark of function
-    " for C++
+" marks
+    " comment
 map cm0 i//-------------------------------------------------------------------<Esc>A
-map cm1 i//.....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.......oooOO0OOooo....<Esc>A
-    " for bash and python
+map cm1 i/*  needless*/<Esc>A
 map cm2 i#--------------------------------------------------------------------<Esc>A
+    " todo
+map td0 i// *TODO: <Esc>A
+map td1 i#  *TODO: <Esc>A
 " assert to debug
 map cd i  assert();<Esc>
 " for OpenMP
