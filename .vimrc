@@ -97,7 +97,7 @@ map cm2 i#--------------------------------------------------------------------<E
 map td0 i// *TODO: <Esc>A
 map td1 i#  *TODO: <Esc>A
 " assert to debug
-map bd0 istd::cout<<"In "<<__FILE__<<", line: "<<__LINE__<<", function: "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
-map bd1 i  assert();<Esc>
+map db0 istd::cout<<"In "<<__FILE__<<", line: "<<__LINE__<<", function: "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
+map db1 i  assert();<Esc>
 " for OpenMP
 map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
