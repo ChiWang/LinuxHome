@@ -42,8 +42,8 @@ def useGeant4(aEnv):
 #--------------------------------------------------------------------
 envBase = Environment(ENV = os.environ)
 #useCLHEP(envBase)
-useRoot(envBase)
-useGeant4(envBase)
+#useRoot(envBase)
+#useGeant4(envBase)
 
 # mode flag
 #--------------------------------------------------------------------
