@@ -94,10 +94,9 @@ map cm0 i//-------------------------------------------------------------------<E
 map cm1 i/*  needless*/<Esc>A
 map cm2 i#--------------------------------------------------------------------<Esc>A
     " todo
-map td0 i// *TODO: <Esc>A
-map td1 i#  *TODO: <Esc>A
+map td0 i#pragma message("TODO ----> xxxx")<Esc>A
 " assert to debug
-map db0 istd::cout<<"DEBUG: at "<<__FILE__<<"("<<__LINE__<<"), function : "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
+map db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
 map db1 i  assert();<Esc>
 " for OpenMP
 map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
