@@ -25,7 +25,9 @@ int main(int argc, char* argv[]){
     std::cout<<"MyPro Version = 0.21.8"<<std::endl;
   }
 */
+std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;
 
   return 0;
 }
+
 

@@ -1,17 +1,9 @@
 #! /bin/bash
-#=====================================================================
-#   File:   del
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    02/10/2013
-#---------------------------------------------------------------------
-#   Description:
-#
-#   Goal:       rm file into a trash
-#   Install:
-#       1.  put this file in $PATH
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  13/12/2013   14:13:21
-#=====================================================================
+:<<EOF
+ *  $Id: delete, 2014-02-15 22:30:04 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 10/02/2013
+EOF
 
 #+ Trash    // will be used in ~/bin/del
 trash="$HOME/.trash"

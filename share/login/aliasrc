@@ -1,13 +1,11 @@
-#=====================================================================
-#   File:   aliasrc
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    26/07/2013
-#---------------------------------------------------------------------
-#   Description:
-#       .zshrc will source this file
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  18/12/2013   14:06:43
-#=====================================================================
+#+
+#+  $Id: aliasrc, 2014-02-15 23:06:33 chi $
+#+  Author(s):
+#+    Chi WANG (chiwang@mail.ustc.edu.cn) 26/07/2013
+#+  Note:
+#+    .zshrc will source this file
+#+
+
 
 #+ servers
 alias todampI='ssh -Y chi@210.45.78.137'

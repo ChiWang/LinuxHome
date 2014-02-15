@@ -1,14 +1,10 @@
-/*=====================================================================
- *   File:   MyProEventAction.h
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    18/06/2014
- *---------------------------------------------------------------------
- *   Description:
- *      user only need to override BeginOfEventAction(const G4Event*) and EndOfEventAction(const G4Event*).
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  30/01/2014   14:58:07
-=====================================================================*/
+/*
+ *  $Id: MyProEventAction.h, 2014-02-15 23:21:43 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
+ *  Note:
+ *    only need to override BeginOfEventAction(const G4Event*) and EndOfEventAction(const G4Event*).
+*/
 
 #ifndef MyProEventAction_H
 #define MyProEventAction_H

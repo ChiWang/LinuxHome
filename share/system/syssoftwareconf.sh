@@ -1,18 +1,14 @@
-#=====================================================================
-#   File:   syssoftwareconf.sh
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    13/10/2013
-#---------------------------------------------------------------------
-#   Description:
-#
-#       Set common tools for all users
-#   Set $ToolPath in /etc/profile
-#   link this file in $ToolPath(set in /etc/profile), and source it in /etc/profile
-#
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  13/12/2013   14:26:54
-#=====================================================================
+:<<EOF
+ *  $Id: syssoftwareconf.sh, 2014-02-15 23:08:54 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 13/10/2013
+ *  Note:
+ *    Set common tools for all users
+ *    Set $ToolPath in /etc/profile
+ *    link this file in $ToolPath(set in /etc/profile), and source it in /etc/profile
+EOF
 
+ 
 #+ SVN
 export SVN_EDITOR=vim
 

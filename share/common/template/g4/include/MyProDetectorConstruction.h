@@ -1,17 +1,8 @@
-/*=============================================================================
-#       FileName :          MyProDetectorConstruction.h
-#       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-20   20:25:19
-#
-#------------------------------------------------------------------------------
-#       Description  :
-#
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-06-20   20:25:19
-=============================================================================*/
+/*
+ *  $Id: MyProDetectorConstruction.h, 2014-02-15 23:20:46 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
+*/ 
 
 #ifndef MyProDetectorConstruction_H
 #define MyProDetectorConstruction_H 1

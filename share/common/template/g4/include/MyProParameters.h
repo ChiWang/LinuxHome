@@ -1,15 +1,11 @@
-/*=====================================================================
- *   File:   MyProParameters.h
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    20/06/2014
- *---------------------------------------------------------------------
- *   Description:
- *      declear all const variables here
- *      *   Warning  *      can NOT use these variables here to define longth of array IN any HEADER files
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  25/01/2014   17:04:56
-=====================================================================*/
+/*
+ *  $Id: MyProParameters.h, 2014-02-15 23:24:12 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
+ *  Note:
+ *    declear all const variables here
+ *    *   Warning  *      can NOT use these variables here to define longth of array IN any HEADER files
+*/
 
 #ifndef MyProParameters_H
 #define MyProParameters_H

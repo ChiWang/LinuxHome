@@ -9,6 +9,10 @@
 "              it and/or modify it under the terms of the Do What The Fuck You
 "              Want To Public License, Version 2, as published by Sam Hocevar.
 "              See http://sam.zoy.org/wtfpl/COPYING for more details.
+" Update:
+"       Chi Wang, 15/022014
+"           1. modified line 286 for python script
+"           2. add line 287 for shell script
 "
 " ============================================================================
 
@@ -283,7 +287,9 @@ let s:delimiterMap = {
     \ 'ps1': { 'left': '#' },
     \ 'psf': { 'left': '#' },
     \ 'ptcap': { 'left': '#' },
-    \ 'python': { 'left': '#' },
+    \ 'python': { 'left': '//', 'leftAlt': '''''''', 'rightAlt': '''''''' },
+    \ 'scons': { 'left': '//', 'leftAlt': '''''''', 'rightAlt': '''''''' },
+    \ 'sh': { 'left': '//', 'leftAlt': ':<<EOF', 'rightAlt': 'EOF' },
     \ 'radiance': { 'left': '#' },
     \ 'ratpoison': { 'left': '#' },
     \ 'r': { 'left': '#' },

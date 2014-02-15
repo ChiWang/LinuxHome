@@ -1,20 +1,13 @@
 #! /bin/bash
-#=====================================================================
-#   File:   createDictionary
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    11/12/2013
-#---------------------------------------------------------------------
-#   Description:
-#
-#   Reference:
-#   1.  How to use rootcint
-#       http://www.scons.org/doc/HTML/scons-user.html#chap-builders-writing
-#       http://kalmanalignment.hepforge.org/svn/trunk/event/SConscript
-#
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  25/01/2014   17:25:35
-#=====================================================================
-
+:<<EOF
+ *  $Id: createDictionary, 2014-02-15 22:28:18 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 11/12/2013
+ *  Note:
+ *    1.  How to use rootcint
+ *       http://www.scons.org/doc/HTML/scons-user.html#chap-builders-writing
+ *       http://kalmanalignment.hepforge.org/svn/trunk/event/SConscript
+EOF
 
 #+ functions
 #--------------------------------------------------------------------

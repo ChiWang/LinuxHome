@@ -1,23 +1,17 @@
-#=====================================================================
-#   File:   .zshrc
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    26/07/2013
-#---------------------------------------------------------------------
-#   Description:
-#       must source aliasrc in .zshrc instead of in .zprofile
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  13/12/2013   14:10:09
-#=====================================================================
+#+
+#+  $Id: .zshrc, 2014-02-15 23:12:51 chi $
+#+  Author(s):
+#+    Chi WANG (chiwang@mail.ustc.edu.cn) 26/07/2013
+#+
 
-#set terminal title
+# set title of terminal
 case $TERM in
-    xterm*)
-        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-        ;;
+  xterm*)
+    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+    ;;
 esac
 
-#prompt style
-#RPROMPT='%/'
+# set prompt style
 PROMPT='%{[34m%}%n%{[35m%}@%{[33m%}%m %{[36m%}%D %T %{[32m%}%/
 %{[31m%}>>%{[m%}'
 
@@ -34,32 +28,32 @@ MAILCHECK=0
 setopt AUTOPUSHD
 setopt PUSHDIGNORE_DUPS
 
-#history
-# # number of lines kept in history
+# history
+#+ number of lines kept in history
 export HISTSIZE=10000
-# # number of lines saved in the history after logout
+#+ number of lines saved in the history after logout
 export SAVEHIST=10000
-# # location of history
+#+ location of history
 export HISTFILE=~/.zhistory
-# # append command to history file once executed
+#+ append command to history file once executed
 setopt INC_APPEND_HISTORY
-# # set history ignore space
+#+ set history ignore space
 setopt hist_ignore_space
 
-#Disable core dumps
+# Disable core dumps
 limit coredumpsize 0
 
 #Emacs style key
 #bindkey -e
-#vim style key
+# vim style key
 bindkey -v
-#DEL key: delete back
+# DEL key: delete back
 bindkey "\e[3~" delete-char
 
-#charactor below as part of word
+# charactor below as part of word
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
-#auto list
+# auto list
 setopt AUTO_LIST
 setopt AUTO_MENU
 setopt MENU_COMPLETE
@@ -72,7 +66,7 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path .zcache
 #zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-#Completion Options
+# Completion Options
 zstyle ':completion:*:match:*' original only
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:predict:*' completer _complete
@@ -117,13 +111,9 @@ hash -d D="/DataDir"
 hash -d G4Damp="~/g/DA/Cor"
 hash -d I="/etc/rc.d"
 
-#=======================================#
-#       User alias                      #
-#=======================================#
-
-#+ alias and login
+# alias and login
 if [ -d ~/share/login ];then
-  source ~/share/login/aliasrc
+  source ~/share/login/aliasrc          # must source aliasrc in .zshrc instead of in .zprofile
 else
 	mkdir -p ~/share/login
 fi

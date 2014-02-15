@@ -1,18 +1,11 @@
-#=====================================================================
-#   File:   createUser.sh
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    27/11/2013
-#---------------------------------------------------------------------
-#   Description:
-#
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  13/12/2013   14:26:03
-#=====================================================================
-
 #! /bin/bash
-#   call users.list
+:<<EOF
+ *  $Id: createUser.sh, 2014-02-15 23:07:34 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 27/11/2013
+EOF
 
-for name in `more userName.list`;do
+for name in $@;do
   if [ "XX`ls /home | grep "$name"`" = "XX" ];then
     echo "  **  add user:       $name"
     useradd -m $name

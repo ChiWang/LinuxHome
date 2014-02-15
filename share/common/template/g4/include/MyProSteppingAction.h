@@ -1,14 +1,9 @@
-/*=====================================================================
- *   File:   MyProSteppingAction.h
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    20/06/2013
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  30/01/2014   14:19:36
-=====================================================================*/
-
+/*
+ *  $Id: MyProSteppingAction.h, 2014-02-15 23:27:32 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
+*/ 
+ 
 #ifndef MyProSteppingAction_H
 #define MyProSteppingAction_H
 

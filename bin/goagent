@@ -1,17 +1,23 @@
 #! /bin/bash
-#=====================================================================
-#   File:   goagent
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    18/09/2013
-#---------------------------------------------------------------------
-#   Description:
-#
-#   control of goagent. 
-#   By using of command "goagent" with arguments "on" OR "off"
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  13/12/2013   13:58:44
-#=====================================================================
+:<<EOF
+ *  $Id: goagent, 2014-02-15 22:32:07 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 18/09/2013
+EOF
 
+# functions
+#--------------------------------------------------------------------
+Usage(){
+echo "
+    Usage: goagent {on|off}
+"
+exit 1
+}
+
+if [[ $# -ne 1 ]];then
+  Usage
+fi
+ 
 PS="/bin/ps auwx"
 GOAGENT_LOCAL=$HOME/software/goagent_v3.0          # where your software
 

@@ -1,17 +1,8 @@
-/*=============================================================================
-#       FileName :          MyProPrimaryGeneratorAction.h
-#       Version  :          0.0.1
-#       Author   :          Chi    (chiwang@mail.ustc.edu.cn)
-#       Time     :          2013-06-20   15:54:33
-#
-#------------------------------------------------------------------------------
-#       Description  :
-#
-#
-#------------------------------------------------------------------------------
-#       History  :
-#                                          Update:  2013-06-20   15:54:33
-=============================================================================*/
+/*
+ *  $Id: MyProPrimaryGeneratorAction.h, 2014-02-15 23:25:21 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
+*/
 
 #ifndef MyProPrimaryGeneratorAction_H
 #define MyProPrimaryGeneratorAction_H 1

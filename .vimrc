@@ -1,18 +1,15 @@
-"=====================================================================
-"   File:   .vimrc
-"   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    29/09/2013
-"---------------------------------------------------------------------
-"   Description:
-"      author infor:
-"           set $AUTHOR, $AUTHOREMAIL in .zprofile
-"
-"---------------------------------------------------------------------
-"   History:
-"                           Last update:  21/01/2014   23:27:51
-"=====================================================================
+"+
+"+  $Id: .vimrc, 2014-02-15 22:37:13 chi $
+"+  Author(s):
+"+    Chi WANG (chiwang@mail.ustc.edu.cn) 29/09/2013
+"+  Note:
+"+    set $AUTHOR, $AUTHOREMAIL in .zprofile
+"+
+ 
 
-
+"-------------------------------------------------------------------
 "+++    Common set
+"-------------------------------------------------------------------
 set showmatch           " Show matching brackets.
 set matchtime=2         " Show time of matching brackets.
 set hlsearch            " high light searching words
@@ -28,28 +25,21 @@ set guifont=Monospace:h13:cANSI
 
 set backup
 set backupext=.back
-set backupdir=$HOME/.vimback     " you need to create this directory firstly
+set backupdir=$HOME/.vimback     " need to create this directory firstly
 
 "set number                 " show line number
 "au FocusLost * :wa         " set auto wirte
 set autowrite
 
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
-"set foldlevel=99            " =0 enable nothing
 " color of folding line
 highlight Folded ctermfg=7 ctermfg=0
 " use space open/close folding
 nnoremap <space> za
 
-"==================================="
-"       User Special Setting        "
-"==================================="
-"echo "in .vimrc "$PWD      " this line where print the $PWD of the local
-"directory at where and whenever you use vim to open a file
-"==================================="
-    "-------------------------
-    "   My personal plugins  "
-    "-------------------------
+"-------------------------------------------------------------------
+"   My plugins  "
+"-------------------------------------------------------------------
 filetype plugin on
 "+  NERDTree
 " add 7 lines here in order to let winManager to call NERDTree
@@ -88,15 +78,27 @@ let g:vimrc_email=$MYEMAIL
 "let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
 nmap <F5> :AuthorInfoDetect<cr>
 
-" marks
-    " comment
+"-------------------------------------------------------------------
+"   My shortcuts
+"-------------------------------------------------------------------
+"+ comment
 map cm0 i//-------------------------------------------------------------------<Esc>A
 map cm1 i/*  needless*/<Esc>A
 map cm2 i#--------------------------------------------------------------------<Esc>A
-    " todo
+
+"+ todo
 map td0 i#pragma message("TODO ----> xxxx")<Esc>A
-" assert to debug
+
+"+ debug
 map db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
 map db1 i  assert();<Esc>
-" for OpenMP
+"+ for OpenMP
 map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
+
+"-------------------------------------------------------------------
+"   add file types
+"-------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.scons set filetype=python
+autocmd BufNewFile,BufRead SCon* set filetype=python
+
+

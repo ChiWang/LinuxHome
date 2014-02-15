@@ -1,13 +1,10 @@
-#=====================================================================
-#   File:   src.scons
-#   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    DATE
-#---------------------------------------------------------------------
-#   Description:
-#       This file invoked in ../SConstruct
-#---------------------------------------------------------------------
-#   History:
-#                           Last update:  23/01/2014   00:12:40
-#=====================================================================
+'''
+ *  $Id: src.scons, 2014-02-15 22:51:17 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/09/2014
+ *  Note:
+ *    This file is invoked by ../SConstruct
+'''
 
 import os
 Import("*")     # import all vars from SConstruct
