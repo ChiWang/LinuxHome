@@ -1,0 +1,39 @@
+'''
+ *  $Id: Analysis.scons, 2014-02-16 15:07:50 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/02/2014
+ *  Note:
+ *    This file is invoked by ../SConstruct
+'''
+
+import os
+Import("*")     # import all vars from SConstruct
+print "\t\t\t invoke %s\n" % os.path.abspath("./")
+#--------------------------------------------------------------------
+
+target=project+'Analysis'
+env = envBase.Clone()
+
+'''
+# include
+includeDir='./include'
+env.Prepend(CPPPATH=[includeDir])
+
+# Use other top-1 package
+#--------------------------------------------------------------------
+    #+  Event
+P1Path='../Event/'+project+'Event'
+env.Prepend(CPPPATH=[P1Path+'/include'])
+
+# install share
+#--------------------------------------------------------------------
+for file in os.listdir(includeDir):
+    if '.' not in file[0]:
+        Default(Command(installDir+'/include/'+file,includeDir+'/'+file,Copy("$TARGET","$SOURCE")))
+
+# main build
+#--------------------------------------------------------------------
+goal=env.SharedLibrary(target,Glob('./src/*.cc'))
+Default(env.InstallAs(installDir+'/lib/lib'+target+".so",goal))
+'''
+

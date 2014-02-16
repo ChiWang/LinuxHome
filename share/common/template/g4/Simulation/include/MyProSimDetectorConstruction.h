@@ -1,11 +1,11 @@
 /*
- *  $Id: MyProDetectorConstruction.h, 2014-02-15 23:20:46 chi $
+ *  $Id: MyProSimDetectorConstruction.h, 2014-02-16 23:00:11 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
 */ 
 
-#ifndef MyProDetectorConstruction_H
-#define MyProDetectorConstruction_H 1
+#ifndef MyProSimDetectorConstruction_H
+#define MyProSimDetectorConstruction_H
 
 #include "G4VUserDetectorConstruction.hh"
 
@@ -13,12 +13,11 @@ class G4VPhysicalVolume;
 class G4LogicalVolume;
 class G4Material;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
-
-class MyProDetectorConstruction : public G4VUserDetectorConstruction{
+//-------------------------------------------------------------------
+class MyProSimDetectorConstruction : public G4VUserDetectorConstruction{
  public:
-  MyProDetectorConstruction();
-  virtual ~MyProDetectorConstruction();
+  MyProSimDetectorConstruction();
+  virtual ~MyProSimDetectorConstruction();
 
   virtual G4VPhysicalVolume* Construct();
 
@@ -48,5 +47,4 @@ class MyProDetectorConstruction : public G4VUserDetectorConstruction{
 };
 
 #endif
-
 

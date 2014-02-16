@@ -1,0 +1,38 @@
+'''
+ *  $Id: Event.scons, 2014-02-16 15:11:02 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/02/2014
+ *  Note:
+ *    This file is invoked by ../SConstruct
+'''
+
+import os
+Import("*")     # import all vars from SConstruct
+print "\t\t\t invoke %s\n" % os.path.abspath("./")
+#--------------------------------------------------------------------
+
+target=project+'Event'
+env = envBase.Clone()
+
+# include
+includeDir='./include'
+env.Prepend(CPPPATH=[includeDir])
+
+# Use other top-1 package
+#--------------------------------------------------------------------
+    #+  Kernel
+P1Path='../Kernel'
+env.Prepend(CPPPATH=[P1Path+'/include'])
+
+# install share
+#--------------------------------------------------------------------
+for file in os.listdir(includeDir):
+    if '.' not in file[0] and "LinkDef" not in file and "Dictionary" not in file:
+        Default(Command(prefix+'/include/'+file,includeDir+'/'+file,Copy("$TARGET","$SOURCE")))
+
+# main build
+#--------------------------------------------------------------------
+goal=env.SharedLibrary(target,Glob('./src/*.cc'))
+Default(env.InstallAs(prefix+"/lib/lib"+target+".so",goal))
+
+

@@ -1,13 +1,9 @@
-/*=====================================================================
- *   File:   MyProDetectorConstruction.cc
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/11/2014
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  28/01/2014   23:46:46
-=====================================================================*/
+/*
+ *  $Id: MyProSimDetectorConstruction.cc, 2014-02-16 23:04:15 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
+*/
+
 #include "G4LogicalVolume.hh"   // Geometry
 #include "G4PVPlacement.hh"
 #include "G4Orb.hh"
@@ -20,11 +16,11 @@
 #include "G4Region.hh"		    // Regions & Cut
 #include "G4UserLimits.hh"
 
-#include "MyProDetectorConstruction.h"
+#include "MyProSimDetectorConstruction.h"
 #include "MyProParameters.h"
 
 //-------------------------------------------------------------------
-MyProDetectorConstruction::MyProDetectorConstruction():
+MyProSimSimDetectorConstruction::MyProSimDetectorConstruction():
   mPS(0),
   mSi(0),
   mBGO(0),
@@ -34,11 +30,11 @@ MyProDetectorConstruction::MyProDetectorConstruction():
 }
 
 
-MyProDetectorConstruction::~MyProDetectorConstruction(){
+MyProSimDetectorConstruction::~MyProSimDetectorConstruction(){
 }
 
 //-------------------------------------------------------------------
-G4VPhysicalVolume* MyProDetectorConstruction::Construct(){
+G4VPhysicalVolume* MyProSimDetectorConstruction::Construct(){
   BuildMaterial();          // Define the Materials
   SetupGeometry();
   SetVisualization();
@@ -46,7 +42,7 @@ G4VPhysicalVolume* MyProDetectorConstruction::Construct(){
 }
 
 //-------------------------------------------------------------------
-void MyProDetectorConstruction::BuildMaterial(){
+void MyProSimDetectorConstruction::BuildMaterial(){
   G4NistManager *nistManager = G4NistManager::Instance();
   nistManager->SetVerbose(1);
 	
@@ -86,7 +82,7 @@ void MyProDetectorConstruction::BuildMaterial(){
 }
 
 //-------------------------------------------------------------------
-void MyProDetectorConstruction::SetupGeometry(){
+void MyProSimDetectorConstruction::SetupGeometry(){
   // The World
   G4VSolid* worldSoli = new G4Orb("world",MyProParameters::kWorldR / 2.0 );
   G4LogicalVolume* worldLogi = new G4LogicalVolume(worldSoli,mAir,"world");
@@ -97,7 +93,7 @@ void MyProDetectorConstruction::SetupGeometry(){
 }
 
 //-------------------------------------------------------------------
-void MyProDetectorConstruction::SetVisualization(){
+void MyProSimDetectorConstruction::SetVisualization(){
   // The World
   fWorldLogi->SetVisAttributes(G4VisAttributes::Invisible);
   //sub_detector_1
@@ -110,12 +106,12 @@ void MyProDetectorConstruction::SetVisualization(){
 }
 
 //-------------------------------------------------------------------
-void MyProDetectorConstruction::SetupGeometry_SubDetector_1(G4LogicalVolume* theWorldLogi){
+void MyProSimDetectorConstruction::SetupGeometry_SubDetector_1(G4LogicalVolume* theWorldLogi){
 
 }
 
 //-------------------------------------------------------------------
-void MyProDetectorConstruction::SetupGeometry_SubDetector_2(G4LogicalVolume* theWorldLogi){
+void MyProSimDetectorConstruction::SetupGeometry_SubDetector_2(G4LogicalVolume* theWorldLogi){
 
 }
 

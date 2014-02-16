@@ -1,13 +1,8 @@
-/*=====================================================================
- *   File:   MyProRunAction.cc
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/11/2013
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  28/01/2014   21:24:21
-=====================================================================*/
+/*
+ *  $Id: MyProSimRunAction.cc, 2014-02-16 23:21:10 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
+*/
 
 #include "G4Run.hh"
 #include "G4UImanager.hh"
@@ -15,17 +10,17 @@
 #include "CLHEP/Random/Random.h"
 
 #include <sys/time.h>
-#include "MyProRunAction.h"
+#include "MyProSimRunAction.h"
 
 //-------------------------------------------------------------------
-MyProRunAction::MyProRunAction(){
+MyProSimRunAction::MyProSimRunAction(){
 }
 
-MyProRunAction::~MyProRunAction(){
+MyProSimRunAction::~MyProSimRunAction(){
 }
 
 //-------------------------------------------------------------------
-void MyProRunAction::BeginOfRunAction(const G4Run* aRun){
+void MyProSimRunAction::BeginOfRunAction(const G4Run* aRun){
   G4cout << "### Run ID = " <<aRun->GetRunID()<< " start." << G4endl;
 
   //Random Engine
@@ -48,7 +43,7 @@ void MyProRunAction::BeginOfRunAction(const G4Run* aRun){
 }
 
 //-------------------------------------------------------------------
-void MyProRunAction::EndOfRunAction(const G4Run* aRun){
+void MyProSimRunAction::EndOfRunAction(const G4Run* aRun){
   //EndOfRun(aRun);
   G4cout<<"\t\t\tEnd of runID = "<<aRun->GetRunID()<<G4endl;
 }

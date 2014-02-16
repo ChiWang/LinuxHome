@@ -1,27 +1,22 @@
-/*=====================================================================
- *   File:   MyProSteppingAction.cc
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/11/2013
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  30/01/2014   14:18:49
-=====================================================================*/
+/*
+ *  $Id: MyProSimSteppingAction.cc, 2014-02-16 23:23:13 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
+*/
 
 #include "G4Track.hh"
 #include "G4Step.hh"
-#include "MyProSteppingAction.h"
+#include "MyProSimSteppingAction.h"
 
 //-------------------------------------------------------------------
-MyProSteppingAction::MyProSteppingAction(){
+MyProSimSteppingAction::MyProSimSteppingAction(){
 }
 
-MyProSteppingAction::~MyProSteppingAction(){
+MyProSimSteppingAction::~MyProSimSteppingAction(){
 }
 
 //-------------------------------------------------------------------
-void MyProSteppingAction::UserSteppingAction( const G4Step* aStep ){
+void MyProSimSteppingAction::UserSteppingAction(const G4Step *aStep){
   G4StepPoint* preStepPoint = aStep->GetPreStepPoint();
   G4String preVolumeName = preStepPoint->GetPhysicalVolume()->GetName();
   G4int copynumber = preStepPoint->GetPhysicalVolume()->GetCopyNo();

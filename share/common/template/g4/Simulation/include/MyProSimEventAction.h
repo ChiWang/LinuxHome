@@ -1,23 +1,23 @@
 /*
- *  $Id: MyProEventAction.h, 2014-02-15 23:21:43 chi $
+ *  $Id: MyProSimEventAction.h, 2014-02-16 23:12:28 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
  *  Note:
  *    only need to override BeginOfEventAction(const G4Event*) and EndOfEventAction(const G4Event*).
 */
 
-#ifndef MyProEventAction_H
-#define MyProEventAction_H
+#ifndef MyProSimEventAction_H
+#define MyProSimEventAction_H
 
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 
 //-------------------------------------------------------------------
-class MyProEventAction : public G4UserEventAction{
+class MyProSimEventAction : public G4UserEventAction{
 // common
   public:
-    MyProEventAction();
-    virtual ~MyProEventAction();
+    MyProSimEventAction();
+    virtual ~MyProSimEventAction();
 
     virtual void BeginOfEventAction(const G4Event*);
     virtual void EndOfEventAction(const G4Event*);
@@ -30,6 +30,7 @@ class MyProEventAction : public G4UserEventAction{
 // special. user define their special methods below
 
 };
+
 #endif
 
 

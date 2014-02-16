@@ -1,28 +1,23 @@
-/*=====================================================================
- *   File:   MyProEventAction.cc
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/11/2013
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  28/01/2014   21:25:27
-=====================================================================*/
+/*
+ *  $Id: MyProSimEventAction.cc, 2014-02-16 23:14:28 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
+*/
 
 #include "G4Event.hh"
 #include "G4VVisManager.hh"
 #include "G4Trajectory.hh"
-#include "MyProEventAction.h"
+#include "MyProSimEventAction.h"
 
 //-------------------------------------------------------------------
-MyProEventAction::MyProEventAction():fDrawFlag("all"){
+MyProSimEventAction::MyProSimEventAction():fDrawFlag("all"){
 }
 
-MyProEventAction::~MyProEventAction(){   
+MyProSimEventAction::~MyProSimEventAction(){   
 }
 
 //-------------------------------------------------------------------
-void MyProEventAction::BeginOfEventAction(const G4Event* aEvent){
+void MyProSimEventAction::BeginOfEventAction(const G4Event* aEvent){
   if( aEvent->GetEventID() %10000 == 0 ){
     G4cout<<"---> Begin of event:\t"<<aEvent->GetEventID()<<G4endl;
   }
@@ -32,7 +27,7 @@ void MyProEventAction::BeginOfEventAction(const G4Event* aEvent){
 }
 
 //-------------------------------------------------------------------
-void MyProEventAction::EndOfEventAction(const G4Event* aEvent){
+void MyProSimEventAction::EndOfEventAction(const G4Event* aEvent){
   //EndOfEvent(aEvent);
 
   if( aEvent->GetEventID() %10000 == 0 ){

@@ -1,13 +1,9 @@
-/*=====================================================================
- *   File:   MyProSimu.cc
- *   Author: Chi WANG  (chiwang@mail.ustc.edu.cn)    16/011/2014
- *---------------------------------------------------------------------
- *   Description:
- *
- *---------------------------------------------------------------------
- *   History:
- *                           Last update:  30/01/2014   15:22:11
-=====================================================================*/
+/*
+ *  $Id: MyProSimMain.cc, 2014-02-16 23:15:09 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
+*/
+
 
 // Standard G4 Program Components
 //-------------------------------------------------------------------
@@ -24,12 +20,12 @@
 
 // User Defined Standard G4 Program Components
 //-------------------------------------------------------------------
-//#include "MyProVisManager.h"
-#include "MyProDetectorConstruction.h"
-#include "MyProPrimaryGeneratorAction.h"
-#include "MyProEventAction.h"
-#include "MyProSteppingAction.h"
-#include "MyProRunAction.h"
+//#include "MyProSimVisManager.h"
+#include "MyProSimDetectorConstruction.h"
+#include "MyProSimPrimaryGeneratorAction.h"
+#include "MyProSimEventAction.h"
+#include "MyProSimSteppingAction.h"
+#include "MyProSimRunAction.h"
 
 G4int main(G4int argc, char* argv[]){
   G4RunManager *runManager = new G4RunManager;
@@ -40,14 +36,14 @@ G4int main(G4int argc, char* argv[]){
   runManager->SetUserInitialization(physList);
 
   // User Initializations
-  MyProDetectorConstruction *MyProDetector = new MyProDetectorConstruction();
-  runManager->SetUserInitialization(MyProDetector);
+  MyProSimDetectorConstruction *MyProSimDetector = new MyProSimDetectorConstruction();
+  runManager->SetUserInitialization(MyProSimDetector);
 
   // User Action
-  MyProRunAction *runAction = new MyProRunAction();
-  MyProEventAction *evtAction = new MyProEventAction();
-  MyProSteppingAction *steppingAction = new MyProSteppingAction();
-  MyProPrimaryGeneratorAction *primaryGenerator = new MyProPrimaryGeneratorAction;
+  MyProSimRunAction *runAction = new MyProSimRunAction();
+  MyProSimEventAction *evtAction = new MyProSimEventAction();
+  MyProSimSteppingAction *steppingAction = new MyProSimSteppingAction();
+  MyProSimPrimaryGeneratorAction *primaryGenerator = new MyProSimPrimaryGeneratorAction;
   runManager->SetUserAction(runAction);
   runManager->SetUserAction(evtAction);
   runManager->SetUserAction(steppingAction);

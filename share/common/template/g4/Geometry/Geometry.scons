@@ -1,0 +1,21 @@
+'''
+ *  $Id: Geometry.scons, 2014-02-16 16:57:07 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/02/2014
+ *  Note:
+ *    This file is invoked by ../SConstruct
+'''
+
+import os
+Import("*")     # import all vars from SConstruct
+print "\t\t\t invoke %s\n" % os.path.abspath("./")
+#--------------------------------------------------------------------
+
+# install share
+#--------------------------------------------------------------------
+shareDir=prefix+'/share/Geometry'
+if not os.path.exists(shareDir):
+    import shutil
+    shutil.copytree("../Geometry",shareDir)
+    os.remove(shareDir+"/Geometry.scons")
+
