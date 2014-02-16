@@ -6,7 +6,6 @@
     gui.mac     // add first line buttons
     icons.mac   // add second line buttons
 
-
 ## run example
 ---------------------------------------
 
