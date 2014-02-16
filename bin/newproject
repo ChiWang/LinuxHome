@@ -19,39 +19,28 @@ exit 1
 Readme(){   #+ this only used for g4 and c++
 #+ readme
 cat > $1/Readme.md <<EOF
-
-                        Project:    $1
-        =======================================================
-        |   Aouthor:    Chi WANG (chiwang@mail.ustc.edu.cn)   |         
-        |   Time:           $Date    $Time            |
-        =======================================================
-
-
-Description:
--------------
+(*
+ *        Project:    $1
+ *==================================================
+ *  \$Id: Readme.md, 2014-02-16 14:54:50 chi $
+ *  Author(s):
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) $Date
+ *==================================================
+*)
 
 Note:
 -------------
 
-Compile:
+Compilation:
 -------------
-    better to use SCons
-
-  1. SCons      // all *.cc file must in ./src/
     scons       // will create executable file sss at ./, and temporary files in ./Scons
     scons -c    // clean up
-    Note:   maybe you need to enable certain software in ./src/SConscript by yourself
-
-  2. Make       // if Makefile exist
-    make        // creat executable file
-    make clean  // clean all created files
+    more details in SConstruct
 
 Tips:
 -------------
-
-    # Here are the tips of how to use Cscope and Ctags while you development
-    # It may let your coding more efficiency.
-    #   the next is a simple statement of how to use those tools.
+    # How to use Cscope and Ctags
+    # It help your coding more efficiency.
 
     1.  Cscope:
         1.1.  cd into "RootDir of this project"(where holds src and include, etc)
@@ -60,7 +49,7 @@ Tips:
             cscope -Rbq
 
         1.3.  then, while you use vim open a source file,
-            1.3.1     :cs add /SomePathTo/cscope.out
+            1.3.1     :cs add /SomePathTo/cscope.out /SomePath
             1.3.2     :cs find g anyThing
             1.3.3     :cs find c anyThing
 
@@ -78,57 +67,65 @@ Tips:
             2.3.1   :set tags=/SomePathTo/tags
             2.3.2   Ctrl+] OR Ctrl+T to find something
 
-Structure:
--------------
-    include         // header files
-    src             // source files
-    SConstruct      // SCons read this file
-    Scons           // to store temprary files created by using SCons, if Scons is exist
 EOF
 if [[ $Tag == "g4" ]];then
 cat >> $1/Readme.md <<EOF
-    mac             // macro files
-    db/sim          // simulation results will save into this directory
-    analysis        // analysis codes, input is db/sim/*
-    db/ana          // analysis results will save into this directory
+Structure:
+-------------
+    SConstruct      // SCons read this file
+    Kernel          // all constants
+    Event           // all event classes
+    Geometry        // all GDML files
+    Simulation      // simulation
+    Analysis        // analysis codes, input is data/simulation*
+    data/analysis   // analysis results
 EOF
 fi
 }
 
-setupCpp(){
+SetupCpp(){
 #+ setup
 mkdir -p $1/include $1/src 2>/dev/null
 sed "s/MyPro/$1/g" $temp/main.cc > $1/src/$1_main.cc
+sed "s/MyPro/$1/g" $temp/SConstruct > $1/SConstruct
+cp $temp/src.scons $1/src/src.scons
 
 #+ Readme.md
 Readme $1
 }
 
-setupG4(){
+SetupG4(){
 #+ setup
 cp $temp $1 -r
-for subdir in include src;do
-  for file in `ls $1/${subdir}`;do
-    name=`echo ${file/MyPro/$1}`
-    mv $1/${subdir}/${file} $1/${subdir}/${name}
-  done
-  sed "s/MyPro/$1/g" -i $1/${subdir}/*
+sed "s/MyPro/$1/g" -i $1/SConstruct
+for pkg in `ls $1`;do
+  if [[ ! -d $1/$pkg ]];then
+    continue
+  fi
+  pushd $1/$pkg 1>/dev/null
+    for dir in `ls`;do
+      if [[ $dir == 'include' || $dir == 'src' ]];then
+        for file in `ls $dir`;do
+          rename=`echo ${file/MyPro/$1}`
+          mv $dir/$file $dir/$rename
+        done
+        sed "s/MyPro/$1/g" -i $dir/*
+      fi
+    done
+  popd 1>/dev/null
 done
-sed "s/MyPro/$1/g" -i $1/Makefile
-ln -s $PWD/$1/src/$1Simu.cc $1/
 
 #+ Readme.md
 Readme $1
 }
 
-setupBes(){
+SetupBes(){
   echo "setup BES"
 }
 
-setupBash(){
+SetupBash(){
 cat >$1.sh <<EOF
 #! /bin/bash
-
 
 #+ functions
 #----------------------------------------------------
@@ -145,8 +142,10 @@ exit 1
 EOF
 }
 
-setupPython(){
-  echo "setup Python"
+SetupPython(){
+cat >$1.py <<EOF
+#! /bin/python
+EOF
 }
 
 #+ main
@@ -158,24 +157,23 @@ echo "    Setting up $1 project \"$2\""
 tempRoot="$HOME/share/common/template"
 Tag=$1
 temp="$tempRoot/$Tag"
-Date=`date +%Y-%m-%d`
-Time=`date +%H:%M:%S`
+Date=`date +%d/%m/%Y`
 
 #+ setup
 case "$Tag" in
   c++)
-    setupCpp $2
+    SetupCpp $2
     ;;
   g4)
-    setupG4 $2
+    SetupG4 $2
     ;;
   bes)
-    setupBes $2
+    SetupBes $2
     ;;
   bash)
-    setupBash $2
+    SetupBash $2
     ;;
   python)
-    setupPython $2
+    SetupPython $2
     ;;
 esac

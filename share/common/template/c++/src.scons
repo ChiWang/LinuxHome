@@ -1,7 +1,7 @@
 '''
- *  $Id: src.scons, 2014-02-15 22:51:17 chi $
+ *  $Id: src.scons, 2014-02-16 16:40:36 chi $
  *  Author(s):
- *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/09/2014
+ *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/09/2013
  *  Note:
  *    This file is invoked by ../SConstruct
 '''
@@ -12,29 +12,11 @@ print "\t\t\t invoke %s\n" % os.path.abspath("./")
 #--------------------------------------------------------------------
 
 #   set the programme name
-target='MyPro'
+target=project+'main'
 env = envBase.Clone()
-
-#   set OpenMP
-#if int(ARGUMENTS.get('omp',0)):
-#    target=target+"_omp"
-#    env.MergeFlags('-fopenmp')
 
 #   include
 env.Append(CPPPATH = '../include')
-
-#   use boost
-env.Append(LIBS=['boost_program_options-mt'])
-#   use external library
-#env.Append(LIBS=['XXX','xxxx2'])
-#env.Append(LIBPATH=['xxxx'])
-
-#--------------------------------------------------------------------
-#   the following 3 lines for checking your setted value
-#for item in sorted(envBase.Dictionary().items()):
-#  print "V = '%s',\t\tValue = '%s'" % item
-#Exit(1)
-#--------------------------------------------------------------------
 
 #   main build
 env.Program('../'+target,Glob("*.cc"))

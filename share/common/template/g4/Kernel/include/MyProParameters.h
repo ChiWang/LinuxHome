@@ -1,5 +1,5 @@
 /*
- *  $Id: MyProParameters.h, 2014-02-15 23:24:12 chi $
+ *  $Id: MyProParameters.h, 2014-02-16 22:37:37 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
  *  Note:
@@ -14,15 +14,15 @@
 //-------------------------------------------------------------------
 namespace MyProParameters{
   const G4ThreeVector kWorldSize(100,200,20);
-  const G4int     kWorldR=100;
+  const int     kWorldR=100;
 
-  namespace SubDet_1{
+  namespace SubDet1{
     const G4ThreeVector  SubDet_1Size(20,30,40);        //(x,y,z)
-    const G4int     kPlaneNum=20;
-    const G4int     kBarNum=10;
+    const int     kPlaneNum=20;
+    const int     kBarNum=10;
   }
 
-  namespace SubDet_2{
+  namespace SubDet2{
   }
 
 }

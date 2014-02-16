@@ -1,5 +1,5 @@
 #include <iostream>
-#ifdef DEBUG
+#ifdef My_Debug
 #include <assert.h>
 #endif
 //#include <boost/program_options.hpp>
