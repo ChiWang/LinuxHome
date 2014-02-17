@@ -1,15 +1,13 @@
 "+
-"+  $Id: authorinfo_todo.vim, 2014-02-17 12:23:12 chi $
+"+  $Id: authorinfo_todo.vim, 2014-02-17 23:15:30 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 14/02/2014
 "+
-
 
 if exists('g:loaded_authorinfo')
     finish
 endif
 let g:loaded_authorinfo= 1
-let s:t_mapleader = '\'
 
 function s:AddTitle() "{{{
     " find the first line, for some script, must after #! /bin/xxx
@@ -27,7 +25,7 @@ function s:AddTitle() "{{{
     let hasMul = 0
     call setline('.','test mul')
     let oldline = getline('.')
-    exec 'normal '.s:t_mapleader.'cm'
+    exec 'normal \cm'
     let newline = getline('.')
     if oldline != newline
         let hasMul = 1
@@ -48,10 +46,10 @@ function s:AddTitle() "{{{
     call setline('.','') | let lastLine = line('.')
 
     if hasMul == 1
-        exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cm'
+        exe 'normal '.firstLine.'Gv'.lastLine.'G\cm'
     else
         call setline('.',preChar)
-        exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cl'
+        exe 'normal '.firstLine.'Gv'.lastLine.'G\cl'
     endif
 
     normal o
@@ -90,7 +88,7 @@ function s:AddTodo() "{{{
     call setline('.',preChar.'  TODO: ') | let goLn = line('.')
     normal o
     call setline('.',preChar) | let lastLine = line('.') 
-    exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cl'
+    exe 'normal '.firstLine.'Gv'.lastLine.'G\cl'
     exe '%s/tmpline/'.preChar.'/g'
     " Set Todo
 
@@ -104,7 +102,7 @@ function s:AddMark() "{{{
     " add mark
     normal O
     call setline('.','-------------------------------------------------------------------') | let goLn = line('.') 
-    exe 'normal '.s:t_mapleader.'cl'
+    exe 'normal \cl'
     " add mark
     exe 'normal '.goLn.'G'
     startinsert!
