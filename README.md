@@ -22,6 +22,6 @@ main:
 
 Others:
 
-    .vimback        // backup of files edited by vim (created by .zprofile)
-    .trash          // rm XX into it            (created by .zprofile)
+    .vimback        // backup of files edited by vim (created by hand)
+    .trash          // use delete (bin $HOME/bin) to delete one file(directory) into trash
 
