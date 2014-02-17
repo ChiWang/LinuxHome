@@ -1,5 +1,5 @@
 "+
-"+  $Id: authorinfo_todo.vim, 2014-02-17 12:09:17 chi $
+"+  $Id: authorinfo_todo.vim, 2014-02-17 12:23:12 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 14/02/2014
 "+
@@ -11,7 +11,7 @@ endif
 let g:loaded_authorinfo= 1
 let s:t_mapleader = '\'
 
-function s:DetectFirstLine() "{{{
+function s:AddTitle() "{{{
     " find the first line, for some script, must after #! /bin/xxx
     let line = getline(1)
     if line =~ '#!'
@@ -20,14 +20,11 @@ function s:DetectFirstLine() "{{{
         exe 'normal '.1.'G'
     endif
     normal O
-endfunction "}}}
-
-function s:AddTitle() "{{{
-    call s:DetectFirstLine()
     let firstLine = line('.')
+
+    " prepare
     let preChar = '+'
     let hasMul = 0
-
     call setline('.','test mul')
     let oldline = getline('.')
     exec 'normal '.s:t_mapleader.'cm'
@@ -56,14 +53,31 @@ function s:AddTitle() "{{{
         call setline('.',preChar)
         exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cl'
     endif
-    " Set copyright here
 
     normal o
     call setline('.','') | let gotoLn = line('.')
     exe 'normal '.gotoLn.'G'
+    " Set copyright here
 
     startinsert!
     echohl WarningMsg | echo "Succ to add the copyright." | echohl None
+endfunction "}}}
+
+function s:TitleDet() "{{{
+    "silent! normal ms
+    let n = 1
+    while n < 5
+        let line = getline(n)
+        if line =~ '$Id'
+            "silent! normal 's
+            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' '.$USER.' $','g')
+            call setline(n,newline)
+            echohl WarningMsg | echo "Succ to update the copyright." | echohl None
+            return
+        endif
+        let n = n + 1
+    endwhile
+    call s:AddTitle()
 endfunction "}}}
 
 function s:AddTodo() "{{{
@@ -86,25 +100,19 @@ function s:AddTodo() "{{{
     echohl WarningMsg | echo "Succ to add Todo" | echohl None
 endfunction "}}}
 
-function s:TitleDet() "{{{
-    "silent! normal ms
-    let n = 1
-    while n < 5
-        let line = getline(n)
-        if line =~ '$Id'
-            "silent! normal 's
-            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' '.$USER.' $','g')
-            call setline(n,newline)
-            echohl WarningMsg | echo "Succ to update the copyright." | echohl None
-            return
-        endif
-        let n = n + 1
-    endwhile
-    call s:AddTitle()
+function s:AddMark() "{{{
+    " add mark
+    normal O
+    call setline('.','-------------------------------------------------------------------') | let goLn = line('.') 
+    exe 'normal '.s:t_mapleader.'cl'
+    " add mark
+    exe 'normal '.goLn.'G'
+    startinsert!
 endfunction "}}}
 
-command! -nargs=0 AuthorInfoDetect :call s:TitleDet()
-command! -nargs=0 TODO :call s:AddTodo()
+command! -nargs=0 AuthorInfo :call s:TitleDet()
+command! -nargs=0 Todo :call s:AddTodo()
+command! -nargs=0 Mark :call s:AddMark()
 
 " vim:ft=vim:fdm=marker
 

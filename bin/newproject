@@ -19,14 +19,9 @@ exit 1
 Readme(){   #+ this only used for g4 and c++
 #+ readme
 cat > $1/Readme.md <<EOF
-(*
- *        Project:    $1
- *==================================================
- *  \$Id: Readme.md, 2014-02-16 14:54:50 chi $
- *  Author(s):
- *    Chi WANG (chiwang@mail.ustc.edu.cn) $Date
- *==================================================
-*)
+
+        Project:    $1
+>--------------------------------------------
 
 Note:
 -------------
@@ -39,33 +34,41 @@ Compilation:
 
 Tips:
 -------------
-    # How to use Cscope and Ctags
-    # It help your coding more efficiency.
+How to use Cscope and Ctags? It help your coding more efficiency.
 
-    1.  Cscope:
-        1.1.  cd into "RootDir of this project"(where holds src and include, etc)
+    ## Cscope:
 
-        1.2.  create cscope* files
-            cscope -Rbq
-
-        1.3.  then, while you use vim open a source file,
-            1.3.1     :cs add /SomePathTo/cscope.out /SomePath
-            1.3.2     :cs find g anyThing
-            1.3.3     :cs find c anyThing
-
-        1.4.  show the outputs of 1.3 in a window, do in vim
+    1.  cd into "RootDir of this project"(where holds src and include, etc)
+    
+    2.  create cscope* files
+      cscope -Rbq
+    
+    3.  then, while you use vim open a source file,
+      3.1     :cs add /SomePathTo/cscope.out /SomePath
+      3.2     :cs find g anyThing
+      3.3     :cs find c anyThing
+    
+    4.  show the outputs of 1.3 in a window, do in vim
             :cw
             (if report errors, be sure that this line ":set cscopequickfix=s-,c-,d-,i-,t-,e-" in your ~/.vimrc)
 
-    2.  Ctags:
-        2.1.  cd into "RootDir of this project"(where holds src and include, etc)
+    ## Ctags:
 
-        2.2.  create tags file
-            ctags -R
+    1.  cd into "RootDir of this project"(where holds src and include, etc)
+    
+    2.  create tags file
+      ctags -R
+    
+    3.  then, while you use vim open a source file,
+      3.1   :set tags=/SomePathTo/tags
+      3.2   Ctrl+] OR Ctrl+T to find something
 
-        2.3.  then, while you use vim open a source file,
-            2.3.1   :set tags=/SomePathTo/tags
-            2.3.2   Ctrl+] OR Ctrl+T to find something
+    ## Valgrind
+
+    1.  add option -g while compiling codes
+
+    2.  run: valgrind [valgrind-options] your-prog [your-prog-options]
+
 
 EOF
 if [[ $Tag == "g4" ]];then
@@ -157,7 +160,6 @@ echo "    Setting up $1 project \"$2\""
 tempRoot="$HOME/share/common/template"
 Tag=$1
 temp="$tempRoot/$Tag"
-Date=`date +%d/%m/%Y`
 
 #+ setup
 case "$Tag" in

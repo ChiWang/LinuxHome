@@ -1,5 +1,5 @@
 "+
-"+  $Id: .vimrc, 2014-02-15 22:37:13 chi $
+"+  $Id: .vimrc, 2014-02-17 14:01:20 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 29/09/2013
 "+  Note:
@@ -38,7 +38,7 @@ highlight Folded ctermfg=7 ctermfg=0
 nnoremap <space> za
 
 "-------------------------------------------------------------------
-"   My plugins  "
+"   My plugins
 "-------------------------------------------------------------------
 filetype plugin on
 "+  NERDTree
@@ -72,23 +72,21 @@ nnoremap <silent> <F6> :AS<CR>
 let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height=20
 
-"+  author infor
-let g:vimrc_author='Chi WANG'
-let g:vimrc_email=$MYEMAIL
-"let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
-nmap <F5> :AuthorInfoDetect<cr>
-
 "-------------------------------------------------------------------
 "   My shortcuts
 "-------------------------------------------------------------------
-"+ comment
-nmap cm0 i//-------------------------------------------------------------------<Esc>A
-nmap cm1 i/*  needless*/<Esc>A
-nmap cm2 i#--------------------------------------------------------------------<Esc>A
+"+  author infor
+let g:vimrc_author='Chi WANG'
+let g:vimrc_email="chiwang@mail.ustc.edu.cn"
+"let g:vimrc_email='hgs@ustc.edu.cn ylzhang1@mail.ustc.edu.cn chiwang@mail.ustc.edu.cn zhzhy@mail.ustc.edu.cn weiyf@mail.ustc.edu.cn'
+nmap aa :AuthorInfo<cr>
+
+"+ add a new line as mark
+nmap mm :Mark<cr>
 
 "+ todo
 nmap td0 i#pragma message("TODO ----> xxxx")<Esc>A
-nmap td :TODO<cr>
+nmap td :Todo<cr>
 
 "+ debug
 nmap db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
@@ -101,5 +99,6 @@ nmap co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 "-------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.scons set filetype=python
 autocmd BufNewFile,BufRead SCon* set filetype=python
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 
 
