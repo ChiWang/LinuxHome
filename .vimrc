@@ -1,9 +1,7 @@
 "+
-"+  $Id: .vimrc, 2014-02-17 14:01:20 chi $
+"+  $Id: .vimrc, 2014-02-17 21:38:20 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 29/09/2013
-"+  Note:
-"+    set $AUTHOR, $AUTHOREMAIL in .zprofile
 "+
  
 
@@ -66,7 +64,7 @@ let g:winManagerWidth=30
 nmap <F3> :WMToggle<cr>
 
 "+  switch between *.h and *.cc
-nnoremap <silent> <F6> :AS<CR>
+nnoremap <silent> <F5> :AS<CR>
 
 "+  pydiction
 let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
