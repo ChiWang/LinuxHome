@@ -38,7 +38,6 @@ endfunc
 
 if !exists("g:vim_markdown_folding_disabled")
   setlocal foldexpr=Foldexpr_markdown(v:lnum)
-  setlocal foldmethod=expr
 
   " allow the initial foldlevel to be configured in .vimrc
   if !exists("g:vim_markdown_initial_foldlevel")
@@ -51,6 +50,6 @@ if !exists("g:vim_markdown_folding_disabled")
   " see ':help fold-options' for more
   setlocal foldenable
   setlocal foldcolumn=0
-  set foldmethod=expr
+  "set foldmethod=expr
   "set foldopen-=search
 endif
