@@ -97,6 +97,7 @@ nmap co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 "-------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.scons set filetype=python
 autocmd BufNewFile,BufRead SCon* set filetype=python
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+autocmd BufNewFile,BufRead *.gdml set filetype=htmldjango
 
 
