@@ -1,5 +1,5 @@
 "+
-"+  $Id: authorinfo.vim, 2014-02-15 23:32:36 chi $
+"+  $Id: authorinfo_todo.vim, 2014-02-17 12:09:17 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 14/02/2014
 "+
@@ -11,7 +11,7 @@ endif
 let g:loaded_authorinfo= 1
 let s:t_mapleader = '\'
 
-function s:DetectFirstLine()
+function s:DetectFirstLine() "{{{
     " find the first line, for some script, must after #! /bin/xxx
     let line = getline(1)
     if line =~ '#!'
@@ -20,9 +20,9 @@ function s:DetectFirstLine()
         exe 'normal '.1.'G'
     endif
     normal O
-endfunction
+endfunction "}}}
 
-function s:AddTitle()
+function s:AddTitle() "{{{
     call s:DetectFirstLine()
     let firstLine = line('.')
     let preChar = '+'
@@ -64,9 +64,29 @@ function s:AddTitle()
 
     startinsert!
     echohl WarningMsg | echo "Succ to add the copyright." | echohl None
-endfunction
+endfunction "}}}
 
-function s:TitleDet()
+function s:AddTodo() "{{{
+    let preChar = " *"
+
+    " Set Todo
+    normal O
+    call setline('.','tmpline') | let firstLine = line('.') 
+    normal o
+    call setline('.',preChar.'  TODO: ') | let goLn = line('.')
+    normal o
+    call setline('.',preChar) | let lastLine = line('.') 
+    exe 'normal '.firstLine.'Gv'.lastLine.'G'.s:t_mapleader.'cl'
+    exe '%s/tmpline/'.preChar.'/g'
+    " Set Todo
+
+    exe 'normal '.goLn.'G'
+
+    startinsert!
+    echohl WarningMsg | echo "Succ to add Todo" | echohl None
+endfunction "}}}
+
+function s:TitleDet() "{{{
     "silent! normal ms
     let n = 1
     while n < 5
@@ -81,6 +101,10 @@ function s:TitleDet()
         let n = n + 1
     endwhile
     call s:AddTitle()
-endfunction
+endfunction "}}}
 
 command! -nargs=0 AuthorInfoDetect :call s:TitleDet()
+command! -nargs=0 TODO :call s:AddTodo()
+
+" vim:ft=vim:fdm=marker
+

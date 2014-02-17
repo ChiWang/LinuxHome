@@ -82,18 +82,19 @@ nmap <F5> :AuthorInfoDetect<cr>
 "   My shortcuts
 "-------------------------------------------------------------------
 "+ comment
-map cm0 i//-------------------------------------------------------------------<Esc>A
-map cm1 i/*  needless*/<Esc>A
-map cm2 i#--------------------------------------------------------------------<Esc>A
+nmap cm0 i//-------------------------------------------------------------------<Esc>A
+nmap cm1 i/*  needless*/<Esc>A
+nmap cm2 i#--------------------------------------------------------------------<Esc>A
 
 "+ todo
-map td0 i#pragma message("TODO ----> xxxx")<Esc>A
+nmap td0 i#pragma message("TODO ----> xxxx")<Esc>A
+nmap td :TODO<cr>
 
 "+ debug
-map db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
-map db1 i  assert();<Esc>
+nmap db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
+nmap db1 i  assert();<Esc>
 "+ for OpenMP
-map co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
+nmap co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 
 "-------------------------------------------------------------------
 "   add file types
