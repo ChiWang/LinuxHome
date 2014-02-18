@@ -24,6 +24,8 @@ tmp
 !.zprofile
 !.zshrc
 !.gitconfig
+.vim/back
+.vim/bundle
 
 #.Trash
 #.bash*

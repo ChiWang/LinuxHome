@@ -1,5 +1,5 @@
 "+
-"+  $Id: authorinfo_todo.vim, 2014-02-17 23:15:30 chi $
+"+  $Id: aattmm.vim, 2014-02-18 15:40:09 chi $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 14/02/2014
 "+

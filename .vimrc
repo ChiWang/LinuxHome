@@ -21,9 +21,13 @@ set ai!                 " suojing
 "colorscheme murphy
 set guifont=Monospace:h13:cANSI
 
+"+ set backup
+if ! isdirectory($HOME."/.vim/back")
+ call mkdir($HOME."/.vim/back")
+endif
 set backup
 set backupext=.back
-set backupdir=$HOME/.vimback     " need to create this directory firstly
+set backupdir=$HOME/.vim/back
 
 "set number                 " show line number
 "au FocusLost * :wa         " set auto wirte
@@ -99,4 +103,11 @@ autocmd BufNewFile,BufRead *.scons set filetype=python
 autocmd BufNewFile,BufRead SCon* set filetype=python
 autocmd BufNewFile,BufRead *.gdml set filetype=htmldjango
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
+
+"-------------------------------------------------------------------
+"   set vundle
+"-------------------------------------------------------------------
+if filereadable($HOME."/.vim/bundle/vundle.vim")
+  source ~/.vim/bundle/vundle.vim
+endif
 

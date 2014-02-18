@@ -4,7 +4,6 @@
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
 */
 
-
 // Standard G4 Program Components
 //-------------------------------------------------------------------
 #include "G4RunManager.hh"
@@ -39,18 +38,18 @@ G4int main(G4int argc, char* argv[]){
   MyProSimDetectorConstruction *MyProSimDetector = new MyProSimDetectorConstruction();
   runManager->SetUserInitialization(MyProSimDetector);
 
+  // Initialize geometry and physics
+  runManager->Initialize();
+
   // User Action
   MyProSimRunAction *runAction = new MyProSimRunAction();
   MyProSimEventAction *evtAction = new MyProSimEventAction();
   MyProSimSteppingAction *steppingAction = new MyProSimSteppingAction();
   MyProSimPrimaryGeneratorAction *primaryGenerator = new MyProSimPrimaryGeneratorAction;
-  runManager->SetUserAction(runAction);
+  runManager->SetUserAction(new MyProSimRunAction);
   runManager->SetUserAction(evtAction);
   runManager->SetUserAction(steppingAction);
   runManager->SetUserAction(primaryGenerator);
-
-  // Initialize run manager
-  runManager->Initialize();
 
 #ifdef G4VIS_USE
   // Visualization manager

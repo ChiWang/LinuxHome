@@ -151,6 +151,10 @@ cat >$1.py <<EOF
 EOF
 }
 
+SetupVim(){
+  echo "setup vim"
+}
+
 #+ main
 #----------------------------------------------------
 if [ $# != 2 ];then
@@ -177,5 +181,11 @@ case "$Tag" in
     ;;
   python)
     SetupPython $2
+    ;;
+  vim)
+    SetupVim $2
+    ;;
+  *)
+    Usage
     ;;
 esac
