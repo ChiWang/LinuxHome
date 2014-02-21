@@ -22,22 +22,22 @@ set ai!                 " suojing
 set guifont=Monospace:h13:cANSI
 
 "+ set backup
-if ! isdirectory($HOME."/.vim/back")
- call mkdir($HOME."/.vim/back")
+if ! isdirectory($HOME."/.vimback")
+ call mkdir($HOME."/.vimback")
 endif
 set backup
 set backupext=.back
-set backupdir=$HOME/.vim/back
+set backupdir=$HOME/.vimback
 
 "set number                 " show line number
 "au FocusLost * :wa         " set auto wirte
 set autowrite
 
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
-" color of folding line
-highlight Folded ctermfg=7 ctermfg=0
 " use space open/close folding
 nnoremap <space> za
+" color of folding line
+"highlight Folded ctermfg=7 ctermfg=0
 
 "-------------------------------------------------------------------
 "   My plugins
@@ -71,7 +71,7 @@ nmap <F3> :WMToggle<cr>
 nnoremap <silent> <F5> :AS<CR>
 
 "+  pydiction
-let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
+let g:pydiction_location=$HOME.'/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height=20
 
 "-------------------------------------------------------------------
