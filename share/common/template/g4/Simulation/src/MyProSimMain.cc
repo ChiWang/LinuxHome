@@ -1,5 +1,5 @@
 /*
- *  $Id: MyProSimMain.cc, 2014-02-16 23:15:09 chi $
+ *  $Id: MyProSimMain.cc, 2014-02-19 11:43:03 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/11/2013
 */
@@ -8,7 +8,6 @@
 //-------------------------------------------------------------------
 #include "G4RunManager.hh"
 #include "G4PhysListFactory.hh"
-    //+ G4 User Interface & Visualization
 #include "G4UImanager.hh"
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -22,34 +21,29 @@
 //#include "MyProSimVisManager.h"
 #include "MyProSimDetectorConstruction.h"
 #include "MyProSimPrimaryGeneratorAction.h"
+#include "MyProSimRunAction.h"
 #include "MyProSimEventAction.h"
 #include "MyProSimSteppingAction.h"
-#include "MyProSimRunAction.h"
 
 G4int main(G4int argc, char* argv[]){
   G4RunManager *runManager = new G4RunManager;
 
-  // Use physicsListFactory
+  // Physics List
   G4PhysListFactory *physListFactory = new G4PhysListFactory();
   G4VUserPhysicsList *physList = physListFactory->GetReferencePhysList("QGSP_BERT");
   runManager->SetUserInitialization(physList);
 
-  // User Initializations
-  MyProSimDetectorConstruction *MyProSimDetector = new MyProSimDetectorConstruction();
-  runManager->SetUserInitialization(MyProSimDetector);
+  // Detector
+  runManager->SetUserInitialization(new MyProSimDetectorConstruction);
 
   // Initialize geometry and physics
   runManager->Initialize();
 
   // User Action
-  MyProSimRunAction *runAction = new MyProSimRunAction();
-  MyProSimEventAction *evtAction = new MyProSimEventAction();
-  MyProSimSteppingAction *steppingAction = new MyProSimSteppingAction();
-  MyProSimPrimaryGeneratorAction *primaryGenerator = new MyProSimPrimaryGeneratorAction;
+  runManager->SetUserAction(new MyProSimPrimaryGeneratorAction);
   runManager->SetUserAction(new MyProSimRunAction);
-  runManager->SetUserAction(evtAction);
-  runManager->SetUserAction(steppingAction);
-  runManager->SetUserAction(primaryGenerator);
+  runManager->SetUserAction(new MyProSimEventAction);
+  runManager->SetUserAction(new MyProSimSteppingAction);
 
 #ifdef G4VIS_USE
   // Visualization manager
@@ -61,25 +55,28 @@ G4int main(G4int argc, char* argv[]){
   G4UImanager *UIManager = G4UImanager::GetUIpointer();
 
   if(argc == 1){
-    #ifdef G4UI_USE //not difined in setup
-    G4UIExecutive *session = new G4UIExecutive(argc, argv);
-    #ifdef G4VIS_USE
-    UIManager->ApplyCommand("/control/execute ./mac/visFile/vis.mac"); 
-    #endif
-    if(session->IsGUI()){
-     UIManager->ApplyCommand("/control/execute ./mac/visFile/gui.mac");
-    }
-    session->SessionStart();
-    delete session;
-    #endif
-  }else{
     G4String fileName = argv[1];
     UIManager->ApplyCommand("/control/execute" + fileName); 
+  }else{
+#ifdef G4UI_USE //not difined in setup
+    G4UIExecutive *ui = new G4UIExecutive(argc, argv);
+#ifdef G4VIS_USE
+    UIManager->ApplyCommand("/control/execute ./mac/visFile/vis.mac"); 
+#endif
+    if(ui->IsGUI()){
+     UIManager->ApplyCommand("/control/execute ./mac/visFile/gui.mac");
+    }
+    ui->SessionStart();
+    delete ui;
+#endif
   }
 
-  //job termination
-  delete runManager;
+  // job termination
+#ifdef G4VIS_USE
+  delete visManager;
+#endif
   delete physListFactory;
+  delete runManager;
   return 0;
 }
 

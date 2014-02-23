@@ -1,5 +1,5 @@
 /*
- *  $Id: MyProParameters.h, 2014-02-17 00:14:15 chi $
+ *  $Id: MyProParameters.h, 2014-02-21 19:34:38 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
  *  Note:
@@ -13,16 +13,17 @@
 
 //-------------------------------------------------------------------
 namespace MyProParameters{
-  const TVector3    kWorldSize(100,200,20);
-  const int         kWorldR=100;
-
-  namespace SubDet1{
-    const TVector3  SubDet_1Size(20,30,40);
-    const int       kPlaneNum=20;
-    const int       kBarNum=10;
-  }
-
-  namespace SubDet2{
+  // the unit of any size is cm
+  const short   kSubDetNo = 4;
+  namespace SubDet{
+    const TVector3  kDetectorSize(20,30,80);
+    const TVector3  kPlaneSize(20,30,10)
+    const TVector3  kBarSize(20,30,10)
+    const short     kPlaneNo    = 7;     // one plane has 2 layers (x and y)
+    const short     kBarNo      = 10;
+    const short     kRefBarNo   = 2;
+    const short     kSideNo     = 2;
+    const short     kDyNo       = 3;
   }
 
 }

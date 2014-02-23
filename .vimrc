@@ -34,10 +34,10 @@ set backupdir=$HOME/.vim/back
 set autowrite
 
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
-" color of folding line
-highlight Folded ctermfg=7 ctermfg=0
 " use space open/close folding
 nnoremap <space> za
+" color of folding line
+"highlight Folded ctermfg=7 ctermfg=0
 
 "-------------------------------------------------------------------
 "   My plugins
@@ -91,8 +91,8 @@ nmap td0 i#pragma message("TODO ----> xxxx")<Esc>A
 nmap td :Todo<cr>
 
 "+ debug
-nmap db0 istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
-nmap db1 i  assert();<Esc>
+nmap db istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
+nmap db0 i  assert();<Esc>
 "+ for OpenMP
 nmap co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
 

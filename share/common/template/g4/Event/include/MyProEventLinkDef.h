@@ -12,13 +12,8 @@
 #pragma link off all namespaces;
 
 #pragma link C++ class MyProEvtHeader+;
-#pragma link C++ class MyProVEvtSubDet+;
-#pragma link C++ class MyProVEvtHit+;
-#pragma link C++ class MyProVRecord+;
-#pragma link C++ class MyProEvtTrajectory+;
-
-// Simulation classes
-#pragma link C++ class MyProEvtMCHeader+;
-#pragma link C++ class MyProVEvtMCHit+;
+#pragma link C++ class MyProEvtHit+;
+//#pragma link C++ class MyProVRecord+;
+//#pragma link C++ class MyProEvtTrajectory+;
 
 #endif
