@@ -22,12 +22,12 @@ set ai!                 " suojing
 set guifont=Monospace:h13:cANSI
 
 "+ set backup
-if ! isdirectory($HOME."/.vim/back")
- call mkdir($HOME."/.vim/back")
+if ! isdirectory($HOME."/.vimback")
+ call mkdir($HOME."/.vimback")
 endif
 set backup
 set backupext=.back
-set backupdir=$HOME/.vim/back
+set backupdir=$HOME/.vimback
 
 "set number                 " show line number
 "au FocusLost * :wa         " set auto wirte
@@ -71,7 +71,7 @@ nmap <F3> :WMToggle<cr>
 nnoremap <silent> <F5> :AS<CR>
 
 "+  pydiction
-let g:pydiction_location='$HOME/.vim/pydiction/complete-dict'
+let g:pydiction_location=$HOME.'/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height=20
 
 "-------------------------------------------------------------------
