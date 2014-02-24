@@ -13,6 +13,7 @@
 
 #pragma link C++ class MyProEvtHeader+;
 #pragma link C++ class MyProEvtHit+;
+#pragma link C++ class MyProEvent+;
 //#pragma link C++ class MyProVRecord+;
 //#pragma link C++ class MyProEvtTrajectory+;
 

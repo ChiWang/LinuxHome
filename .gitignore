@@ -12,6 +12,10 @@
 *.la
 *.a
 
+# tags and cscope
+cscope*
+tags
+
 # User special
 documents
 geant4_workdir
