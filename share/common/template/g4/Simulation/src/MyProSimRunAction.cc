@@ -9,7 +9,7 @@
 #include "G4VVisManager.hh"
 #include "CLHEP/Random/Random.h"
 
-#include <sys/time.h>
+#include <time.h>
 #include "MyProSimRunAction.h"
 
 //-------------------------------------------------------------------
@@ -24,11 +24,10 @@ void MyProSimRunAction::BeginOfRunAction(const G4Run* aRun){
   G4cout << "### Run ID = " <<aRun->GetRunID()<< " start." << G4endl;
 
   //Random Engine
-  //CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine);
-  //
-  //G4long seed = time(0)+getpid();
-  //CLHEP::HepRandom::setTheSeed(seed);
-  //CLHEP::HepRandom::showEngineStatus();	
+  CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine);
+  G4long seed = time((time_t*)NULL);
+  CLHEP::HepRandom::setTheSeed(seed);
+  CLHEP::HepRandom::showEngineStatus();	
 
   //Create the analysis manager and BeginOfRun
 //  BeginOfRun(aRun);

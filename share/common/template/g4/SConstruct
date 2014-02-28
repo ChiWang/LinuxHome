@@ -78,9 +78,7 @@ print "install MyPro into: ", prefix
 
 # mode tag
 #--------------------------------------------------------------------
-if int(ARGUMENTS.get('release',0)):
-    envBase.Append(CCFLAGS = ['-DMy_Release'])
-else:
+if int(ARGUMENTS.get('debug',1)):
     envBase.Append(CCFLAGS = ['-g','-DMy_Debug'])
 
 # invoke *.scons file of top-1 packages

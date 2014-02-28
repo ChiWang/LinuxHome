@@ -30,6 +30,7 @@ tmp
 !.gitconfig
 .vim/back
 .vim/bundle
+.scon*
 
 #.Trash
 #.bash*

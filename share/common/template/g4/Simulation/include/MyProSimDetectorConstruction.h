@@ -1,5 +1,5 @@
 /*
- *  $Id: MyProSimDetectorConstruction.h, 2014-02-16 23:00:11 chi $
+ *  $Id: MyProSimDetectorConstruction.h, 2014-02-26 17:34:45 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/06/2013
 */ 

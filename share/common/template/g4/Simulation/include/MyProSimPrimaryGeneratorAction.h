@@ -19,7 +19,7 @@ class MyProSimPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction{
   void GeneratePrimaries( G4Event *anEvent);
 	
  private:
-  G4GeneralParticleSource *mGPS;
+  G4GeneralParticleSource *fGPS;
 
 };
 
