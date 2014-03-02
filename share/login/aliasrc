@@ -16,6 +16,7 @@ alias toT6102='ssh -Y chi@159.226.72.202'
 
 alias toihep='ssh -Y wangch@lxslc.ihep.ac.cn'
 alias toihep5='ssh -Y wangch@lxslc5.ihep.ac.cn'
+alias toihep510='ssh -Y wangch@lxslc510.ihep.ac.cn'
 
 alias toui01='ssh -Y wangc@ui01.lcg.ustc.edu.cn'
 alias toui02='ssh -Y wangc@ui02.lcg.ustc.edu.cn'

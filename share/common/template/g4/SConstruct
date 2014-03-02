@@ -40,8 +40,10 @@ def useGeant4(aEnv):
     aEnv.PrependENVPath('PATH', g4sys+'/../../../bin')
     aEnv.ParseConfig("geant4-config --cflags --libs")
 
-def useBoost(aEnv):
-    aEnv.Append(LIBS=['boost_program_options-mt'])
+def useBoostPython(aEnv):
+    aEnv.ParseConfig("python-config --include --libs")
+    aEnv.Append(LIBS=['boost_python'])
+    #aEnv.Append(LIBS=['boost_program_options-mt'])
 
 def useExternal(aEnv):
     aEnv.Append(LIBS=['XXX','xxxx2'])
@@ -53,7 +55,7 @@ envBase = Environment(ENV = os.environ)
 useRoot(envBase)
 useGeant4(envBase)
 #useCLHEP(envBase)
-#useBoost(envBase)
+#useBoostPython(envBase)
 #useExternal(envBase)
 
 #   set OpenMP
