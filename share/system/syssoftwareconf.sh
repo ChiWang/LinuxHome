@@ -20,14 +20,14 @@ export NUM_CPU=`more /proc/cpuinfo| grep "processor" | wc -l`
 export PYTHONSTARTUP=$ToolPath/config/pythonconf.py
 
 #+ root         
-pushd $ToolPath/root_v5.34 >/dev/null 2>&1
+pushd $ToolPath/root_v5.34 >&/dev/null
 source ./bin/thisroot.sh
-popd >/dev/null
+popd >&/dev/null
    
 #+ geant4
-pushd $ToolPath/geant4_v4.9.6/share/Geant4*/geant4make >/dev/null 2>&1
+pushd $ToolPath/geant4_v4.9.6/share/Geant4*/geant4make >&/dev/null
 source geant4make.sh
-popd >/dev/null
+popd >&/dev/null
 
 #+ CLHEP
 export PATH="$ToolPath/clhep_v2.1.4.1/bin":$PATH

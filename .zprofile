@@ -6,5 +6,5 @@
 
 
 #+ set user tools
-source $HOME/software/config/usersoftwareconf.sh
+#source $HOME/software/config/usersoftwareconf.sh
 

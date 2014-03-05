@@ -118,3 +118,7 @@ else
 	mkdir -p ~/share/login
 fi
 #+
+
+# set user tools
+source $HOME/software/config/usersoftwareconf.sh
+

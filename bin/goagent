@@ -38,7 +38,8 @@ case $1 in
 
     if [ -e $MASTER ];then
         echo "Starting up goagent"
-        nohup python $MASTER >/dev/null 2>&1 &
+        nohup python $MASTER >&/dev/null  &
+        #nohup python $MASTER >/dev/null 2>&1 &
     else
         echo "$MASTER is not exist. Skipping goagent startup."
         exit 1

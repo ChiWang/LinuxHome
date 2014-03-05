@@ -88,7 +88,7 @@ fi
 
 SetupCpp(){
 #+ setup
-mkdir -p $1/include $1/src 2>/dev/null
+mkdir -p $1/include $1/src >&/dev/null
 sed "s/MyPro/$1/g" $temp/main.cc > $1/src/$1_main.cc
 sed "s/MyPro/$1/g" $temp/SConstruct > $1/SConstruct
 cp $temp/src.scons $1/src/src.scons
@@ -105,7 +105,7 @@ for pkg in `ls $1`;do
   if [[ ! -d $1/$pkg ]];then
     continue
   fi
-  pushd $1/$pkg 1>/dev/null
+  pushd $1/$pkg >&/dev/null
     for dir in `ls`;do
       if [[ $dir == 'include' || $dir == 'src' ]];then
         for file in `ls $dir`;do
@@ -115,7 +115,7 @@ for pkg in `ls $1`;do
         sed "s/MyPro/$1/g" -i $dir/*
       fi
     done
-  popd 1>/dev/null
+  popd >&/dev/null
 done
 
 #+ Readme.md
