@@ -3,7 +3,7 @@
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/09/2013
  *  Note:
- *    This file is invoked by ../SConstruct
+ *    This file is invoked from ../SConstruct
 '''
 
 import os
