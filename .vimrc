@@ -20,7 +20,7 @@ set ai!                 " suojing
 "colorscheme desert
 "colorscheme murphy
 set guifont=Monospace:h13:cANSI
-set cursorline          " mark current line
+"set cursorline          " mark current line
 "hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=purple guifg=NONE
 
 "+ set backup
