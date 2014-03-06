@@ -83,12 +83,12 @@ function s:AddTodo() "{{{
 
     " Set Todo
     normal O
-    "call setline('.','tmpline') | let firstLine = line('.') 
-    "normal o
-    call setline('.','tmpline  TODO: ') | let goLn = line('.')
-    "normal o
-    "call setline('.',preChar) | let lastLine = line('.') 
-    exe 'normal '.'\cl'
+    call setline('.','tmpline') | let firstLine = line('.') 
+    normal o
+    call setline('.',preChar.'  TODO: ') | let goLn = line('.')
+    normal o
+    call setline('.',preChar) | let lastLine = line('.') 
+    exe 'normal '.firstLine.'Gv'.lastLine.'G\cl'
     exe '%s/tmpline/'.preChar.'/g'
     " Set Todo
 
