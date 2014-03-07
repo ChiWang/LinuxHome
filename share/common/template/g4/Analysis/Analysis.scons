@@ -1,5 +1,5 @@
 '''
- *  $Id: Analysis.scons, 2014-02-16 15:07:50 chi $
+ *  $Id: Analysis.scons, 2014-03-07 15:10:07 chi $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 16/02/2014
  *  Note:
@@ -11,8 +11,14 @@ Import("*")     # import all vars from SConstruct
 print "\t\t\t invoke %s\n" % os.path.abspath("./")
 #--------------------------------------------------------------------
 
+#   set the programme name
 target=project+'Analysis'
 env = envBase.Clone()
+#useRoot(env)
+#useGeant4(env)
+#useCLHEP(env)
+#useBoostPython(env)
+#useOpenMP(env)
 
 '''
 # include
