@@ -147,7 +147,7 @@ EOF
 
 SetupPython(){
 cat >$1.py <<EOF
-#! /bin/python
+#! /usr/bin/python
 EOF
 }
 
