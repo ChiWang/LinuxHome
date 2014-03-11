@@ -10,6 +10,8 @@
 #+ servers
 alias todampI='ssh -Y chi@210.45.78.137'
 alias todampO='ssh -Y chi@202.141.163.246'
+alias todampIa='ssh -Y admin@210.45.78.137'
+alias todampOa='ssh -Y admin@202.141.163.246'
 alias toR710='ssh -Y chiwang@202.141.161.5'
 alias toLab312='ssh -Y chi@210.45.78.198'
 alias toT6102='ssh -Y chi@159.226.72.202'
