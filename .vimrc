@@ -88,6 +88,10 @@ nmap aa :AuthorInfo<cr>
 "+ add a new line as mark
 nmap mm :Mark<cr>
 
+"+ insert time stamp (type tt and a space)
+iab tt <c-r>=strftime("%d/%m/%Y")<cr>
+"????imap <silent><leader>tt <c-r>=strftime("%d/%m/%Y")<cr>
+
 "+ todo
 nmap td0 i#pragma message("TODO ----> xxxx")<Esc>A
 nmap td :Todo<cr>
