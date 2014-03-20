@@ -38,6 +38,7 @@ set autowrite
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
 " use space open/close folding
 nnoremap <space> za
+"set foldlevel=1    " zr foldlevel+=1, zm foldlevel-=1
 " color of folding line
 "highlight Folded ctermfg=7 ctermfg=0
 
