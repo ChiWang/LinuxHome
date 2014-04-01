@@ -1,6 +1,7 @@
 
 # My home setup
 
+zhang
 bin and share (same):
 
     bin             // user defined commands
