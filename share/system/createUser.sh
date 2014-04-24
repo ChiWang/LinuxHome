@@ -11,12 +11,12 @@ for name in $@;do
     useradd -m $name
     chmod a+rx /home/$name
     echo $name"123" | passwd --stdin $name
-    tmpDir=/tmp/$name
-    mkdir $tmpDir
-    chmod a+rx $tmpDir
-    chown -hR   $tmpDir $tmpDir
-    chgrp -hR   $tmpDir $tmpDir
-    ln -s $tmpDir /home/$name/tmp
+    #tmpDir=/tmp/$name
+    #mkdir $tmpDir
+    #chmod a+rx $tmpDir
+    #chown -hR   $tmpDir $tmpDir
+    #chgrp -hR   $tmpDir $tmpDir
+    #ln -s $tmpDir /home/$name/tmp
   else
     echo "  $name   is existed"
   fi
