@@ -1,5 +1,5 @@
 "+
-"+  $Id: aattmm.vim, 2014-04-24 22:44:52 DAMPE/USTC $
+"+  $Id: aattmm.vim, 2014-04-25 15:58:51 $
 "+  Author(s):
 "+    Chi WANG (chiwang@mail.ustc.edu.cn) 14/02/2014
 "+
@@ -37,7 +37,7 @@ function s:AddTitle() "{{{
 
     " Set copyright here
     normal o
-    call setline('.',preChar.'  $Id: '.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' DAMPE/USTC $')
+    call setline('.',preChar.'  $Id: '.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' DAMPE $')
     normal o
     call setline('.',preChar.'  Author(s):')
     normal o
@@ -68,7 +68,7 @@ function s:TitleDet() "{{{
         let line = getline(n)
         if line =~ '$Id'
             "silent! normal 's
-            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' DAMPE/USTC $','g')
+            let newline=substitute(line,':\(\s*\)\(\S.*$\)$',':\1'.expand("%:t").', '.strftime("%Y-%m-%d %H:%M:%S").' DAMPE $','g')
             call setline(n,newline)
             echohl WarningMsg | echo "Succ to update the copyright." | echohl None
             return
