@@ -19,6 +19,8 @@ set autoindent          " autoindenting
 set ai!                 " suojing
 "colorscheme desert
 "colorscheme murphy
+"colorscheme torte
+"colorscheme evening
 set guifont=Monospace:h13:cANSI
 "set cursorline          " mark current line
 "hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=purple guifg=NONE
@@ -31,8 +33,9 @@ set backup
 set backupext=.back
 set backupdir=$HOME/.vimback
 
+set wildmenu
 "set number                 " show line number
-"au FocusLost * :wa         " set auto wirte
+au FocusLost * :wa         " set auto wirte
 set autowrite
 
 let g:sh_fold_enabled=1     " enable folding of bash script, as for C++ (python) in $HOME/.vim/syntax/c.vim(python.vim)
