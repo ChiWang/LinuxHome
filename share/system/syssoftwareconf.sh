@@ -33,4 +33,9 @@ popd >&/dev/null
 export PATH="$ToolPath/clhep_v2.1.4.1/bin":$PATH
 export LD_LIBRARY_PATH="$ToolPath/clhep_v2.1.4.1/lib":$LD_LIBRARY_PATH
 
+#+  DMPSW (DAMPE software)
+pushd /home/chi/tmp/DmpInstall/bin >&/dev/null
+source thisdmpsw.sh >&/dev/null
+popd >&/dev/null
+
 unset ToolPath
