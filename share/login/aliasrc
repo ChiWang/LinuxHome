@@ -36,6 +36,7 @@ alias ll='ls -l'
 alias ps='ps auwx'
 alias pidOfPts='ps -A | grep '
 alias xterm='xterm -132 -sb -sl 300 -fn 10x20 -bg black -fg white'
+alias gterm='gnome-terminal'
 
 alias psf='\ps -ef --forest'
 alias scls='screen -list' #no screen in rocks4
