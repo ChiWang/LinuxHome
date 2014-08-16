@@ -34,7 +34,7 @@ export PATH="$ToolPath/clhep_v2.1.4.1/bin":$PATH
 export LD_LIBRARY_PATH="$ToolPath/clhep_v2.1.4.1/lib":$LD_LIBRARY_PATH
 
 #+  DMPSW (DAMPE software)
-pushd $ToolPath/DmpSW/bin >&/dev/null
+pushd $ToolPath/DmpSW/Install/bin >&/dev/null
 source thisdmpsw.sh >&/dev/null
 popd >&/dev/null
 
