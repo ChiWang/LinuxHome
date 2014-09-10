@@ -101,7 +101,7 @@ nmap td0 i#pragma message("TODO ----> xxxx")<Esc>A
 nmap td :Todo<cr>
 
 "+ debug
-nmap db istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<"), in "<<__PRETTY_FUNCTION__<<std::endl;<Esc>
+nmap db istd::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")"<<std::endl;<Esc>
 nmap db0 i  assert();<Esc>
 "+ for OpenMP
 nmap co iprintf("Threads = %d\n",omp_get_thread_num());<Esc>A
