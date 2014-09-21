@@ -12,7 +12,8 @@ case $TERM in
 esac
 
 # set prompt style
-PROMPT='%{[34m%}%n%{[35m%}@%{[33m%}%m %{[36m%}%D %T %{[32m%}%/
+#PROMPT='%{[34m%}%n%{[35m%}@%{[33m%}%m %{[36m%}%D %T %{[32m%}%/
+PROMPT='%{[34m%}%n%{[35m%}@%{[33m%}%m %{[36m%}%T %{[32m%}%/
 %{[31m%}>>%{[m%}'
 
 # set auto cd. Do not need cd before path
