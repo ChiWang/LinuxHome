@@ -13,7 +13,7 @@ esac
 
 # set prompt style
 #PROMPT='%{[34m%}%n%{[35m%}@%{[33m%}%m %{[36m%}%D %T %{[32m%}%/
-PROMPT='%{[34m%}%n%{[35m%}@%{[36m%}%m %{[37m%}%T %{[30m%}%/
+PROMPT='%{[34m%}%n%{[35m%}@%{[36m%}%m %{[30m%}%T %{[37m%}%/
 %{[31m%}>>%{[m%}'
 
 # set auto cd. Do not need cd before path
