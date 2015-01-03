@@ -124,3 +124,5 @@ fi
 # set user tools
 source $HOME/software/config/usersoftwareconf.sh
 
+unset DMPSWSYS
+source /home/chi/main/DmpSW/Roseanne/Install/bin/thisdmpsw.sh

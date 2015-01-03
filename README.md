@@ -1,4 +1,3 @@
-
 # My home setup
 
 bin and share (same):
@@ -24,4 +23,3 @@ Others:
 
     .vimback        // backup of files edited by vim (created by hand)
     .trash          // use delete (bin $HOME/bin) to delete one file(directory) into trash
-

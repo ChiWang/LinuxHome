@@ -2,6 +2,7 @@
 *.slo
 *.lo
 *.o
+*.root
 
 # Compiled Dynamic libraries
 *.so
@@ -56,4 +57,3 @@ software/download
 software/*_v*
 Desktop
 Downloads
-
