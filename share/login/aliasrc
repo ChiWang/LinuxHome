@@ -10,8 +10,14 @@
 #+ servers
 alias todamp='ssh -Y chi@dampe.ustc.edu.cn'
 alias todampa='ssh -Y admin@dampe.ustc.edu.cn'
+alias todampO='ssh -Y chi@202.141.163.246'
 alias toR710='ssh -Y chiwang@202.141.161.5'
 alias toT6102='ssh -Y chi@159.226.72.202'
+alias toCern='ssh -Y chi@lxplus.cern.ch'
+alias toZangjj='ssh -Y zangjj@128.141.109.75'   #123456
+alias tobt2014="ssh -Y bt2014@128.141.109.121"
+alias toPSDataStore="ssh -i ~/.ssh/id_dsa_lab dampe@atlas064.unige.ch"
+alias cdDataDir="cd /work/dataDir/BT2014"
 
 alias toihep='ssh -Y wangch@lxslc.ihep.ac.cn'
 alias toihep5='ssh -Y wangch@lxslc5.ihep.ac.cn'
