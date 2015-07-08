@@ -10,11 +10,6 @@ EOF
 # path
 #userTool=$HOME/software
 
-#+  DMPSW (DAMPE software)
-#source $HOME/main/DmpSW/svn/trunk/thisdmpsw.sh
-#source $HOME/tmp/DmpInstall/bin/thisdmpsw.sh >&/dev/null
-source /exports/DMPSW/bin/thisdmpsw.sh
-
 #+ SVN
 export SVN_EDITOR=vim
 
@@ -24,6 +19,16 @@ export NUM_CPU=`more /proc/cpuinfo| grep "processor" | wc -l`
 
 #+ Python
 export PYTHONSTARTUP='.pythonconf.py'
+
+# history
+#+ number of lines kept in history
+export HISTSIZE=10000
+#+ number of lines saved in the history after logout
+export SAVEHIST=10000
+
+set bell-style none
+
+export ZLSCOLORS="${LS_COLORS}"
 
 #+  Set OpenMP
 

@@ -124,5 +124,11 @@ fi
 # set user tools
 source ".softwareconf.sh"
 
+# root
+pushd $ToolPath/root_v5.34 >&/dev/null
+source ./bin/thisroot.sh
+popd >&/dev/null
+
+
 #unset DMPSWSYS
 #source /home/chi/main/DmpSW/Roseanne/Install/bin/thisdmpsw.sh
