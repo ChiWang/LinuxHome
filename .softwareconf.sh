@@ -15,9 +15,17 @@ EOF
 #source $HOME/tmp/DmpInstall/bin/thisdmpsw.sh >&/dev/null
 source /exports/DMPSW/bin/thisdmpsw.sh
 
+#+ SVN
+export SVN_EDITOR=vim
+
+#+ SCons -Q
+export SCONSFLAGS="-Q"
+export NUM_CPU=`more /proc/cpuinfo| grep "processor" | wc -l`
+
+#+ Python
+export PYTHONSTARTUP='.pythonconf.py'
+
 #+  Set OpenMP
-if [ !1 ];then
-fi
 
 #unset userTool
 
